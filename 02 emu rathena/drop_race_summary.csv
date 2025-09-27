@@ -1,0 +1,5 @@
+Bonus_Type,Item_Count,Unique_Items,Races_Affected,Rate_Examples,Description
+drop_rate_race,32,32,1,"50, 5, 10",Aumenta taxa de drop por raça
+drop_rate_race_variable,13,13,1,Variable,Aumenta taxa de drop com valor variável
+drop_rate_race_variable_div,9,9,1,Variable,Aumenta taxa de drop com valor variável
+drop_rate_race_variable_mult,1,1,1,Variable,Aumenta taxa de drop com valor variável

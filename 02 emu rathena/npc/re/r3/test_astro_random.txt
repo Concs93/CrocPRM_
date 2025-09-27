@@ -1,0 +1,25 @@
+
+//=== Comando de Teste para Random Options ===
+-	script	TestAstroRandom	FAKE_NPC,{
+OnInit:
+	bindatcmd("testastro", strnpcinfo(3)+"::OnTest", 99, 99);
+	end;
+
+OnTest:
+	mes "[Teste Astro Random]";
+	mes "Criando Scutum of the Moon +9 com random options...";
+	next;
+	
+	// Cria o item +9
+	getitem2 31224,1,1,9,0,0,0,0,0;
+	
+	// Adiciona random options de teste
+	setitemopt(31224, 0, 1, 100, 0);  // ATK +100
+	setitemopt(31224, 1, 2, 50, 0);   // DEF +50
+	setitemopt(31224, 2, 3, 25, 0);   // MATK +25
+	
+	mes "Item criado com 3 random options!";
+	mes "ATK +100, DEF +50, MATK +25";
+	mes "Agora vá ao Scutum Observer para testar.";
+	close;
+}

@@ -1,0 +1,171 @@
+SQL Attr Comment Foreground<|||>3<|||>8421504
+SQL Attr Comment Background<|||>3<|||>536870911
+SQL Attr Comment Style<|||>3<|||>2
+SQL Attr ConditionalComment Foreground<|||>3<|||>8421504
+SQL Attr ConditionalComment Background<|||>3<|||>536870911
+SQL Attr ConditionalComment Style<|||>3<|||>2
+SQL Attr ConsoleOutput Foreground<|||>3<|||>536870911
+SQL Attr ConsoleOutput Background<|||>3<|||>536870911
+SQL Attr ConsoleOutput Style<|||>3<|||>5
+SQL Attr DataType Foreground<|||>3<|||>128
+SQL Attr DataType Background<|||>3<|||>536870911
+SQL Attr DataType Style<|||>3<|||>1
+SQL Attr DefaultPackages Foreground<|||>3<|||>536870911
+SQL Attr DefaultPackages Background<|||>3<|||>536870911
+SQL Attr DefaultPackages Style<|||>3<|||>1
+SQL Attr DelimitedIdentifier Foreground<|||>3<|||>32896
+SQL Attr DelimitedIdentifier Background<|||>3<|||>536870911
+SQL Attr DelimitedIdentifier Style<|||>3<|||>0
+SQL Attr Exception Foreground<|||>3<|||>536870911
+SQL Attr Exception Background<|||>3<|||>536870911
+SQL Attr Exception Style<|||>3<|||>2
+SQL Attr Function Foreground<|||>3<|||>8388608
+SQL Attr Function Background<|||>3<|||>536870911
+SQL Attr Function Style<|||>3<|||>1
+SQL Attr Identifier Foreground<|||>3<|||>32896
+SQL Attr Identifier Background<|||>3<|||>536870911
+SQL Attr Identifier Style<|||>3<|||>0
+SQL Attr Key Foreground<|||>3<|||>16711680
+SQL Attr Key Background<|||>3<|||>536870911
+SQL Attr Key Style<|||>3<|||>1
+SQL Attr Number Foreground<|||>3<|||>8388736
+SQL Attr Number Background<|||>3<|||>536870911
+SQL Attr Number Style<|||>3<|||>0
+SQL Attr PLSQL-ReservedWord Foreground<|||>3<|||>536870911
+SQL Attr PLSQL-ReservedWord Background<|||>3<|||>536870911
+SQL Attr PLSQL-ReservedWord Style<|||>3<|||>1
+SQL Attr ProcName Foreground<|||>3<|||>536870911
+SQL Attr ProcName Background<|||>3<|||>536870911
+SQL Attr ProcName Style<|||>3<|||>0
+SQL Attr Space Foreground<|||>3<|||>536870911
+SQL Attr Space Background<|||>3<|||>536870911
+SQL Attr Space Style<|||>3<|||>0
+SQL Attr SQLPlus-Command Foreground<|||>3<|||>536870911
+SQL Attr SQLPlus-Command Background<|||>3<|||>536870911
+SQL Attr SQLPlus-Command Style<|||>3<|||>1
+SQL Attr String Foreground<|||>3<|||>32768
+SQL Attr String Background<|||>3<|||>536870911
+SQL Attr String Style<|||>3<|||>0
+SQL Attr Symbol Foreground<|||>3<|||>16711680
+SQL Attr Symbol Background<|||>3<|||>536870911
+SQL Attr Symbol Style<|||>3<|||>0
+SQL Attr TableName Foreground<|||>3<|||>16711935
+SQL Attr TableName Background<|||>3<|||>536870911
+SQL Attr TableName Style<|||>3<|||>0
+SQL Attr Variable Foreground<|||>3<|||>8388736
+SQL Attr Variable Background<|||>3<|||>536870911
+SQL Attr Variable Style<|||>3<|||>0
+IconPack<|||>1<|||>Silk
+FieldEditor_Set<|||>3<|||>1
+ColWidths_connform.ListSessions<|||>1<|||>154,50,50,50,50,50,15
+ColsVisible_connform.ListSessions<|||>1<|||>0,1,4,6
+ColPositions_connform.ListSessions<|||>1<|||>0,1,2,3,4,5,6
+ColSort_connform.ListSessions<|||>1<|||>0,0
+MainWinOnMonitor<|||>3<|||>0
+ColWidths_MainForm.ListDatabases<|||>1<|||>150,80,50,135,50,50,50,50,50,50,120
+ColsVisible_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
+ColPositions_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
+ColSort_MainForm.ListDatabases<|||>1<|||>3,1
+ColWidths_MainForm.ListVariables<|||>1<|||>160,200,428
+ColsVisible_MainForm.ListVariables<|||>1<|||>0,1,2
+ColPositions_MainForm.ListVariables<|||>1<|||>0,1,2
+ColSort_MainForm.ListVariables<|||>1<|||>0,0
+ColWidths_MainForm.ListStatus<|||>1<|||>160,428,100,100
+ColsVisible_MainForm.ListStatus<|||>1<|||>0,1,2,3
+ColPositions_MainForm.ListStatus<|||>1<|||>0,1,2,3
+ColSort_MainForm.ListStatus<|||>1<|||>0,0
+ColWidths_MainForm.ListProcesses<|||>1<|||>70,80,80,80,80,50,50,154
+ColsVisible_MainForm.ListProcesses<|||>1<|||>0,1,2,3,4,5,6,7
+ColPositions_MainForm.ListProcesses<|||>1<|||>0,1,2,3,4,5,6,7
+ColSort_MainForm.ListProcesses<|||>1<|||>0,1
+ColWidths_MainForm.ListCommandStats<|||>1<|||>120,100,100,100,368
+ColsVisible_MainForm.ListCommandStats<|||>1<|||>0,1,2,3,4
+ColPositions_MainForm.ListCommandStats<|||>1<|||>0,1,2,3,4
+ColSort_MainForm.ListCommandStats<|||>1<|||>1,1
+ColWidths_MainForm.ListTables<|||>1<|||>152,70,70,120,120,70,100,50,70,70,70,70,70,90,120,70,70,70,50
+ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
+ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+ColSort_MainForm.ListTables<|||>1<|||>4,1
+SessionManager_ListWidth<|||>3<|||>273
+SessionManager_WindowWidth<|||>3<|||>734
+MainWinLeft<|||>3<|||>106
+LastSessions<|||>1<|||>ragnarok
+LastActiveSession<|||>1<|||>ragnarok
+TableFilter<|||>1<|||>AMADEUS<{{{><}}}>
+ColWidths_frmTableEditor.listColumns<|||>1<|||>44,100,154,90,60,65,50,117,130,140,100,100
+ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
+ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
+ColSort_frmTableEditor.listColumns<|||>1<|||>-1,0
+ColWidths_frmTableEditor.treeIndexes<|||>1<|||>389,100,80
+ColsVisible_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
+ColPositions_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
+ColSort_frmTableEditor.treeIndexes<|||>1<|||>-1,0
+ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>195,80,100,80,80,80
+ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
+ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
+ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
+ColWidths_frmTableEditor.listCheckConstraints<|||>1<|||>200,415
+ColsVisible_frmTableEditor.listCheckConstraints<|||>1<|||>0,1
+ColPositions_frmTableEditor.listCheckConstraints<|||>1<|||>0,1
+ColSort_frmTableEditor.listCheckConstraints<|||>1<|||>-1,0
+MemoEditorWidth<|||>3<|||>136
+querymemoheight<|||>3<|||>368
+MainWinMaximized<|||>3<|||>1
+SQLFile0<|||>1<|||>E:\prm\01 serv\modules\heidisql\Backups\query-tab-2024-06-11_12-26-35-719.sql
+sqloutheight<|||>3<|||>30
+Servers\ragnarok\SessionCreated<|||>1<|||>2024-06-11 12:26:40
+Servers\ragnarok\Host<|||>1<|||>127.0.0.1
+Servers\ragnarok\WindowsAuth<|||>3<|||>0
+Servers\ragnarok\CleartextPluginEnabled<|||>3<|||>0
+Servers\ragnarok\User<|||>1<|||>root
+Servers\ragnarok\Password<|||>1<|||>9
+Servers\ragnarok\LoginPrompt<|||>3<|||>0
+Servers\ragnarok\Port<|||>1<|||>3306
+Servers\ragnarok\NetType<|||>3<|||>0
+Servers\ragnarok\Compressed<|||>3<|||>0
+Servers\ragnarok\LocalTimeZone<|||>3<|||>0
+Servers\ragnarok\QueryTimeout<|||>3<|||>30
+Servers\ragnarok\KeepAlive<|||>3<|||>20
+Servers\ragnarok\FullTableStatus<|||>3<|||>1
+Servers\ragnarok\Databases<|||>1<|||>
+Servers\ragnarok\Library<|||>1<|||>libmariadb.dll
+Servers\ragnarok\Comment<|||>1<|||>
+Servers\ragnarok\StartupScriptFilename<|||>1<|||>
+Servers\ragnarok\TreeBackground<|||>3<|||>536870911
+Servers\ragnarok\SSHtunnelHost<|||>1<|||>
+Servers\ragnarok\SSHtunnelHostPort<|||>3<|||>22
+Servers\ragnarok\SSHtunnelUser<|||>1<|||>
+Servers\ragnarok\SSHtunnelPassword<|||>1<|||>1
+Servers\ragnarok\SSHtunnelTimeout<|||>3<|||>4
+Servers\ragnarok\SSHtunnelPrivateKey<|||>1<|||>
+Servers\ragnarok\SSHtunnelPort<|||>3<|||>3307
+Servers\ragnarok\SSL_Active<|||>3<|||>0
+Servers\ragnarok\SSL_Key<|||>1<|||>
+Servers\ragnarok\SSL_Cert<|||>1<|||>
+Servers\ragnarok\SSL_CA<|||>1<|||>
+Servers\ragnarok\SSL_Cipher<|||>1<|||>
+Servers\ragnarok\IgnoreDatabasePattern<|||>1<|||>
+Servers\ragnarok\LogFileDdl<|||>3<|||>0
+Servers\ragnarok\LogFileDml<|||>3<|||>0
+Servers\ragnarok\LogFilePath<|||>1<|||>C:\Users\User\AppData\Roaming\HeidiSQL\Logs\%session\%db\%y%m%d.sql
+Servers\ragnarok\ServerVersionFull<|||>1<|||>10.4.19-MariaDB-log - mariadb.org binary distribution
+Servers\ragnarok\ConnectCount<|||>3<|||>21
+Servers\ragnarok\ServerVersion<|||>3<|||>100419
+Servers\ragnarok\LastConnect<|||>1<|||>2025-09-27 14:54:29
+Servers\ragnarok\lastUsedDB<|||>1<|||>rathena_re_db
+Servers\ragnarok\QueryHistory\1<|||>1<|||>2024-06-11 12:47:20|rathena_re_db|0|SHOW TABLES;
+Servers\ragnarok\QueryHistory\2<|||>1<|||>2024-06-11 12:49:27|4cram|0|SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SET @sql = NULL;
+Servers\ragnarok\QueryHistory\3<|||>1<|||>2024-06-11 12:50:09|4cram|0|SHOW TABLES;<{{{><}}}>
+Servers\ragnarok\QueryHistory\4<|||>1<|||>2024-06-11 12:50:21|4cram|0|SHOW TABLES;<{{{><}}}>SET @npc_name = 'Amadeus Windsor';<{{{><}}}>
+Servers\ragnarok\QueryHistory\5<|||>1<|||>2024-06-11 12:50:28|4cram|0|SHOW TABLES;<{{{><}}}>SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SELECT CONCAT('SELECT * FROM sua_tabela WHERE name LIKE ''%', @npc_name, '%''');<{{{><}}}>
+Servers\ragnarok\QueryHistory\7<|||>1<|||>2024-06-11 12:51:09|4cram|63|SHOW TABLES;<{{{><}}}>SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SELECT CONCAT('SELECT * FROM sua_tabela WHERE name LIKE ''%', @npc_name, '%''');<{{{><}}}>SELECT GROUP_CONCAT(DISTINCT<{{{><}}}>    CONCAT('SELECT ''', table_name, ''' AS table_name, * FROM ', table_name, ' WHERE name LIKE ''%', @npc_name, '%''')<{{{><}}}>    SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE()<{{{><}}}>AND column_name = 'name';<{{{><}}}>SELECT @sql;<{{{><}}}>
+Servers\ragnarok\QueryHistory\9<|||>1<|||>2024-06-11 12:52:13|4cram|15|SHOW TABLES;<{{{><}}}>SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SELECT CONCAT('SELECT * FROM sua_tabela WHERE name LIKE ''%', @npc_name, '%''');<{{{><}}}>SELECT GROUP_CONCAT(DISTINCT<{{{><}}}>    CONCAT('SELECT ''', table_name, ''' AS table_name, * FROM ', table_name, ' WHERE name LIKE ''%', @npc_name, '%''')<{{{><}}}>    SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE()<{{{><}}}>AND column_name = 'name';<{{{><}}}>
+Servers\ragnarok\QueryHistory\6<|||>1<|||>2024-06-11 12:52:23|4cram|31|SHOW TABLES;<{{{><}}}>SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SELECT CONCAT('SELECT * FROM sua_tabela WHERE name LIKE ''%', @npc_name, '%''');<{{{><}}}>SELECT GROUP_CONCAT(DISTINCT<{{{><}}}>    CONCAT('SELECT ''', table_name, ''' AS table_name, * FROM ', table_name, ' WHERE name LIKE ''%', @npc_name, '%''')<{{{><}}}>    SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE()<{{{><}}}>AND column_name = 'name';<{{{><}}}>SELECT @SQL;<{{{><}}}>
+Servers\ragnarok\QueryHistory\8<|||>1<|||>2024-06-11 12:53:33|4cram|31|SHOW TABLES;<{{{><}}}>SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SELECT CONCAT('SELECT * FROM sua_tabela WHERE name LIKE ''%', @npc_name, '%''');<{{{><}}}>SELECT GROUP_CONCAT(DISTINCT<{{{><}}}>    CONCAT('SELECT ''', table_name, ''' AS table_name, * FROM ', table_name, ' WHERE name LIKE ''%', @npc_name, '%''')<{{{><}}}>    SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE()<{{{><}}}>AND column_name = 'name';<{{{><}}}>SELECT @sql;<{{{><}}}><{{{><}}}>
+Servers\ragnarok\QueryHistory\11<|||>1<|||>2024-06-11 12:56:01|4cram|31|SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SET @sql = NULL;<{{{><}}}><{{{><}}}>SELECT <{{{><}}}>    GROUP_CONCAT(DISTINCT<{{{><}}}>        CONCAT('SELECT ''', table_name, ''' AS table_name, id, name FROM ', table_name, ' WHERE name LIKE ''%', @npc_name, '%''')<{{{><}}}>        SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE()<{{{><}}}>AND column_name = 'name';<{{{><}}}><{{{><}}}>SET @sql = CONCAT(@sql, ';');<{{{><}}}>
+Servers\ragnarok\QueryHistory\10<|||>1<|||>2024-06-11 12:56:06|4cram|31|SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SET @sql = NULL;<{{{><}}}><{{{><}}}>SELECT <{{{><}}}>    GROUP_CONCAT(DISTINCT<{{{><}}}>        CONCAT('SELECT ''', table_name, ''' AS table_name, id, name FROM ', table_name, ' WHERE name LIKE ''%', @npc_name, '%''')<{{{><}}}>        SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE()<{{{><}}}>AND column_name = 'name';<{{{><}}}><{{{><}}}>SET @sql = CONCAT(@sql, ';');<{{{><}}}>SELECT @SQL;
+Servers\ragnarok\QueryHistory\12<|||>1<|||>2024-06-11 13:03:30|4cram|15|SET @npc_name = 'Amadeus Windsor';<{{{><}}}>SET @sql = NULL;<{{{><}}}>SELECT <{{{><}}}>    GROUP_CONCAT(<{{{><}}}>        CONCAT('SELECT ''', table_name, ''' AS table_name, ''', column_name, ''' AS column_name, ', column_name, ' AS value FROM ', table_name, ' WHERE ', column_name, ' LIKE ''%', @npc_name, '%''')<{{{><}}}>        SEPARATOR ' UNION ALL ')<{{{><}}}>INTO @sql<{{{><}}}>FROM information_schema.columns<{{{><}}}>WHERE table_schema = DATABASE();<{{{><}}}>SELECT @sql;<{{{><}}}>
+Servers\ragnarok\rathena_re_db|char\Sort<|||>1<|||>0_last_map|
+Servers\ragnarok\rathena_re_db|cp_loginlog\Sort<|||>1<|||>1_login_date|
+Servers\ragnarok\rathena_re_db|cp_txnlog\Sort<|||>1<|||>0_address_country|
+Servers\ragnarok\rathena_re_db|inventory\Sort<|||>1<|||>1_equip|

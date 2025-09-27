@@ -1,0 +1,126 @@
+Item_ID,Aegis_Name,Display_Name,View_Sprite,Costume_Type,Status
+2230,CCBiretta,CCBiretta,11,Head_Top,Removed
+2231,CCTurban,CCTurban,7,Head_Top,Removed
+2250,CCRibbon,CCRibbon,17,Head_Top,Removed
+2253,CCBandana,CCBandana,6,Head_Top,Removed
+2573,Archangel_Wing,Archangel Wings,1,Garment,Removed
+5230,CCLeo_Diadem,CCLeo Diadem,566,Head_Top,Removed
+5231,CCLeo_Crown,CCLeo Crown,565,Head_Top,Removed
+5232,CCLibra_Diadem,CCLibra Diadem,594,Head_Top,Removed
+5233,CCLibra_Crown,CCLibra Crown,593,Head_Top,Removed
+5234,CCPisces_Diadem,CCPisces Diadem,511,Head_Top,Removed
+5235,CCPisces_Crown,CCPisces Crown,512,Head_Top,Removed
+5236,CCSagitDiadem,CCSagitDiadem,618,Head_Top,Removed
+5237,CCSagitCrown,CCSagitCrown,617,Head_Top,Removed
+5238,CCScorpio_Diadem,CCScorpio Diadem,606,Head_Top,Removed
+5239,CCScorpio_Crown,CCScorpio Crown,605,Head_Top,Removed
+5240,CCTaurus_Diadem,CCTaurus Diadem,535,Head_Top,Removed
+5241,CCTaurus_Crown,CCTaurus Crown,536,Head_Top,Removed
+5242,CCVirgo_Diadem,CCVirgo Diadem,574,Head_Top,Removed
+5243,CCVirgo_Crown,CCVirgo Crown,573,Head_Top,Removed
+5406,CCGemini_Diadem,CCGemini Diadem,550,Head_Top,Removed
+5407,CCGemini_Crown,CCGemini Crown,551,Head_Top,Removed
+5410,Bread_Bag2,Brown Paperbag Hat,412,Head_Low,Removed
+5424,CCCancer_Diadem,CCCancer Diadem,560,Head_Top,Removed
+5425,CCCancer_Crown,CCCancer Crown,561,Head_Top,Removed
+5431,CCCapricorn_Diadem,CCCapricorn Diadem,622,Head_Top,Removed
+5432,CCCapricorn_Crown,CCCapricorn Crown,621,Head_Top,Removed
+5438,CCAquarius_Diadem,CCAquarius Diadem,509,Head_Top,Removed
+5439,CCAquarius_Crown,CCAquarius Crown,510,Head_Top,Removed
+5440,CCAries_Diadem,CCAries Diadem,531,Head_Top,Removed
+5441,CCAries_Crown,CCAries Crown,532,Head_Top,Removed
+5914,Earmuff_Flowerform,C Flutter Butterfly,1378,Head_Low,Removed
+5915,Roundly_Woolly_Hat,Costume Angel Veil,1379,Head_Top,Removed
+5980,Absolute_Truth,Absolute Truth,1381,Head_Top,Removed
+6062,CCSunglasses,CCSunglasses,12,Head_Mid,Removed
+6063,CCReadingGlasses,CCReadingGlasses,3,Head_Mid,Removed
+6064,CCDiverGoogles,CCDiverGoogles,10,Head_Mid,Removed
+6065,CCEyePatch,CCEyePatch,13,Head_Mid,Removed
+6066,CCMonocle,CCMonocle,23,Head_Mid,Removed
+6067,CCMiniGlasses,CCMiniGlasses,47,Head_Mid,Removed
+6068,CCThiefMask,CCThiefMask,50,Head_Mid,Removed
+6636,CCGoggles,CCGoggles,1,Head_Top,Removed
+6637,CCCap,CCCap,14,Head_Top,Removed
+6638,CCHelm,CCHelm,40,Head_Top,Removed
+6639,CCCirclet,CCCirclet,18,Head_Top,Removed
+6640,CCSweetGent,CCSweetGent,29,Head_Top,Removed
+14680,Costume_RoF,Costume RoF,1974,Head_Top,Removed
+14681,Costume_PkF,Costume PkF,1973,Head_Top,Removed
+14682,Costume_MiF,Costume MiF,1972,Head_Top,Removed
+14683,Costume_PrF,Costume PrF,1954,Head_Top,Removed
+14684,Costume_SsF,Costume SsF,1955,Head_Top,Removed
+14685,Costume_DcF,Costume DcF,1956,Head_Top,Removed
+14686,Costume_IlF,Costume IlF,1957,Head_Top,Removed
+14687,Costume_DkF,Costume DkF,1958,Head_Top,Removed
+14688,Costume_JuF,Costume JuF,1959,Head_Top,Removed
+14689,Costume_PtF,Costume PtF,1960,Head_Mid,Removed
+14690,Costume_JeF,Costume JeF,1961,Head_Top,Removed
+14691,Costume_LeF,Costume LeF,1962,Head_Top,Removed
+14692,Costume_RvF,Costume PrF,1963,Head_Mid,Removed
+14693,Costume_NrF,Costume NrF,1964,Head_Low,Removed
+14694,Costume_BpF,Costume BpF,1965,Head_Top,Removed
+14695,Costume_GkF,Costume GkF,1966,Head_Top,Removed
+14696,Costume_SaF,Costume SaF,1967,Head_Top,Removed
+14697,Costume_AmF,Costume AmF,1968,Head_Top,Removed
+14698,Costume_BjF,Costume BjF,1969,Head_Top,Removed
+14699,Costume_SiF,Costume SiF,1970,Head_Top,Removed
+14700,Costume_KsF,Costume KsF,1971,Head_Top,Removed
+18817,Devil_Cap,Devil Cap,930,Head_Top,Removed
+19133,COdin_Mask,COdin Mask,480,Head_Low,Removed
+19472,Underworld_Beacon,Underworld Beacon,1891,Head_Top,Removed
+19500,T_Mr_Smile,T Mr Smile,65,Head_Low,Removed
+19502,T_Goggle,T Goggle,1,Head_Mid,Removed
+19507,Fine_Sun,Clear Sun,654,Head_Top,Removed
+19509,Butterfly_Wing_Ear,Butterfly Wing Ears,695,Head_Mid,Removed
+19510,Nut_On_Head,Screw Stuck in Head,696,Head_Mid,Removed
+19511,Heart_Eye_Patch1,Heart Eye Patch 1,697,Head_Mid,Removed
+19512,Heart_Eye_Patch2,Heart Eye Patch 2,698,Head_Mid,Removed
+19513,Chicken_Beak,Chicken Bill,699,Head_Low,Removed
+19514,Charlie_Beard,Charlies Beard,700,Head_Low,Removed
+19515,Yellow_Hat,Yellow Hat,701,Head_Top,Removed
+19516,Singing_Bird,Singing Bird,702,Head_Top,Removed
+19517,Cocks_Comb,Chicken Crest,703,Head_Top,Removed
+19518,Rainbow,Rainbow,704,Head_Top,Removed
+19519,Lightning_Cloud,Thunderstorm Cloud,688,Head_Top,Removed
+19520,Rain_Cloud,Rain Cloud,705,Head_Top,Removed
+19521,Charlie_Hat,Charlies Hat,706,Head_Top,Removed
+19522,Mini_Crown1,Mini Crown,707,Head_Top,Removed
+19523,Donation_Ribbon,Green Ribbon,244,Head_Top,Removed
+19538,Full_Moon,Full Moon,780,Head_Top,Removed
+19543,Oliver_Wolf_Hood,Oliver Wolf Hood,849,Head_Top,Removed
+19574,Message_from_Afterlife,Message from Afterlife,742,Head_Top,Removed
+19575,Costume_Tiamat_Thd,Costume Tiamat Thd,863,Head_Top,Removed
+19577,Dark_Desires_C,Dark Desires C,874,Head_Top,Removed
+19600,Costume_Drooping_Kiel,Costume Drooping Kiel,909,Head_Top,Removed
+19605,Costume_Gang_Scarf,Costume Gang Scarf,369,Head_Low,Removed
+19618,Lost_Identity,Lost Identity,153,Head_Top,Removed
+19667,Unstoppable_Spirit,Unstoppable Spirit,464,Head_Top,Removed
+19674,Duality_Mask,Duality Mask,714,Head_Low,Removed
+19746,Macabre_Presence,Macabre Presence,326,Head_Top,Removed
+19880,Costume_Gold_Tiara,Costume Gold Tiara,232,Head_Top,Removed
+19938,LI_C_Love_Rabbit_Hood,Costume Love Rabbit Hood,549,Head_Low,Removed
+19996,Horse_King,Horse King,1189,Head_Low,Removed
+19999,Costume_Batata,Costume Batata,1193,Head_Top,Removed
+20041,Costume_Rose_Headband,Costume Rose Headband,864,Head_Top,Removed
+20135,Bitter_Freedom,Bitter Freedom,1117,Head_Top,Removed
+20148,Repent_and_Forgive,Repent and Forgive,466,Head_Top,Removed
+20290,Now_you_see_Me,Now you see Me,1337,Head_Top,Removed
+20395,Ascendant_Wisdom,Ascendant Wisdom,1006,Head_Top,Removed
+20428,First_Mark_Crown,First Mark Crown,1438,Head_Top,Removed
+20727,Brilliant_Golden_Wings,Brilliant Golden Wings,5,Garment,Removed
+31057,Costume_Mother_Memory,Costume Mother Memory,1501,Head_Low,Removed
+31180,Memory_of_Dominance,Memory of Dominance,1581,Head_Top,Removed
+31546,Confidence_in_Madness,Confidence in Madness,1777,Head_Top,Removed
+31610,Last_Laugh,Last Laugh,286,Head_Top,Removed
+31667,Costume_Poring_Beret,C Poring Beret,1825,Head_Top,Removed
+31686,Costume_Desert_Wolf_Baby,C Desert Wolf Baby,1875,Head_Low,Removed
+31690,Costume_Flame_Bird,C Flame Bird,16,Head_Top,Removed
+31709,Costume_Golden_Violet,C Golden Violet,1886,Head_Top,Removed
+31754,Unseen_Show,Unseen Show,1857,Head_Top,Removed
+31872,C Extraordinary Sin,C Extraordinary Sin,1970,Head_Top,Removed
+31873,C Shinning Kingslayer,C Shinning Kingslayer,1971,Head_Top,Removed
+31885,Cons_Of_Earth,Costume Earth Master,1982,Head_Low,Removed
+31887,aegis_31887,Costume Pure Scarf,1981,Head_Low,Removed
+400046,aegis_400046,Costume Pierced Apple,1952,Head_Top,Removed
+400056,CC_Daughter_of_W,CC Daughter of W,1990,Head_Top,Removed
+400057,CC_Son_of_W,CC Son of W,1989,Head_Top,Removed

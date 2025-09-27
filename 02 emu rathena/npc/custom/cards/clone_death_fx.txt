@@ -1,0 +1,11 @@
+//============================================================
+// CloneDeathFX — Efeitos visuais e sonoros na morte dos clones
+//============================================================
+-	script	CloneDeathFX	-1,{
+
+	OnCloneDeath:
+		// Efeitos visuais e sonoros na morte do clone
+		specialeffect2 425; // Efeito visual 1
+		specialeffect2 227; // Efeito visual 2
+		end;
+}

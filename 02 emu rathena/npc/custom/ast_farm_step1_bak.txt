@@ -1,0 +1,355 @@
+//============================================================
+// Astrologia Dungeons – Passo 1 (SIMPLIFICADO - sem Fase 2)
+// Removida toda mecânica de cristais, guardiões e invulnerabilidade
+//============================================================
+-	script	Ast_Farm_Step1	-1,{
+
+	OnInit:
+		.KILLS_REQUIRED   = 3;
+		.INST_NAME$       = "Ast_MiniTrial";
+		.INST_ENTRY_MAP$  = "guild_vs3"; // mapa de entrada
+		.INST_ENTRY_X     = 50;
+		.INST_ENTRY_Y     = 50;
+		.COOLDOWN_SEC     = 2;
+		.WATCH_MS         = 1000;
+
+		// Boss
+		.BOSS_ID    = 21602;          // C2_SAVAGE
+		.BOSS_NAME$ = "Star Scourge Echo";
+		.BOSS_X     = 100;
+		.BOSS_Y     = 100;
+
+		// HP do boss (sem fase 2)
+		.BOSS_MAXHP     = 100000;
+
+		// Estado de encontro (variáveis do NPC)
+		.inst_iid       = 0;
+		.inst_map$      = "";
+		.ECO_GID        = 0;
+		.instance_owner_aid = 0; // Armazena o AID do dono da instância
+
+		setmapflag "ast_dun01", mf_loadevent;
+		setmapflag "ast_dun02", mf_loadevent;
+		setmapflag "ast_dun03", mf_loadevent;
+
+		bindatcmd "astforce", strnpcinfo(3)+"::OnAtForce", 0, 99;
+		bindatcmd "astdbg",   strnpcinfo(3)+"::OnAtDbg",   0, 99;
+		bindatcmd "astget",   strnpcinfo(3)+"::OnAtGet",   0, 99;
+		bindatcmd "astclear", strnpcinfo(3)+"::OnAtClear", 0, 99;
+		bindatcmd "asttest",  strnpcinfo(3)+"::OnAtTest",  0, 99;
+		bindatcmd "asttrace", strnpcinfo(3)+"::OnAtTrace", 0, 99;
+		end;
+
+	// ---------- comandos ----------
+	OnAtDbg:
+		@ast_dbg = (@ast_dbg + 1) % 3;
+		dispbottom "[AstDBG] "+(@ast_dbg==0?"OFF":@ast_dbg==1?"VERBOSE":"LITE")+" | cnt="+@ast_kills+" | map="+strcharinfo(3);
+		end;
+
+	OnAtTrace:
+		@ast_trace = !@ast_trace;
+		dispbottom "[AstTRACE] "+(@ast_trace?"ON":"OFF");
+		end;
+
+	OnAtGet:
+		dispbottom "[Ast] contador="+@ast_kills+" | mapa="+strcharinfo(3);
+		end;
+
+	OnAtClear:
+		@ast_kills = 0;
+		dispbottom "[Ast] Contador zerado.";
+		end;
+
+	OnAtTest:
+		@ast_aid = getcharid(0);
+		attachrid(@ast_aid);
+
+		.@iid = instance_create(.INST_NAME$, IM_CHAR);
+		if (.@iid < 0) { dispbottom "[AstTEST] Falha create ("+.INST_NAME$+")."; end; }
+
+		instance_enter(.INST_NAME$);
+		.@imap$ = instance_mapname(.INST_ENTRY_MAP$, .@iid);
+		if (.@imap$ == "") { dispbottom "[AstTEST] Falha: instance_mapname vazio (id="+.@iid+")."; instance_destroy(.@iid); end; }
+
+		// >>> salvos em VARS DO NPC (sem @)
+		.inst_iid  = .@iid;
+		.inst_map$ = .@imap$;
+		.instance_owner_aid = @ast_aid; // Salva o AID do dono
+
+		@ast_prev_in_ast = 1;
+
+		// salvar mapa da instância + grace antes do warp
+		@ast_inst_map$   = .@imap$;
+		@ast_enter_grace = gettimetick(2) + 3;
+
+		warp .@imap$, .INST_ENTRY_X, .INST_ENTRY_Y;
+
+		@ast_iid = .@iid;  @ast_inst_active = 1;
+		if (!@ast_watch) { @ast_watch = 1; @ast_prev_in_ast = 1; addtimer .WATCH_MS, strnpcinfo(3)+"::OnAstWatch"; }
+
+		// baseline p/ bloquear MVP rewards (se quiser usar depois)
+		@ast_base_cws = countitem("C_World_Star");
+		@ast_base_jsd = countitem("Jewel_Shadowdecon");
+
+		// spawn do boss
+		@ast_boss_spawned = 0;
+		callsub L_SpawnBoss, .@imap$;
+
+		dispbottom "[AstTEST] Entrando na instância id="+.@iid;
+		end;
+
+	OnAtForce:
+		// Comando mantido para compatibilidade, mas sem funcionalidade especial
+		dispbottom "[AstFORCE] Comando disponível, mas sem Fase 2 para forçar.";
+		end;
+
+	// ---------- eventos ----------
+	OnPCLoadMapEvent:
+		.@m$  = strcharinfo(3);
+		.@ins = instance_id();
+
+		// reset ao ENTRAR em um dos 3 mapas
+		if (.@m$=="ast_dun01" || .@m$=="ast_dun02" || .@m$=="ast_dun03") {
+			if (@ast_kills) {
+				@ast_kills = 0;
+				if (@ast_dbg) dispbottom "[AstDBG] Reset (entrada em mapas Ast).";
+			}
+			if (!@ast_watch) {
+				@ast_watch = 1;
+				@ast_prev_in_ast = 1;
+				addtimer .WATCH_MS, strnpcinfo(3)+"::OnAstWatch";
+			}
+		}
+
+		// destruir instância só se saiu mesmo (nome + iid + grace)
+		if (@ast_inst_active && @ast_iid > 0) {
+			if ( strcharinfo(3) != @ast_inst_map$
+			  && .@ins == 0
+			  && gettimetick(2) > @ast_enter_grace ) {
+				instance_destroy(@ast_iid);
+				@ast_iid = 0; @ast_inst_active = 0; @ast_boss_spawned = 0;
+				// Limpa variáveis da instância
+				.inst_iid = 0; .inst_map$ = ""; .instance_owner_aid = 0;
+				.ECO_GID = 0;
+				if (@ast_dbg) dispbottom "[AstDBG] Instância encerrada ao sair.";
+			}
+		}
+
+		if (@ast_dbg) dispbottom "[Ast] Entrou em "+.@m$+" (cnt="+@ast_kills+")";
+		end;
+
+	OnPCLogoutEvent:
+		@ast_watch = 0;
+		if (@ast_inst_active && @ast_iid > 0) {
+			donpcevent "Ast_P2Ctrl::OnCleanup";
+			instance_destroy(@ast_iid);
+			@ast_iid = 0; @ast_inst_active = 0; @ast_boss_spawned = 0;
+			// Limpa variáveis da instância
+			.inst_iid = 0; .inst_map$ = ""; .instance_owner_aid = 0;
+			.ECO_GID = 0;
+		}
+		end;
+
+	// ---------- kills ----------
+	OnNPCKillEvent:
+		if (@ast_trace) debugmes "[AstTRACE] OnNPCKillEvent mob="+killedrid;
+		callsub L_StepCounter;
+		end;
+
+	OnKillForward:
+		if (@ast_trace) debugmes "[AstTRACE] OnKillForward mob="+killedrid;
+		callsub L_StepCounter;
+		end;
+
+	// ---------- step counter ----------
+L_StepCounter:
+	.@m$  = strcharinfo(3);
+	.@ins = instance_id();
+
+	if (.@ins > 0) { if (@ast_dbg==1) dispbottom "[AstDBG] em instância -> ignora"; return; }
+	if (.@m$!="ast_dun01" && .@m$!="ast_dun02" && .@m$!="ast_dun03") { if (@ast_dbg==1) dispbottom "[AstDBG] fora dos mapas -> ignora"; return; }
+	if (gettimetick(2) < @ast_cd_until) { if (@ast_dbg==1) dispbottom "[AstDBG] cooldown"; return; }
+
+	@ast_kills++;
+	if (@ast_dbg==1) dispbottom "[AstDBG] "+@ast_kills+"/"+.KILLS_REQUIRED+" ("+.@m$+")";
+
+	if (@ast_kills >= .KILLS_REQUIRED) {
+		mapannounce .@m$, "Star Scourge: Let me end this intruder!", bc_map, 0xFF5040;
+
+		@ast_kills = 0;
+		@ast_cd_until = gettimetick(2) + .COOLDOWN_SEC;
+
+		// espera 3s antes de criar a instância e warpar
+		sleep2 3000;
+
+		// salva AID (se precisar) e instancia
+		@ast_aid = getcharid(0);
+		attachrid(@ast_aid);
+
+		.@iid = instance_create(.INST_NAME$, IM_CHAR);
+		if (.@iid < 0) { dispbottom "[Ast] Falha create ("+.INST_NAME$+")."; return; }
+
+		instance_enter(.INST_NAME$);
+		.@imap$ = instance_mapname(.INST_ENTRY_MAP$, .@iid);
+		if (.@imap$ == "") { dispbottom "[Ast] Falha: instance_mapname vazio (id="+.@iid+")."; return; }
+
+		// >>> salvos em VARS DO NPC (sem @)
+		.inst_iid  = .@iid;
+		.inst_map$ = .@imap$;
+		.instance_owner_aid = @ast_aid; // Salva o AID do dono
+
+		@ast_prev_in_ast = 1;
+
+		// salvar mapa + grace antes do warp
+		@ast_inst_map$   = .@imap$;
+		@ast_enter_grace = gettimetick(2) + 3;
+
+		warp .@imap$, .INST_ENTRY_X, .INST_ENTRY_Y;
+
+		@ast_iid = .@iid; @ast_inst_active = 1;
+		if (!@ast_watch) { @ast_watch = 1; @ast_prev_in_ast = 1; addtimer .WATCH_MS, strnpcinfo(3)+"::OnAstWatch"; }
+
+		// baseline (se for bloquear MVP rewards depois)
+		@ast_base_cws = countitem("C_World_Star");
+		@ast_base_jsd = countitem("Jewel_Shadowdecon");
+
+		@ast_boss_spawned = 0;
+		callsub L_SpawnBoss, .@imap$;
+
+		if (@ast_dbg) dispbottom "[AstDBG] Entrando na instância id="+.@iid;
+	}
+	return;
+
+	// ===== Watchdog por player =====
+OnAstWatch:
+	if (!@ast_watch) end;
+	.@m$  = strcharinfo(3);
+	.@ins = instance_id();
+	.@in_ast = (.@m$=="ast_dun01" || .@m$=="ast_dun02" || .@m$=="ast_dun03");
+
+	// destruir só quando realmente saiu da instância (nome + iid + grace)
+	if (@ast_inst_active) {
+		if ( strcharinfo(3) != @ast_inst_map$
+		  && .@ins == 0
+		  && gettimetick(2) > @ast_enter_grace ) {
+			donpcevent "Ast_P2Ctrl::OnCleanup";
+			instance_destroy(@ast_iid);
+			@ast_iid = 0; @ast_inst_active = 0; @ast_boss_spawned = 0;
+			// Limpa variáveis da instância
+			.inst_iid = 0; .inst_map$ = ""; .instance_owner_aid = 0;
+			.ECO_GID = 0;
+			if (@ast_dbg) dispbottom "[AstDBG] Instância destruída (watch).";
+		}
+	}
+
+	// reset ao sair dos mapas alvo
+	if (@ast_prev_in_ast == 1 && !.@in_ast) {
+		@ast_kills = 0;
+		if (@ast_dbg) dispbottom "[AstDBG] Reset por saída dos mapas Ast.";
+	}
+	@ast_prev_in_ast = .@in_ast;
+
+	addtimer .WATCH_MS, strnpcinfo(3)+"::OnAstWatch";
+	end;
+
+	// ===== Spawn do boss no mapa instanciado =====
+L_SpawnBoss:
+	.@imap$ = getarg(0);
+
+	// evita multi-spawn
+	if (@ast_boss_spawned) return;
+	@ast_boss_spawned = 1;
+
+	// bloqueia todos os drops (normais + MVP)
+	setmapflag .@imap$, mf_nomobloot;
+	setmapflag .@imap$, mf_noloot;
+
+	// posição: ponto de entrada + 10 pra cima
+	@ast_inst_map$ = .@imap$;
+	@ast_boss_x = .INST_ENTRY_X;
+	@ast_boss_y = .INST_ENTRY_Y + 10;
+
+	set $@mobid[0], 0;
+	// spawn do boss (captura correta do GID via $@mobid[0])
+	monster .@imap$, @ast_boss_x, @ast_boss_y, .BOSS_NAME$, .BOSS_ID, 1, strnpcinfo(3)+"::OnAstBossKilled";
+	sleep2 200;  // Aguarda para garantir spawn
+	.@gid = $@mobid[0];
+
+	if (.@gid > 0) {
+		// Salva o GID
+		.ECO_GID  = .@gid;
+		.instance_owner_aid = getcharid(0); // Salva quem criou a instância
+
+		// ======= (1) Ajusta status do boss ANTES de ligar o controller =======
+		// Aguarda um pouco antes de modificar stats
+		sleep2 300;
+
+		// pega modo atual via array
+		getunitdata .@gid, .@u;
+		.@mode = .@u[UMOB_MODE];
+		setunitdata .@gid, UMOB_MODE, ( .@mode &~ MD_BOSS );
+
+		// FORÇA HP correto: primeiro MaxHP, depois HP atual
+		setunitdata .@gid, UMOB_MAXHP, .BOSS_MAXHP;
+		sleep2 100;
+		setunitdata .@gid, UMOB_HP, .BOSS_MAXHP;
+		sleep2 100;
+
+		// Verifica se funcionou
+		getunitdata .@gid, .@chk;
+		.@check_maxhp = .@chk[UMOB_MAXHP];
+		.@check_hp    = .@chk[UMOB_HP];
+
+		// debug SEMPRE para verificar HP
+		dispbottom "[AstSPAWN] Boss spawned: gid="+.ECO_GID;
+		dispbottom "[AstSPAWN] HP: "+.@check_hp+"/"+.@check_maxhp+" (target: "+.BOSS_MAXHP+"/"+.BOSS_MAXHP+")";
+
+		if (.@check_hp != .BOSS_MAXHP || .@check_maxhp != .BOSS_MAXHP) {
+			dispbottom "[AstWARNING] HP incorrect! Forcing again...";
+			setunitdata .@gid, UMOB_MAXHP, .BOSS_MAXHP;
+			setunitdata .@gid, UMOB_HP, .BOSS_MAXHP;
+		}
+
+		// ======= (2) Só agora amarra e inicia o controller P2 =======
+		set getvariableofnpc(.inst_iid,  "Ast_P2Ctrl"), .inst_iid;
+		set getvariableofnpc(.inst_map$, "Ast_P2Ctrl"), .inst_map$;
+		set getvariableofnpc(.ECO_GID,   "Ast_P2Ctrl"), .ECO_GID;
+		// guardando dono
+		set getvariableofnpc(.owner_aid, "Ast_P2Ctrl"), .instance_owner_aid;
+		// Inicia o loop do controller P2 com HP já correto
+		donpcevent "Ast_P2Ctrl::OnBind";
+
+	} else {
+		dispbottom "[AstERROR] Failed to get boss GID from $@mobid[0].";
+	}
+
+	return;
+
+	// ===== Kill do boss → Dust + warp fixo + destruir =====
+OnAstBossKilled:
+	if (killerrid) attachrid(killerrid);
+	if (getcharid(3) <= 0) end;
+
+	// fala final
+	mapannounce .inst_map$, "Star Scourge: You think you've accomplished something? You're pathetic!", bc_map, 0xFF4040;
+	donpcevent "Ast_P2Ctrl::OnCleanup";
+	// Recompensa da instância
+	getitem "Galactic_Dust", 5;
+	dispbottom "[Ast] Recompensa: 5x Galactic Dust.";
+
+	// 3s depois: warp FIXO e destrói a instância
+	sleep2 3000;
+	warp "ast_dun01", 43, 16;
+
+	if (@ast_inst_active && @ast_iid > 0) {
+		instance_destroy(@ast_iid);
+		@ast_iid = 0;
+		@ast_inst_active = 0;
+		// Limpa variáveis da instância
+		.inst_iid = 0; .inst_map$ = ""; .instance_owner_aid = 0;
+		.ECO_GID = 0;
+	}
+	@ast_boss_spawned = 2; // sem respawn
+	end;
+
+}

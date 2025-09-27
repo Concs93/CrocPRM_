@@ -1,0 +1,225 @@
+//============================================================
+//  NPC: The Hexblade of Echoes (enigmatic — post-Castle fall)
+//  Map/pos: va_orpha,288,317
+//  Effect: doubles Random Options values (keeps id/param), then sets refine to +0
+//  Anti-abuse: stores item UniqueID in SQL; cannot evolve twice
+//  Rule: MENU lista Moon e Astral; SE selecionar Moon -> mensagem e aborta.
+//  New: Intro menu -> Enhance Items / Who are you? / Leave
+//  Tone: hints of twin blades (fire/ice), inverted castle, fall & faint redemption
+//============================================================
+va_orpha,288,317,4	script	Unknown Hexblade	10515,{
+
+	// ---------- Intro: persona + menu ----------
+	.@tag$ = "[Hexblade]";
+	mes .@tag$;
+	mes "The dunes remember what men try to forget.";
+	mes "Ash freezes. Ice burns. Echoes endure.";
+	next;
+
+.Menu:
+	switch (select("^00CCFFEnhance Items^000000:Who are you?:Leave")) {
+		case 1: // Enhance Items -> segue pro fluxo de encantamento
+			break;
+
+		case 2: // Who are you? -> falas enigmáticas (sem revelar o nome)
+			mes .@tag$;
+			mes "Names are shackles. I have worn too many.";
+			mes "Once I held ^FF5A5Atwin blades^000000 in my hands and used them as an extension of my intent."; 
+			mes "They were ^66CCFFwinter and flame^000000, mirrors biting into the bone.";
+			next;
+
+			mes .@tag$;
+			mes "The tower turned itself ^A0A0A0inside-out^000000.";
+			mes "The throne no longer calls for me.";
+			mes "It has chosen another despot to cradle.";
+			next;
+
+			mes .@tag$;
+			mes "If you must call me anything, call me this:";
+			mes "^777777- a wound learning to be a scar.^000000";
+			next;
+
+			// volta ao menu principal (sem 'Back', sem 'close')
+			goto .Menu;
+
+		case 3: // Leave
+			mes .@tag$;
+			mes "Then let the sands keep their secrets.";
+			close;
+	}
+
+	// ---------- build selectable list first (silent) ----------
+	.@menu$ = "";
+	.@n = 0;
+
+	for (.@i = 0; .@i < EQI_MAX; .@i++) {
+		// must be an equipped item in this slot
+		.@id = getequipid(.@i);
+		if (.@id <= 0) continue;
+
+		// refine >= +9
+		.@ref = getequiprefinerycnt(.@i);
+		if (.@ref < 9) continue;
+
+		// must have at least 1 random option
+		.@has_ro = 0;
+		for (.@k = 0; .@k < 5; .@k++) {
+			if (getequiprandomoption(.@i, .@k, 0) > 0) { .@has_ro = 1; break; }
+		}
+		if (!.@has_ro) continue;
+
+		// UID required and not already evolved
+		.@uid$ = getequipuniqueid(.@i);
+		if (.@uid$ == "") continue;
+
+		.@uid_esc$ = escape_sql(.@uid$);
+		.@has = 0; // reset before SQL
+		query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
+		if (.@has) continue;
+
+		// item name (no RO hint for players)
+		.@name$ = getitemname(.@id);
+
+		// build menu line (lista Moon e Astral)
+		.@menu$ += "["+.@name$+"] ^777777(+"+.@ref+")^000000:";
+		.@slot_list[.@n] = .@i;
+		.@n++;
+	}
+
+	// ---------- intro de serviço ----------
+	if (!.@n) {
+		mes .@tag$;
+		mes "I won't waste time with neophytes.";
+		close;
+	}
+
+	mes .@tag$;
+	mes "Bring me steel tempered by nine flames.";
+	mes "I shall fold its lines once -^00CCFFand only once^000000-";
+	mes "and its edge will ^FF0000grow dull^000000 for the privilege.";
+	next;
+
+	// ---------- choose item (Moon OU Astral) ----------
+	mes .@tag$;
+	mes "Choose the vessel for the rite.";
+	next;
+	.@sel  = select(.@menu$) - 1;
+	.@slot = .@slot_list[.@sel];
+
+	// Safety: recheck basic conditions
+	.@id = getequipid(.@slot);
+	if (.@id <= 0 || getequiprefinerycnt(.@slot) < 9) {
+		mes .@tag$; mes "The fabric shifted. Return when your choice is certain."; close;
+	}
+	// SE for Moon -> mensagem e aborta
+	for (.@j = 0; .@j < .DENY_CT; .@j++) {
+		if (.DENY_IDS[.@j] == .@id) {
+			mes .@tag$; mes "I won't mirror ^777777firstborn forms^000000. It needs to ascend.";
+			close;
+		}
+	}
+
+	// ainda precisa ter RO
+	.@has_ro = 0;
+	for (.@k = 0; .@k < 5; .@k++) {
+		if (getequiprandomoption(.@slot, .@k, 0) > 0) { .@has_ro = 1; break; }
+	}
+	if (!.@has_ro) { mes .@tag$; mes "This vessel holds no lines to mirror."; close; }
+
+	// UID ok & não evoluído antes
+	.@uid$ = getequipuniqueid(.@slot);
+	if (.@uid$ == "") { mes .@tag$; mes "This relic will not answer my call."; close; }
+	.@uid_esc$ = escape_sql(.@uid$);
+	.@has = 0;
+	query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
+	if (.@has) { mes .@tag$; mes "It has already tasted the mirror. No more."; close; }
+
+	// ---------- preço ----------
+	set .@link1$, "<ITEM>"+getitemname(.COST_IT1_ID)+"<INFO>"+.COST_IT1_ID+"</INFO></ITEM>";
+	set .@link2$, "<ITEM>"+getitemname(.COST_IT2_ID)+"<INFO>"+.COST_IT2_ID+"</INFO></ITEM>";
+
+	mes .@tag$;
+	mes "Bring the price:";
+	mes " - "+.COST_IT1_Q+"x "+.@link1$;
+	mes " - "+.COST_IT2_Q+"x "+.@link2$;
+	mes " - "+.COST_ZENY+" zeny";
+	next;
+
+	// confirmação
+	if (select("Weave it.:Not today.") == 2) {
+		mes .@tag$; mes "Then let the sands keep their secrets."; close;
+	}
+
+	// rechecks finais (inclui Moon again por segurança)
+	if (getequipid(.@slot) <= 0 || getequiprefinerycnt(.@slot) < 9) {
+		mes .@tag$; mes "Your focus wavered. Not now."; close;
+	}
+	.@id = getequipid(.@slot);
+	for (.@j = 0; .@j < .DENY_CT; .@j++) {
+		if (.DENY_IDS[.@j] == .@id) { mes .@tag$; mes "I won't mirror firstborn forms. It needs to ascend."; close; }
+	}
+	.@has_ro = 0;
+	for (.@k = 0; .@k < 5; .@k++) {
+		if (getequiprandomoption(.@slot, .@k, 0) > 0) { .@has_ro = 1; break; }
+	}
+	if (!.@has_ro) { mes .@tag$; mes "The lines have faded. Not now."; close; }
+	.@uid$ = getequipuniqueid(.@slot);
+	if (.@uid$ == "") { mes .@tag$; mes "Nameless steel draws no sigils."; close; }
+	.@uid_esc$ = escape_sql(.@uid$);
+	.@has = 0;
+	query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
+	if (.@has) { mes .@tag$; mes "It is already done."; close; }
+
+	// pagamento
+	if (countitem(.COST_IT1_ID) < .COST_IT1_Q || countitem(.COST_IT2_ID) < .COST_IT2_Q || Zeny < .COST_ZENY) {
+		mes .@tag$;
+		mes "You come with empty hands, and emptier resolve.";
+		close;
+	}
+	delitem .COST_IT1_ID, .COST_IT1_Q;
+	delitem .COST_IT2_ID, .COST_IT2_Q;
+	Zeny -= .COST_ZENY;
+
+	// dobra valores das ROs
+	for (.@k = 0; .@k < 5; .@k++) {
+		.@rid = getequiprandomoption(.@slot, .@k, 0);
+		if (!.@rid) continue;
+		.@rval = getequiprandomoption(.@slot, .@k, 1);
+		.@rpar = getequiprandomoption(.@slot, .@k, 2);
+		.@newv = .@rval * 2;
+		if (.MAX_VALUE_CAP > 0 && .@newv > .MAX_VALUE_CAP) .@newv = .MAX_VALUE_CAP;
+		setrandomoption(.@slot, .@k, .@rid, .@newv, .@rpar);
+	}
+
+	// refino -> +0
+	while (getequiprefinerycnt(.@slot) > 0) downrefitem(.@slot, 1);
+
+	// marca UID
+	query_sql "INSERT IGNORE INTO `evolved_items_uid` (`uid`, `char_id`) VALUES ('"+.@uid_esc$+"', "+getcharid(0)+")";
+
+	specialeffect2 EF_ENHANCE;
+	specialeffect2 EF_ENCHANTBLADE;
+	mes .@tag$;
+	mes "It is done. Walk softly; the night is listening.";
+	close;
+
+OnInit:
+	// cap global (0 = sem cap)
+	set .MAX_VALUE_CAP, 0;
+
+	// custo
+	set .COST_IT1_ID, 7360;    // Distortion Shard
+	set .COST_IT1_Q,  1000;
+	set .COST_IT2_ID, 6468;    // Star Piece
+	set .COST_IT2_Q,  1000;
+	set .COST_ZENY,   1000000; // 1kk
+
+	// Moon IDs (bloqueio somente após seleção)
+	setarray .DENY_IDS[0],
+		31210,31212,31214,31216,31218,31220,31222,31224,31226;
+	.DENY_CT = getarraysize(.DENY_IDS);
+
+	// tabela de controle
+	query_sql "CREATE TABLE IF NOT EXISTS `evolved_items_uid` (`uid` varchar(64) NOT NULL PRIMARY KEY, `char_id` int(11) NOT NULL, `ts` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB";
+	end;
+}

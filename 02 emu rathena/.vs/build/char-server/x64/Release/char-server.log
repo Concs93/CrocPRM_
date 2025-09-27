@@ -1,0 +1,34 @@
+﻿  char.cpp
+E:\PRM\test\02 emu rathena\src\char\char.cpp(2820,36): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\char.cpp(2863,36): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  char_clif.cpp
+  char_cnslif.cpp
+  char_logif.cpp
+E:\PRM\test\02 emu rathena\src\char\char_logif.cpp(194,10): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\char_logif.cpp(210,12): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+  char_mapif.cpp
+E:\PRM\test\02 emu rathena\src\char\char_mapif.cpp(265,51): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\char_mapif.cpp(314,23): warning C4267: '=': conversão de 'size_t' para 'uint16', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\char_mapif.cpp(564,23): warning C4267: '=': conversão de 'size_t' para 'uint16', possível perda de dados
+  inter.cpp
+E:\PRM\test\02 emu rathena\src\char\inter.cpp(702,11): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\inter.cpp(716,11): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\inter.cpp(782,11): warning C4267: '+=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\inter.cpp(1032,49): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\inter.cpp(1311,21): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\char\inter.cpp(1331,24): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+  int_achievement.cpp
+E:\PRM\test\02 emu rathena\src\char\int_achievement.cpp(267,64): warning C4267: '=': conversão de 'size_t' para 'uint16', possível perda de dados
+  int_auction.cpp
+  int_clan.cpp
+  int_elemental.cpp
+  int_guild.cpp
+  int_homun.cpp
+  int_mail.cpp
+  int_mercenary.cpp
+  int_party.cpp
+  int_pet.cpp
+  int_quest.cpp
+E:\PRM\test\02 emu rathena\src\char\int_quest.cpp(199,51): warning C4267: '=': conversão de 'size_t' para 'uint16', possível perda de dados
+  int_storage.cpp
+LINK : fatal error LNK1181: não foi possível abrir o arquivo de entrada 'E:\PRM\test\02 emu rathena\.vs\build\common.lib'

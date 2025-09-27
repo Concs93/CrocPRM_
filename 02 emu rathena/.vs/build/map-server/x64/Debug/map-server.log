@@ -1,0 +1,30 @@
+﻿  atcommand.cpp
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(1264,63): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(1266,55): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(1277,55): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(3587,24): warning C4267: '=': conversão de 'size_t' para 'uint32', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(5492,53): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(5513,61): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(5947,18): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(7431,29): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(8747,19): warning C4267: 'inicializando': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(8835,30): warning C4267: '=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(9556,16): warning C4267: '=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(9578,23): warning C4267: 'inicializando': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\atcommand.cpp(9702,20): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  script.cpp
+E:\PRM\test\02 emu rathena\src\map\script.cpp(937,21): warning C4244: '=': conversão de '__int64' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16446,11): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16661,21): warning C4267: '=': conversão de 'size_t' para 'uint32', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16671,9): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16684,8): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16713,14): warning C4267: '=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16739,16): warning C4244: '=': conversão de '__int64' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16778,15): warning C4244: '=': conversão de '__int64' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16859,14): warning C4267: '=': conversão de 'size_t' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(16896,10): warning C4244: '=': conversão de '__int64' para 'unsigned int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(17049,18): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(17113,18): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\map\script.cpp(20830,44): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+  Gerando Código...
+  map-server.vcxproj -> E:\PRM\test\02 emu rathena\map-server.exe

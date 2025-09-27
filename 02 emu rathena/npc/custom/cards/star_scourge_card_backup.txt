@@ -1,0 +1,13 @@
+  - Id: 13744
+    AegisName: Star_Scourge_C
+    Name: Star Scourge C
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Head_Mid: true
+    Flags:
+      BuyingStore: true
+      DropEffect: YELLOW_PILLAR
+    Script: |
+      bonus bASPDCap,1;

@@ -1,0 +1,143 @@
+prontera,155,185,4	script	StarScourgeCloneCtrl	CLEAR_NPC,{
+	end;
+
+OnInit:
+	.MIN_SWING_MS      = 120;
+	.MAX_SWING_MS      = 500;
+	.FALLBACK_SWING_MS = 260;
+	.CD_MS             = 2000;
+	.OFFSET_TILES      = 1;
+	.METEOR_SKILL      = 11; // MG_NAPALMBEAT
+	.METEOR_LV         = 3;
+	.TRY_SLAVECLONE    = 1;
+
+	bindatcmd "sscrid",  strnpcinfo(3)+"::OnSetRid", 0, 99;
+	bindatcmd "sscvars", strnpcinfo(3)+"::OnShow",   0, 99;
+	bindatcmd "ssctest", strnpcinfo(3)+"::OnProc",   0, 99;
+	end;
+
+OnPCAttackEvent:
+	if (isequippedcnt(13744) < 1) end;
+	.@now  = gettimetick(0);
+	.@prev = @ssc_last_swing_ms;
+	if (.@prev > 0) {
+		.@delta = .@now - .@prev;
+		.@delta = min(.@delta, .MAX_SWING_MS);
+		.@delta = max(.@delta, .MIN_SWING_MS);
+		@ssc_swing_ms = .@delta;
+	}
+	@ssc_last_swing_ms = .@now;
+	end;
+
+OnSetRid:
+	if (getcharid(3) > 0) {
+		set @ssc_last_cid, getcharid(0);
+		set @ssc_last_aid, getcharid(3);
+		dispbottom "[SSC] RID setado: cid="+@ssc_last_cid+" aid="+@ssc_last_aid;
+	} else {
+		dispbottom "[SSC] Falha: sem RID.";
+	}
+	end;
+
+OnShow:
+	dispbottom "[SSC] cid="+@ssc_last_cid+" aid="+@ssc_last_aid+" | swing_ms="+@ssc_swing_ms+" | cd_ms="+max(@ssc_ctrl_cd_until_ms - gettimetick(0),0);
+	end;
+
+OnProc:
+	// Debug inicial
+	dispbottom "[SSC] OnProc iniciado - RID atual: " + getcharid(0);
+	
+	// ===== RID GUARD =====
+	if (!playerattached()) {
+		dispbottom "[SSC] Player não anexado, tentando anexar...";
+		// tenta anexar por CID primeiro (mais confiável)
+		if (@ssc_last_cid > 0) {
+			attachrid(@ssc_last_cid);
+			if (playerattached()) {
+				dispbottom "[SSC] Anexado por CID: " + @ssc_last_cid;
+			}
+		}
+	}
+	if (!playerattached()) {
+		// fallback por AID
+		if (@ssc_last_aid > 0) {
+			attachrid(@ssc_last_aid);
+			if (playerattached()) {
+				dispbottom "[SSC] Anexado por AID: " + @ssc_last_aid;
+			}
+		}
+	}
+	if (!playerattached()) {
+		dispbottom "[SSC] ERRO: Não foi possível anexar player!";
+		end; // sem RID -> aborta ANTES de qualquer getmapxy
+	}
+
+	// salva CID/AID atuais para próximos procs
+	set @ssc_last_cid, getcharid(0);
+	set @ssc_last_aid, getcharid(3);
+	
+	dispbottom "[SSC] Player anexado com sucesso - CID: " + @ssc_last_cid;
+
+	// ===== cooldown =====
+	if (gettimetick(0) < @ssc_ctrl_cd_until_ms) {
+		dispbottom "[SSC] Em cooldown ainda...";
+		end;
+	}
+	set @ssc_ctrl_cd_until_ms, gettimetick(0) + .CD_MS;
+
+	// ===== pos/dir do player =====
+	.@map$ = strcharinfo(3);
+	if (getmapxy(.@map$, .@px, .@py, 0) != 0) {
+		dispbottom "[SSC] ERRO: Falha ao obter posição do player!";
+		end;
+	}
+	
+	.@dir = getlook(LK_DIRECTION);
+	dispbottom "[SSC] Posição: " + .@px + "," + .@py + " Dir: " + .@dir + " Mapa: " + .@map$;
+
+	.@fx = .@px; .@fy = .@py;
+	if (.@dir == 0) .@fy -= .OFFSET_TILES;
+	if (.@dir == 2) .@fx += .OFFSET_TILES;
+	if (.@dir == 4) .@fy += .OFFSET_TILES;
+	if (.@dir == 6) .@fx -= .OFFSET_TILES;
+
+	.@swing_ms = @ssc_swing_ms > 0 ? @ssc_swing_ms : .FALLBACK_SWING_MS;
+	dispbottom "[SSC] Swing timing: " + .@swing_ms + "ms";
+
+	// spawn clone
+	.@who$ = strcharinfo(0);
+	dispbottom "[SSC] Spawnando clone de: " + .@who$;
+	if (.TRY_SLAVECLONE) {
+		atcommand "@slaveclone " + .@who$;
+	} else {
+		atcommand "@clone " + .@who$;
+	}
+
+	// Verifica se ainda está anexado antes de cada skilleffect
+	if (!playerattached()) {
+		dispbottom "[SSC] ERRO: Player desanexado durante execução!";
+		end;
+	}
+
+	// 3 swings no ritmo herdado (ID 1 = SM_BASH)
+	skilleffect 1, 1;
+	sleep .@swing_ms;
+	
+	if (!playerattached()) end;
+	skilleffect 1, 1;
+	sleep .@swing_ms;
+
+	// recalcula frente se virou
+	if (!playerattached()) end;
+	.@dir2 = getlook(LK_DIRECTION);
+	.@fx2 = .@px; .@fy2 = .@py;
+	if (.@dir2 == 0) .@fy2 -= .OFFSET_TILES;
+	if (.@dir2 == 2) .@fx2 += .OFFSET_TILES;
+	if (.@dir2 == 4) .@fy2 += .OFFSET_TILES;
+	if (.@dir2 == 6) .@fx2 -= .OFFSET_TILES;
+
+	skilleffect 1, 1;
+	unitskillusepos getnpcid(0), .METEOR_SKILL, .METEOR_LV, .@fx2, .@fy2;
+	dispbottom "[SSC] Sequência completa executada!";
+	end;
+}

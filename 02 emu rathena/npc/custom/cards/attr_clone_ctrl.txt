@@ -1,0 +1,92 @@
+-	script	AttrClone_Run	-1,{
+On:
+	// Requer a carta
+	if (!isequipped(1004927)) end;
+
+	// Anti-recursão + micro-ICD
+	if (@attrclone_in) end;
+	.@now = gettimetick(0);
+	if (@attrclone_next_ok > .@now) end;
+	@attrclone_next_ok = .@now + 200;
+	@attrclone_in = 1;
+
+	// Totais (base + bônus)
+	.@STR = readparam2(0);  // STR total
+	.@AGI = readparam2(1);  // AGI total
+	.@VIT = readparam2(2);  // VIT total
+	.@INT = readparam2(3);  // INT total
+	.@DEX = readparam2(4);  // DEX total
+	.@LUK = readparam2(5);  // LUK total
+
+	// --------- Maior + rotação só entre empatados (FIX) ---------
+	.@mx = .@STR;
+	if (.@AGI > .@mx) .@mx = .@AGI;
+	if (.@VIT > .@mx) .@mx = .@VIT;
+	if (.@INT > .@mx) .@mx = .@INT;
+	if (.@DEX > .@mx) .@mx = .@DEX;
+	if (.@LUK > .@mx) .@mx = .@LUK;
+
+	// índice do último vencedor: [-1..5]
+	if (@attrclone_last_idx < -1 || @attrclone_last_idx > 5) @attrclone_last_idx = -1;
+
+	.@start = (@attrclone_last_idx + 1) % 6;
+	.@winner = -1;
+
+	for (.@step = 0; .@step < 6; .@step++) {
+		.@i = (.@start + .@step) % 6;
+
+		if ((.@i == 0 && .@STR == .@mx)
+		 || (.@i == 1 && .@AGI == .@mx)
+		 || (.@i == 2 && .@VIT == .@mx)
+		 || (.@i == 3 && .@INT == .@mx)
+		 || (.@i == 4 && .@DEX == .@mx)
+		 || (.@i == 5 && .@LUK == .@mx)) {
+			.@winner = .@i;
+			break;
+		}
+	}
+	if (.@winner < 0) .@winner = .@start; // fallback defensivo
+	@attrclone_last_idx = .@winner;
+
+	// Mapeamento + necessidade de arma
+	// STR: RK_SONICWAVE (2002/10)    [precisa arma] -> copy_eq=1
+	// AGI: SC_TRIANGLESHOT (2288/10) [precisa arco] -> copy_eq=1
+	// VIT: KN_BRANDISHSPEAR (57/10)  [precisa lança]-> copy_eq=1
+	// INT: WL_TETRAVORTEX (2217/10)  [catalisador]  -> (comentado fallback WL_SOULEXPANSION 2229/10)
+	// DEX: RA_AIMEDBOLT (2236/10)    [precisa arco] -> copy_eq=1
+	// LUK: SP_CURSEEXPLOSION (2600/10)[geralmente ok]-> copy_eq=1 por garantia
+	.@sid = 0; .@slv = 1; .@need_weapon = 0; .@use_fallback = 0;
+	switch (.@winner) {
+		case 0: .@sid = 2002; .@slv = 10; .@need_weapon = 1; break; // STR
+		case 1: .@sid = 2288; .@slv = 10; .@need_weapon = 1; break; // AGI
+		case 2: .@sid = 57;   .@slv = 10; .@need_weapon = 1; break; // VIT
+		case 3: .@sid = 2217; .@slv = 2; .@need_weapon = 1; break; // INT
+		case 4: .@sid = 2236; .@slv = 10; .@need_weapon = 1; break; // DEX
+		case 5: .@sid = 2600; .@slv = 10; .@need_weapon = 1; break; // LUK
+	}
+
+	// Duração mínima para cast imediato
+	.@dur = 3000; // ms
+
+	// copy_eq só quando precisa de arma
+	.@copy_eq = (.@need_weapon ? 1 : 0);
+
+	// CAPTURA DO TARGET: Simplificado - C++ busca o mob mais próximo do master
+	.@player_target = 0; // ignorado; C++ decide
+
+
+	// Efeitos visuais e sonoros no spawn (aplicados no player)
+	specialeffect2 425;
+	specialeffect2 227;
+
+	// Usa @myclone com instant=1 para cast imediato
+	.@cmd$ = sprintf(
+		"@myclone dur=%d friendly=1 copy_eq=%d pskills=0 kit=0 biolab=0 fx=744 hp=5 instant=1 random_spawn=1 skill=%d/%d fx2=586 fx3=865 target=%d",
+		.@dur, .@copy_eq, .@sid, .@slv, .@player_target
+	);
+	atcommand(.@cmd$);
+
+
+	@attrclone_in = 0;
+	end;
+}

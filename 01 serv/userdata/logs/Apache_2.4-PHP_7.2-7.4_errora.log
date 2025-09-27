@@ -1,0 +1,9 @@
+[Fri Sep 26 23:48:24.379025 2025] [ssl:warn] [pid 11120:tid 552] AH01909: default:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Sep 26 23:48:24.582028 2025] [ssl:warn] [pid 11120:tid 552] AH01909: default:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Sep 26 23:48:30.536516 2025] [mpm_winnt:notice] [pid 11120:tid 552] AH00455: Apache/2.4.52 (Win64) OpenSSL/1.1.1m configured -- resuming normal operations
+[Fri Sep 26 23:48:30.536516 2025] [mpm_winnt:notice] [pid 11120:tid 552] AH00456: Server built: Dec 17 2021 15:13:12
+[Fri Sep 26 23:48:30.536516 2025] [core:notice] [pid 11120:tid 552] AH00094: Command line: 'W:\\modules\\http\\Apache_2.4-PHP_7.2-7.4\\bin\\httpd.exe -d W:/modules/http/Apache_2.4-PHP_7.2-7.4 -f w:\\modules\\http\\Apache_2.4-PHP_7.2-7.4\\conf\\httpd.conf'
+[Fri Sep 26 23:48:30.546533 2025] [mpm_winnt:notice] [pid 11120:tid 552] AH00418: Parent: Created child process 4616
+[Fri Sep 26 23:48:31.142518 2025] [ssl:warn] [pid 4616:tid 532] AH01909: default:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Sep 26 23:48:31.242515 2025] [ssl:warn] [pid 4616:tid 532] AH01909: default:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Sep 26 23:48:31.300514 2025] [mpm_winnt:notice] [pid 4616:tid 532] AH00354: Child: Starting 128 worker threads.

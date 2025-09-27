@@ -1,0 +1,23 @@
+﻿  cli.cpp
+  conf.cpp
+  core.cpp
+E:\PRM\test\02 emu rathena\src\common\core.cpp(342,10): warning C4244: '=': conversão de '__int64' para 'int', possível perda de dados
+  des.cpp
+  grfio.cpp
+E:\PRM\test\02 emu rathena\src\common\grfio.cpp(407,13): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  malloc.cpp
+  mapindex.cpp
+  md5calc.cpp
+  msg_conf.cpp
+  nullpo.cpp
+  random.cpp
+  showmsg.cpp
+  strlib.cpp
+E:\PRM\test\02 emu rathena\src\common\strlib.cpp(1024,34): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\common\strlib.cpp(1106,21): warning C4244: '=': conversão de '__int64' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\common\strlib.cpp(1127,16): warning C4244: 'inicializando': conversão de '__int64' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\common\strlib.cpp(1146,16): warning C4244: 'inicializando': conversão de '__int64' para 'int', possível perda de dados
+  utils.cpp
+  winapi.cpp
+  Gerando Código...
+  common-minicore.vcxproj -> E:\PRM\test\02 emu rathena\.vs\build\common-minicore.lib

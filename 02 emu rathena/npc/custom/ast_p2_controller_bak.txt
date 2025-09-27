@@ -1,0 +1,189 @@
+//============================================================
+// Astrologia — Controller da Fase 2 (cristais como MOBS) — PATCH v1
+// - Cristais são mobs (Id 21603); ao morrerem, liberam o boss
+// - Reaplica INVUL periodicamente (failsafe) enquanto Fase 2 ativa
+// - Impede Fase 2 múltiplas vezes (.f2_done)
+// - Some com o sprite do cristal ao morrer (killmonster handler-label)
+//============================================================
+-	script	Ast_P2Ctrl	-1,{
+
+	OnInit:
+		.PHASE2_HP            = 50000;
+		.SUMMON_INTERVAL_MS   = 10000;
+		.CHANNEL_TIME_MS      = 3000;     // (não usado se não houver canalização)
+		.SUMMON_RADIUS        = 3;
+		.CRYSTAL_MOB_ID       = 21603;    // Astro Crystal como MOB
+		.MD_INVUL             = ( MD_IGNOREMELEE | MD_IGNORERANGED | MD_IGNOREMAGIC );
+		.INVUL_REAPPLY_MS     = 2000;     // <- revalida bits de invul a cada 2s na F2
+		setarray .ADD_LIST[0], 2668,2669,2670,2671;
+
+		// estado
+		.inst_iid      = 0;
+		.inst_map$     = "";
+		.ECO_GID       = 0;
+		.owner_aid     = 0;
+		.phase         = 0;
+		.invul_on      = 0;
+		.f2_done       = 0;   // Fase 2 só acontece 1x
+
+		// cristais como MOB
+		.cL_gid = 0; .cR_gid = 0;
+		.cL_alive = 0; .cR_alive = 0;
+		.cL_x = 0; .cL_y = 0;
+		.cR_x = 0; .cR_y = 0;
+
+		.ai_loop_on    = 0;
+		end;
+
+	// Chamado pelo Step1 DEPOIS de setar HP/MAXHP e .ECO_GID/.inst_map$
+	OnBind:
+		.f2_done = 0;
+		if (.inst_iid <= 0) end;
+		if (.ECO_GID  <= 0) end;
+		if (.inst_map$ == "") .inst_map$ = instance_mapname("guild_vs3", .inst_iid);
+		.phase = 1;
+		if (!.ai_loop_on) { .ai_loop_on = 1; donpcevent strnpcinfo(3)+"::OnLoop"; }
+		end;
+
+	// Loop RID-free
+	OnLoop:
+		if (!.ai_loop_on) end;
+		sleep 500;
+
+		if (.ECO_GID <= 0 || !unitexists(.ECO_GID)) { .ai_loop_on = 0; end; }
+
+		if (.phase == 1 && !.f2_done) {
+			getunitdata .ECO_GID, .@u;
+			.@hp    = .@u[UMOB_HP];
+			.@maxhp = .@u[UMOB_MAXHP];
+			if (.@maxhp > 0 && .@hp > 0 && .@hp <= .PHASE2_HP)
+				donpcevent strnpcinfo(3)+"::OnEnterPhase2";
+		}
+
+		// Na F2, monitora cristais e reaplica INVUL como failsafe
+		if (.phase == 2) {
+			// reaplicar invul se algum bit caiu (alguns forks resetam MODE)
+			getunitdata .ECO_GID, .@u2;
+			if ((.@u2[UMOB_MODE] & .MD_INVUL) != .MD_INVUL) callsub S_EnableInvul;
+			sleep .INVUL_REAPPLY_MS;
+
+			if (.cL_alive && !unitexists(.cL_gid)) .cL_alive = 0;
+			if (.cR_alive && !unitexists(.cR_gid)) .cR_alive = 0;
+			if (!.cL_alive && !.cR_alive) donpcevent strnpcinfo(3)+"::OnCrystalsDown";
+		}
+
+		if (.ai_loop_on) donpcevent strnpcinfo(3)+"::OnLoop";
+		end;
+
+	// Entrada na Fase 2
+	OnEnterPhase2:
+		if (.phase != 1) end;
+		.phase = 2;
+
+		// invulnerável
+		callsub S_EnableInvul;
+
+		// coords dos cristais na instância
+		.cL_x = 30; .cL_y = 49;
+		.cR_x = 70; .cR_y = 49;
+
+		// spawn dos CRISTAIS como MOB
+		.cL_alive = 1; .cR_alive = 1;
+		set $@mobid[0], 0;
+		monster (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+		        .cL_x, .cL_y, "Astro Crystal", .CRYSTAL_MOB_ID, 1, strnpcinfo(3)+"::OnCrystalKilledL";
+		sleep 100; .cL_gid = $@mobid[0];
+
+		set $@mobid[0], 0;
+		monster (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+		        .cR_x, .cR_y, "Astro Crystal", .CRYSTAL_MOB_ID, 1, strnpcinfo(3)+"::OnCrystalKilledR";
+		sleep 100; .cR_gid = $@mobid[0];
+
+		mapannounce (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+		            "[Astrologia] Cristais energizados! O eco torna-se invulnerável.",
+		            bc_map, 0xFFB060;
+
+		// Summon loops (adds enquanto cristais vivos)
+		donpcevent strnpcinfo(3)+"::OnSummonLLoop";
+		donpcevent strnpcinfo(3)+"::OnSummonRLoop";
+		end;
+
+	// Loops de add atrelados ao estado “vivo” de cada cristal
+	OnSummonLLoop:
+		while (.phase==2 && .cL_alive) {
+			sleep .SUMMON_INTERVAL_MS;
+			if (.cL_alive) callsub S_SummonAt, .cL_x, .cL_y;
+		}
+		end;
+
+	OnSummonRLoop:
+		while (.phase==2 && .cR_alive) {
+			sleep .SUMMON_INTERVAL_MS;
+			if (.cR_alive) callsub S_SummonAt, .cR_x, .cR_y;
+		}
+		end;
+
+S_SummonAt:
+	.@cx = getarg(0); .@cy = getarg(1);
+	.@m$ = (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid));
+	if (.@m$ == "") return;
+	.@idx = rand(getarraysize(.ADD_LIST));
+	monster .@m$, .@cx + rand(-.SUMMON_RADIUS,.SUMMON_RADIUS),
+	               .@cy + rand(-.SUMMON_RADIUS,.SUMMON_RADIUS),
+	               "--", .ADD_LIST[.@idx], 1;
+	return;
+
+	// Handlers de morte dos cristais
+OnCrystalKilledL:
+	.cL_alive = 0; .cL_gid = 0;
+	// limpa instâncias pendentes do mesmo label (e some com o corpo)
+	killmonster (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+	            strnpcinfo(3)+"::OnCrystalKilledL";
+	if (!.cR_alive) donpcevent strnpcinfo(3)+"::OnCrystalsDown";
+	end;
+
+OnCrystalKilledR:
+	.cR_alive = 0; .cR_gid = 0;
+	killmonster (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+	            strnpcinfo(3)+"::OnCrystalKilledR";
+	if (!.cL_alive) donpcevent strnpcinfo(3)+"::OnCrystalsDown";
+	end;
+
+OnCrystalsDown:
+	if (.phase != 2) end;
+	mapannounce (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+	            "[Astrologia] Os cristais ruíram! O eco volta a sofrer dano!",
+	            bc_map, 0x80FF80;
+	callsub S_DisableInvul;
+	.phase = 1;
+	.f2_done = 1;     // <- bloqueia renascer/segunda F2
+	end;
+
+	// Invulnerabilidade do boss (liga/desliga bits de ignorar dano)
+S_EnableInvul:
+	getunitdata .ECO_GID, .@u;
+	setunitdata .ECO_GID, UMOB_MODE, ( .@u[UMOB_MODE] | .MD_INVUL );
+	.invul_on = 1;
+	// debug opcional:
+	// mapannounce (.inst_map$ != "" ? .inst_map$ : instance_mapname("guild_vs3", .inst_iid)),
+	//             "[Astrologia] Invul aplicada (MODE="+( .@u[UMOB_MODE] | .MD_INVUL )+").", bc_map, 0xC0C0FF;
+	return;
+
+S_DisableInvul:
+	getunitdata .ECO_GID, .@u;
+	setunitdata .ECO_GID, UMOB_MODE, ( .@u[UMOB_MODE] &~ .MD_INVUL );
+	.invul_on = 0;
+	return;
+
+	// Limpeza geral (saída/destruição da instância)
+	OnCleanup:
+		.phase = 1;
+		.cL_alive = 0; .cR_alive = 0;
+		if (.cL_gid > 0 && unitexists(.cL_gid)) unitkill .cL_gid;
+		if (.cR_gid > 0 && unitexists(.cR_gid)) unitkill .cR_gid;
+		.cL_gid = 0; .cR_gid = 0;
+
+		if (.invul_on && .ECO_GID > 0 && unitexists(.ECO_GID)) callsub S_DisableInvul;
+		.ai_loop_on = 0;
+		end;
+}

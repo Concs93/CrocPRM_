@@ -1,0 +1,12 @@
+﻿  account.cpp
+  ipban.cpp
+E:\PRM\test\02 emu rathena\src\login\account.cpp(805,11): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\login\account.cpp(819,11): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\login\account.cpp(872,11): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+  login.cpp
+E:\PRM\test\02 emu rathena\src\login\login.cpp(318,15): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  loginchrif.cpp
+  loginclif.cpp
+  logincnslif.cpp
+  loginlog.cpp
+LINK : fatal error LNK1181: não foi possível abrir o arquivo de entrada 'E:\PRM\test\02 emu rathena\.vs\build\common.lib'

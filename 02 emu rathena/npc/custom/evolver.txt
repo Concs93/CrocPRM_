@@ -1,0 +1,211 @@
+//==============================================================
+// NPC: Evolver (Equipado) — evolui item equipado +9 -> +0 dobrando Random Options
+// Autor: você ;)
+//--------------------------------------------------------------
+// FLUXO
+// - Lista SOMENTE slots equipados (arma, armadura, etc.)
+// - Escolhe um slot com item refine >= .MinRefine (padrão: +9)
+// - unequip no slot, clona TUDO, dobra Random Options, zera refino
+// - remove item antigo e dá o novo
+//--------------------------------------------------------------
+// CONFIG
+// .MinRefine     -> refino mínimo para evoluir (padrão: 9)
+// .CostZeny      -> custo em zeny (0 = grátis)
+// .CostItemId    -> ID de item cobrado (0 = nenhum)
+// .CostItemAmt   -> quantidade do item cobrado
+// .ReequipAfter  -> 1 = tentar re-equipar no mesmo slot ao final (opcional)
+//--------------------------------------------------------------
+// NOTAS
+// - MAX_ITEM_RDM_OPT = 5 (padrão rAthena)
+// - Random Options via getinventorylist (entradas equipadas têm equip>0)
+//   arrays esperados: @inventorylist_opt_id / _val / _param (forma achatada)
+//
+// - Se sua build tiver nomes diferentes para os arrays de option, avise.
+// - Clamp anti-overflow aplicado ao dobrar valor (int32).
+//==============================================================
+-	script	EvolverEquipped	-1,{
+
+OnInit:
+	.MinRefine    = 9;
+	.CostZeny     = 0;       // ex.: 1_000_000
+	.CostItemId   = 0;       // ex.: 607
+	.CostItemAmt  = 0;       // ex.: 10
+	.ReequipAfter = 0;       // 1 para re-equipar automaticamente no final
+	end;
+
+// Dobra valor com clamp para evitar overflow
+function	safe_mul2	{
+	.@v = getarg(0);
+	if (.@v > 1073741823) .@v = 1073741823;      // 2^30-1
+	if (.@v < -1073741824) .@v = -1073741824;    // -2^30
+	return .@v * 2;
+}
+
+// Retorna string do nome do slot para menu
+function	slot_name$	{
+	.@eqi = getarg(0);
+	switch (.@eqi) {
+	case EQI_HEAD_TOP:    return "Topo";
+	case EQI_HEAD_MID:    return "Meio";
+	case EQI_HEAD_LOW:    return "Baixo";
+	case EQI_ARMOR:       return "Armadura";
+	case EQI_HAND_R:      return "Arma (mão dir.)";
+	case EQI_HAND_L:      return "Escudo/Arma (mão esq.)";
+	case EQI_GARMENT:     return "Capa";
+	case EQI_SHOES:       return "Bota";
+	case EQI_ACC_L:       return "Acessório (esq.)";
+	case EQI_ACC_R:       return "Acessório (dir.)";
+#if defined(EQI_COSTUME_HEAD_TOP)
+	case EQI_COSTUME_HEAD_TOP: return "Cos. Topo";
+	case EQI_COSTUME_HEAD_MID: return "Cos. Meio";
+	case EQI_COSTUME_HEAD_LOW: return "Cos. Baixo";
+	case EQI_COSTUME_GARMENT:  return "Cos. Capa";
+#endif
+	default: return "Slot";
+	}
+	return "Slot";
+}
+
+OnTalk:
+	mes "[Evolver]";
+	mes "Selecione um ^0055FFitem EQUIPADO^000000 com refino mínimo +"+.MinRefine+".";
+	if (.CostZeny>0) mes "Custo: ^00AA00"+.CostZeny+" zeny^000000.";
+	if (.CostItemId>0 && .CostItemAmt>0) mes "Custo extra: ^00AA00"+.CostItemAmt+"x "+getitemname(.CostItemId)+"^000000.";
+	next;
+
+	// --- monta lista de SLOTS equipados elegíveis ---
+	// slots principais (ajuste se quiser incluir/excluir cosméticos)
+	setarray .@slots[
+		EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW,
+		EQI_ARMOR, EQI_HAND_R, EQI_HAND_L,
+		EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R
+	];
+#if defined(EQI_COSTUME_HEAD_TOP)
+	setarray .@coslots[ EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT ];
+#endif
+
+	// Coleta apenas slots COM item e com refine >= MinRefine
+	.@c = 0;
+	for (.@s = 0; .@s < getarraysize(.@slots); .@s++) {
+		.@eqi = .@slots[.@s];
+		.@id  = getequipid(.@eqi);
+		if (.@id <= 0) continue;
+		.@ref = getequiprefinerycnt(.@eqi);
+		if (.@ref < .MinRefine) continue;
+		.@opt_slots[.@c] = .@eqi;
+		.@opt_idlist[.@c] = .@id;
+		.@opt_reflist[.@c] = .@ref;
+		.@menu$ += callfunc("slot_name$", .@eqi) + " — " + getitemname(.@id) + " ^888888(+"+.@ref+")^000000:";
+		.@c++;
+	}
+#if defined(EQI_COSTUME_HEAD_TOP)
+	for (.@s = 0; .@s < getarraysize(.@coslots); .@s++) {
+		.@eqi = .@coslots[.@s];
+		.@id  = getequipid(.@eqi);
+		if (.@id <= 0) continue;
+		.@ref = getequiprefinerycnt(.@eqi);
+		if (.@ref < .MinRefine) continue;
+		.@opt_slots[.@c] = .@eqi;
+		.@opt_idlist[.@c] = .@id;
+		.@opt_reflist[.@c] = .@ref;
+		.@menu$ += callfunc("slot_name$", .@eqi) + " — " + getitemname(.@id) + " ^888888(+"+.@ref+")^000000:";
+		.@c++;
+	}
+#endif
+
+	if (.@c == 0) {
+		mes "[Evolver] Não há itens equipados com +"+.MinRefine+" ou mais.";
+		close;
+	}
+
+	// Seleção do slot
+	.@pick = select(.@menu$) - 1;
+	.@eqi = .@opt_slots[.@pick];
+	.@id  = .@opt_idlist[.@pick];
+	.@ref = .@opt_reflist[.@pick];
+
+	// Custos
+	if (.CostZeny>0 || (.CostItemId>0 && .CostItemAmt>0)) {
+		mes "[Evolver]";
+		mes "Evoluir ^0055FF"+getitemname(.@id)+"^000000 ^888888(+"+.@ref+")^000000 nesse slot?";
+		if (.CostZeny>0) mes "Custo: ^00AA00"+.CostZeny+" zeny^000000.";
+		if (.CostItemId>0 && .CostItemAmt>0) mes "Custo extra: ^00AA00"+.CostItemAmt+"x "+getitemname(.CostItemId)+"^000000.";
+		if (select("Confirmar:Cancelar")==2) close;
+	}
+	if (.CostZeny>0 && Zeny < .CostZeny) { mes "[Evolver] Zeny insuficiente."; close; }
+	if (.CostItemId>0 && .CostItemAmt>0 && (countitem(.CostItemId) < .CostItemAmt)) {
+		mes "[Evolver] Falta "+.CostItemAmt+"x "+getitemname(.CostItemId)+".";
+		close;
+	}
+	if (.CostZeny>0) Zeny -= .CostZeny;
+	if (.CostItemId>0 && .CostItemAmt>0) delitem .CostItemId, .CostItemAmt;
+
+	// Coleta atributos/cartas do item do SLOT
+	.@attr   = getequipisenableref(.@eqi); // cuidado: algumas builds usam getequipisenable() p/ outra coisa
+	// Em muitas builds, "attribute" do getitem3 é 0 na maioria dos casos.
+	// Vamos buscar por inventário a entrada EXATA para capturar identify/attribute/cartas/opções:
+
+	// Lê inventário completo (entradas equipadas têm equip>0)
+	getinventorylist;
+
+	// Tenta encontrar a entrada que coincide com este item equipado
+	// Critérios: nameid == .@id, refine == .@ref e equip > 0
+	.@inv_idx = -1;
+	for (.@i = 0; .@i < @inventorylist_count; .@i++) {
+		if (@inventorylist_id[.@i] != .@id) continue;
+		if (@inventorylist_refine[.@i] != .@ref) continue;
+		if (@inventorylist_equip[.@i] <= 0) continue; // apenas equipados
+		// (Opcional) checar cartas para maior precisão:
+		// if (getequipcardid(.@eqi,0) != @inventorylist_card1[.@i]) continue; ... etc.
+		.@inv_idx = .@i;
+		break;
+	}
+
+	if (.@inv_idx < 0) {
+		mes "[Evolver] Não consegui localizar a entrada do inventário para esse slot.";
+		close;
+	}
+
+	// Extrai dados exatos da entrada
+	.@identify = @inventorylist_identify[.@inv_idx];
+	.@attribute = @inventorylist_attribute[.@inv_idx];
+	.@card1 = @inventorylist_card1[.@inv_idx];
+	.@card2 = @inventorylist_card2[.@inv_idx];
+	.@card3 = @inventorylist_card3[.@inv_idx];
+	.@card4 = @inventorylist_card4[.@inv_idx];
+
+	// Random Options (máx 5), arrays achatados: offset = inv_idx*5 + j
+	.MAX_OPT = 5;
+	for (.@j = 0; .@j < .MAX_OPT; .@j++) {
+		.@o = .@inv_idx * .MAX_OPT + .@j;
+		.@opt_id[.@j]    = getd("@inventorylist_opt_id["+ .@o +"]");
+		.@opt_val[.@j]   = getd("@inventorylist_opt_val["+ .@o +"]");
+		.@opt_param[.@j] = getd("@inventorylist_opt_param["+ .@o +"]");
+		if (.@opt_id[.@j] > 0) .@opt_val[.@j] = callfunc("safe_mul2", .@opt_val[.@j]);
+	}
+
+	// 1) des-equipar o slot escolhido
+	unequip .@eqi;
+
+	// 2) remover a peça antiga (combinando exatamente)
+	delitem2 .@id, 1, .@identify, .@ref, .@attribute, .@card1, .@card2, .@card3, .@card4;
+
+	// 3) criar a nova (refino 0) com R.O. dobradas
+	getitem3 .@id, 1, 0, .@attribute, .@card1, .@card2, .@card3, .@card4,
+	         .@opt_id[0], .@opt_val[0], .@opt_param[0],
+	         .@opt_id[1], .@opt_val[1], .@opt_param[1],
+	         .@opt_id[2], .@opt_val[2], .@opt_param[2],
+	         .@opt_id[3], .@opt_val[3], .@opt_param[3],
+	         .@opt_id[4], .@opt_val[4], .@opt_param[4];
+
+	// (Opcional) tentar re-equipar a peça nova automaticamente
+	if (.ReequipAfter) {
+		// rAthena normalmente equipa a última peça criada de mesmo tipo ao chamar "equip" por slot,
+		// mas como não há buildin padrão "equip slot", muitas vezes se usa 'equip <item_id>' (equipa a melhor),
+		// ou se deixa o jogador equipar. Se quiser, implemento uma heurística aqui.
+	}
+
+	mes "[Evolver]";
+	mes "Item evoluído! Refino voltou a +0 e as Random Options foram dobradas.";
+	close;
+}

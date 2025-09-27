@@ -1,0 +1,13 @@
+﻿  account.cpp
+E:\PRM\test\02 emu rathena\src\login\account.cpp(805,11): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\login\account.cpp(819,11): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+E:\PRM\test\02 emu rathena\src\login\account.cpp(872,11): warning C4267: '+=': conversão de 'size_t' para 'int', possível perda de dados
+  ipban.cpp
+  login.cpp
+E:\PRM\test\02 emu rathena\src\login\login.cpp(318,15): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  loginchrif.cpp
+  loginclif.cpp
+  logincnslif.cpp
+  loginlog.cpp
+  Gerando Código...
+  login-server.vcxproj -> E:\PRM\test\02 emu rathena\login-server.exe

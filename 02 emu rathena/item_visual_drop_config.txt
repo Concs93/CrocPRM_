@@ -1,0 +1,35 @@
+// ===== CONFIGURAÇÕES DE DROP VISUAL POR ITEM =====
+
+// ===== ITENS BÁSICOS (0.05% base + 0.01% por refino) =====
+// Configuração: 500
+// Exemplos:
+// - Anel de Drop +1: 0.05% + 0.01% = 0.06%
+// - Anel de Drop +5: 0.05% + 0.05% = 0.10%
+// - Anel de Drop +10: 0.05% + 0.10% = 0.15%
+
+// ===== ITENS RAROS (0.10% base + 0.01% por refino) =====
+// Configuração: 1000
+// Exemplos:
+// - Anel de Drop Raro +1: 0.10% + 0.01% = 0.11%
+// - Anel de Drop Raro +5: 0.10% + 0.05% = 0.15%
+// - Anel de Drop Raro +10: 0.10% + 0.10% = 0.20%
+
+// ===== ITENS ÉPICOS (0.20% base + 0.05% por refino) =====
+// Configuração: 2005
+// Exemplos:
+// - Anel de Drop Épico +1: 0.20% + 0.05% = 0.25%
+// - Anel de Drop Épico +5: 0.20% + 0.25% = 0.45%
+// - Anel de Drop Épico +10: 0.20% + 0.50% = 0.70%
+
+// ===== ITENS LENDÁRIOS (0.50% base + 0.01% por refino) =====
+// Configuração: 5000
+// Exemplos:
+// - Anel de Drop Lendário +1: 0.50% + 0.01% = 0.51%
+// - Anel de Drop Lendário +5: 0.50% + 0.05% = 0.55%
+// - Anel de Drop Lendário +10: 0.50% + 0.10% = 0.60%
+
+// ===== COMO IMPLEMENTAR =====
+// 1. Adicionar campo customizado no item_db
+// 2. Usar getiteminfo(item_id, 1000) para ler configuração
+// 3. Substituir bDropAddRace por bonus_script
+// 4. Configurar valores conforme tabela acima

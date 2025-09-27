@@ -1,0 +1,41 @@
+-	script	RatesOnLogin	-1,{
+
+OnInit:
+	debugmes "[RatesOnLogin] script carregado (OK).";
+	end;
+
+OnPCLoginEvent:
+	// lê as battleflags (inteiros em %; 100 = 1.00x)
+	set .@base,  getbattleflag("base_exp_rate");
+	set .@job,   getbattleflag("job_exp_rate");
+	set .@quest, getbattleflag("quest_exp_rate");
+
+	set .@cmn,  getbattleflag("item_rate_common");
+	set .@heal, getbattleflag("item_rate_heal");
+	set .@use,  getbattleflag("item_rate_use");
+	set .@eq,   getbattleflag("item_rate_equip");
+	set .@card, getbattleflag("item_rate_card");
+	set .@mvp,  getbattleflag("item_rate_mvp");
+
+	// NOVO: taxa de zeny
+	set .@zeny, getbattleflag("zeny_rate");
+
+	// formata como W.FF usando /100 (parte inteira) e %100 (duas casas)
+	set .@line1$, sprintf("[RATES] EXP: Base %d.%02dx | Job %d.%02dx | Quest %d.%02dx",
+		.@base/100,  .@base%100,
+		.@job/100,   .@job%100,
+		.@quest/100, .@quest%100);
+
+	set .@line2$, sprintf("[RATES] Drops: Common %d.%02dx | Heal %d.%02dx | Use %d.%02dx | Equip %d.%02dx | Card %d.%02dx | MVP %d.%02dx",
+		.@cmn/100,  .@cmn%100,
+		.@heal/100, .@heal%100,
+		.@use/100,  .@use%100,
+		.@eq/100,   .@eq%100,
+		.@card/100, .@card%100,
+		.@mvp/100,  .@mvp%100);
+
+	dispbottom .@line1$;
+	dispbottom .@line2$;
+	dispbottom .@line3$;
+	end;
+}

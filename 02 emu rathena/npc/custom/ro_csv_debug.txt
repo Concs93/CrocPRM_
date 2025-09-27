@@ -1,0 +1,60 @@
+-	script	RO_CSV_Debug	-1,{
+
+OnInit:
+	bindatcmd "rolist",  strnpcinfo(3)+"::OnList";
+	bindatcmd "roinfo",  strnpcinfo(3)+"::OnInfo";
+	debugmes "[RO CSV DEBUG] helper pronto.";
+	end;
+
+// @rolist  => lista grupos carregados do include
+OnList:
+	if ($ro_groups_count <= 0) {
+		dispbottom "[RO CSV] NENHUM grupo (confira a ordem dos NPCs e use 'reloadscript' no map-server).";
+		end;
+	}
+	dispbottom "[RO CSV] grupos carregados: "+$ro_groups_count;
+	for (.@i = 0; .@i < $ro_groups_count; .@i++)
+		dispbottom " - "+$@ro_groups$[.@i];
+	end;
+
+// @roinfo <group>  => mostra slots e tamanhos do grupo
+OnInfo:
+	.@argc = .@atcmd_numparameters;
+	if (.@argc < 1) {
+		dispbottom "Uso: @roinfo <group>";
+		end;
+	}
+
+	.@g$ = .@atcmd_parameters$[0]; // ex.: armor
+	// checa se existe no catálogo
+	.@found = 0;
+	for (.@i = 0; .@i < $ro_groups_count; .@i++)
+		if ($@ro_groups$[.@i] == .@g$) { .@found = 1; break; }
+
+	if (!.@found) {
+		dispbottom "[RO CSV] Grupo '"+.@g$+"' nao encontrado no include (CSV).";
+		end;
+	}
+
+	// contadores
+	.@slotcount = getd("$ro_slotcount_"+.@g$);
+	.@rand_slots = getd("$rorand_slots_"+.@g$);
+	.@rand_size  = getd("$rorand_size_"+.@g$);
+	dispbottom "[RO CSV] '"+.@g$+"'  slots_fixos="+.@slotcount+"  rand_slots="+.@rand_slots+"  rand_size="+.@rand_size;
+
+	// slots fixos
+	for (.@i = 0; .@i < .@slotcount; .@i++) {
+		.@slot = getd("$@ro_slotnums_"+.@g$+"["+.@i+"]"); // número do slot (1..5)
+		.@sz   = getd("$rok_size_"+.@g$+"_"+.@slot);
+		dispbottom "  - slot "+.@slot+": opcoes="+.@sz;
+		// mostra no máx. 5 chaves do slot, só pra validar
+		.@show = (.@sz < 5) ? .@sz : 5;
+		.@line$ = "    keys: ";
+		for (.@j = 0; .@j < .@show; .@j++) {
+			.@k$ = getd("$@rok_"+.@g$+"_"+.@slot+"$["+.@j+"]");
+			.@line$ += .@k$ + ((.@j < .@show-1) ? ", " : "");
+		}
+		dispbottom .@line$ + ((.@sz > .@show) ? " ..." : "");
+	}
+	end;
+}

@@ -1,0 +1,614 @@
+// AUTO-GERADO a partir de randomopt_groups_semicolon.csv
+// NÃO EDITE À MÃO — rode o script Python para atualizar.
+-	script	RO_Data_From_CSV	-1,{
+
+OnInit:
+	// grupos disponíveis
+	setarray $@ro_groups$[0], "accessory","armor","astrologika","axe","bow","codex","dagger","deck","dracomvp","dracoorb","garment","higherscroll","katar","lowerscroll","manual","scythe","shadow","shield","shoes","spear","sword","whip";
+	set $ro_groups_count, 22;
+	debugmes "[RO CSV] include OK. grupos="+$ro_groups_count;
+
+	// ===== group: accessory — fixed slots =====
+	setarray $@ro_slotnums_accessory[0], 1;
+	set $ro_slotcount_accessory, 1;
+	// slot 1
+	set $rok_size_accessory_1, 9;
+	setarray $@rok_accessory_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT","VAR_PLUSASPD";
+	setarray $@romin_accessory_1[0], 1,1,1,1,1,1,1,1,1;
+	setarray $@romax_accessory_1[0], 1,1,1,1,1,1,1,1,1;
+	setarray $@roch_accessory_1[0], 2000,2000,2000,2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_accessory_1[0], 0,0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_accessory, 0;
+	set $rorand_size_accessory, 0;
+
+	// ===== group: armor — fixed slots =====
+	setarray $@ro_slotnums_armor[0], 1,2,3;
+	set $ro_slotcount_armor, 3;
+	// slot 1
+	set $rok_size_armor_1, 6;
+	setarray $@rok_armor_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_armor_1[0], 2,2,2,2,2,2;
+	setarray $@romax_armor_1[0], 2,2,2,2,2,2;
+	setarray $@roch_armor_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_armor_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_armor_2, 2;
+	setarray $@rok_armor_2$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT";
+	setarray $@romin_armor_2[0], 5,5;
+	setarray $@romax_armor_2[0], 5,5;
+	setarray $@roch_armor_2[0], 5000,5000;
+	setarray $@roparam_armor_2[0], 0,0;
+	// slot 3
+	set $rok_size_armor_3, 3;
+	setarray $@rok_armor_3$[0], "ADDEXPPERCENT_KILLRACE_INSECT","ADDEXPPERCENT_KILLRACE_FISHS","HEAL_MODIFY_PERCENT";
+	setarray $@romin_armor_3[0], 3,3,10;
+	setarray $@romax_armor_3[0], 3,3,10;
+	setarray $@roch_armor_3[0], 5000,5000,5000;
+	setarray $@roparam_armor_3[0], 0,0,0;
+
+	set $rorand_slots_armor, 0;
+	set $rorand_size_armor, 0;
+
+	// ===== group: astrologika — fixed slots =====
+	setarray $@ro_slotnums_astrologika[0], 1,2,3,4;
+	set $ro_slotcount_astrologika, 4;
+	// slot 1
+	set $rok_size_astrologika_1, 6;
+	setarray $@rok_astrologika_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_astrologika_1[0], 2,2,2,2,2,2;
+	setarray $@romax_astrologika_1[0], 2,2,2,2,2,2;
+	setarray $@roch_astrologika_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_astrologika_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_astrologika_2, 4;
+	setarray $@rok_astrologika_2$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATTPOWER","VAR_ATTMPOWER";
+	setarray $@romin_astrologika_2[0], 3,3,3,3;
+	setarray $@romax_astrologika_2[0], 3,3,3,3;
+	setarray $@roch_astrologika_2[0], 5000,5000,2000,5000;
+	setarray $@roparam_astrologika_2[0], 0,0,0,0;
+	// slot 3
+	set $rok_size_astrologika_3, 10;
+	setarray $@rok_astrologika_3$[0], "DEC_SPELL_DELAY_TIME","VAR_PLUSASPDPERCENT","BODY_ATTR_WIND","VAR_PLUSAVOIDSUCCESSVALUE","VAR_PLUSASPDPERCENT","BODY_ATTR_WIND","VAR_HPACCELERATION","VAR_SPACCELERATION","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_NOTHING";
+	setarray $@romin_astrologika_3[0], 10,10,1,3,10,1,20,15,10,10;
+	setarray $@romax_astrologika_3[0], 10,10,1,3,10,1,20,15,10,10;
+	setarray $@roch_astrologika_3[0], 1000,1000,1000,1000,1000,1000,1000,1000,1000,1000;
+	setarray $@roparam_astrologika_3[0], 0,0,0,0,0,0,0,0,0,0;
+	// slot 4
+	set $rok_size_astrologika_4, 157;
+	setarray $@rok_astrologika_4$[0], "DAMAGE_PROPERTY_NOTHING_USER","DAMAGE_PROPERTY_NOTHING_TARGET","DAMAGE_PROPERTY_WATER_USER","DAMAGE_PROPERTY_WATER_TARGET","DAMAGE_PROPERTY_GROUND_USER","DAMAGE_PROPERTY_GROUND_TARGET","DAMAGE_PROPERTY_FIRE_USER","DAMAGE_PROPERTY_FIRE_TARGET","DAMAGE_PROPERTY_WIND_USER","DAMAGE_PROPERTY_WIND_TARGET","DAMAGE_PROPERTY_POISON_USER","DAMAGE_PROPERTY_POISON_TARGET","DAMAGE_PROPERTY_SAINT_USER","DAMAGE_PROPERTY_SAINT_TARGET","DAMAGE_PROPERTY_DARKNESS_USER","DAMAGE_PROPERTY_DARKNESS_TARGET","DAMAGE_PROPERTY_TELEKINESIS_USER","DAMAGE_PROPERTY_TELEKINESIS_TARGET","DAMAGE_PROPERTY_UNDEAD_USER","DAMAGE_PROPERTY_UNDEAD_TARGET","MDAMAGE_PROPERTY_NOTHING_USER","MDAMAGE_PROPERTY_NOTHING_TARGET","MDAMAGE_PROPERTY_WATER_USER","MDAMAGE_PROPERTY_WATER_TARGET","MDAMAGE_PROPERTY_GROUND_USER","MDAMAGE_PROPERTY_GROUND_TARGET","MDAMAGE_PROPERTY_FIRE_USER","MDAMAGE_PROPERTY_FIRE_TARGET","MDAMAGE_PROPERTY_WIND_USER","MDAMAGE_PROPERTY_WIND_TARGET","MDAMAGE_PROPERTY_POISON_USER","MDAMAGE_PROPERTY_POISON_TARGET","MDAMAGE_PROPERTY_SAINT_USER","MDAMAGE_PROPERTY_SAINT_TARGET","MDAMAGE_PROPERTY_DARKNESS_USER","MDAMAGE_PROPERTY_DARKNESS_TARGET","MDAMAGE_PROPERTY_TELEKINESIS_USER","MDAMAGE_PROPERTY_TELEKINESIS_TARGET","MDAMAGE_PROPERTY_UNDEAD_USER","MDAMAGE_PROPERTY_UNDEAD_TARGET","RACE_TOLERACE_NOTHING","RACE_TOLERACE_UNDEAD","RACE_TOLERACE_ANIMAL","RACE_TOLERACE_PLANT","RACE_TOLERACE_INSECT","RACE_TOLERACE_FISHS","RACE_TOLERACE_DEVIL","RACE_TOLERACE_HUMAN","RACE_TOLERACE_ANGEL","RACE_TOLERACE_DRAGON","RACE_DAMAGE_NOTHING","RACE_DAMAGE_UNDEAD","RACE_DAMAGE_ANIMAL","RACE_DAMAGE_PLANT","RACE_DAMAGE_INSECT","RACE_DAMAGE_FISHS","RACE_DAMAGE_DEVIL","RACE_DAMAGE_HUMAN","RACE_DAMAGE_ANGEL","RACE_DAMAGE_DRAGON","RACE_MDAMAGE_NOTHING","RACE_MDAMAGE_UNDEAD","RACE_MDAMAGE_ANIMAL","RACE_MDAMAGE_PLANT","RACE_MDAMAGE_INSECT","RACE_MDAMAGE_FISHS","RACE_MDAMAGE_DEVIL","RACE_MDAMAGE_HUMAN","RACE_MDAMAGE_ANGEL","RACE_MDAMAGE_DRAGON","RACE_CRI_PERCENT_NOTHING","RACE_CRI_PERCENT_UNDEAD","RACE_CRI_PERCENT_ANIMAL","RACE_CRI_PERCENT_PLANT","RACE_CRI_PERCENT_INSECT","RACE_CRI_PERCENT_FISHS","RACE_CRI_PERCENT_DEVIL","RACE_CRI_PERCENT_HUMAN","RACE_CRI_PERCENT_ANGEL","RACE_CRI_PERCENT_DRAGON","RACE_IGNORE_DEF_PERCENT_NOTHING","RACE_IGNORE_DEF_PERCENT_UNDEAD","RACE_IGNORE_DEF_PERCENT_ANIMAL","RACE_IGNORE_DEF_PERCENT_PLANT","RACE_IGNORE_DEF_PERCENT_INSECT","RACE_IGNORE_DEF_PERCENT_FISHS","RACE_IGNORE_DEF_PERCENT_DEVIL","RACE_IGNORE_DEF_PERCENT_HUMAN","RACE_IGNORE_DEF_PERCENT_ANGEL","RACE_IGNORE_DEF_PERCENT_DRAGON","RACE_IGNORE_MDEF_PERCENT_NOTHING","RACE_IGNORE_MDEF_PERCENT_UNDEAD","RACE_IGNORE_MDEF_PERCENT_ANIMAL","RACE_IGNORE_MDEF_PERCENT_PLANT","RACE_IGNORE_MDEF_PERCENT_INSECT","RACE_IGNORE_MDEF_PERCENT_FISHS","RACE_IGNORE_MDEF_PERCENT_DEVIL","RACE_IGNORE_MDEF_PERCENT_HUMAN","RACE_IGNORE_MDEF_PERCENT_ANGEL","RACE_IGNORE_MDEF_PERCENT_DRAGON","CLASS_DAMAGE_NORMAL_TARGET","CLASS_DAMAGE_BOSS_TARGET","CLASS_DAMAGE_NORMAL_USER","CLASS_DAMAGE_BOSS_USER","CLASS_MDAMAGE_NORMAL","CLASS_MDAMAGE_BOSS","DAMAGE_SIZE_SMALL_TARGET","DAMAGE_SIZE_MIDIUM_TARGET","DAMAGE_SIZE_LARGE_TARGET","DAMAGE_SIZE_SMALL_USER","DAMAGE_SIZE_MIDIUM_USER","DAMAGE_SIZE_LARGE_USER","MDAMAGE_SIZE_SMALL_TARGET","MDAMAGE_SIZE_MIDIUM_TARGET","MDAMAGE_SIZE_LARGE_TARGET","MDAMAGE_SIZE_SMALL_USER","MDAMAGE_SIZE_MIDIUM_USER","MDAMAGE_SIZE_LARGE_USER","RACE_WEAPON_TOLERACE_NOTHING","RACE_WEAPON_TOLERACE_UNDEAD","RACE_WEAPON_TOLERACE_ANIMAL","RACE_WEAPON_TOLERACE_PLANT","RACE_WEAPON_TOLERACE_INSECT","RACE_WEAPON_TOLERACE_FISHS","RACE_WEAPON_TOLERACE_DEVIL","RACE_WEAPON_TOLERACE_HUMAN","RACE_WEAPON_TOLERACE_ANGEL","RACE_WEAPON_TOLERACE_DRAGON","RACE_TOLERACE_PLAYER_HUMAN","RACE_TOLERACE_PLAYER_DORAM","RACE_DAMAGE_PLAYER_HUMAN","RACE_DAMAGE_PLAYER_DORAM","RACE_MDAMAGE_PLAYER_HUMAN","RACE_MDAMAGE_PLAYER_DORAM","RACE_CRI_PERCENT_PLAYER_HUMAN","RACE_CRI_PERCENT_PLAYER_DORAM","RACE_IGNORE_DEF_PERCENT_PLAYER_HUMAN","RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM","ADDSKILLMDAMAGE_NOTHING","ADDSKILLMDAMAGE_WATER","ADDSKILLMDAMAGE_GROUND","ADDSKILLMDAMAGE_FIRE","ADDSKILLMDAMAGE_WIND","ADDSKILLMDAMAGE_POISON","ADDSKILLMDAMAGE_SAINT","ADDSKILLMDAMAGE_DARKNESS","ADDSKILLMDAMAGE_TELEKINESIS","BODY_ATTR_NOTHING","BODY_ATTR_WATER","BODY_ATTR_GROUND","ATTR_TOLERACE_UNDEAD","ATTR_TOLERACE_ALLBUTNOTHING","ATTR_TOLERACE_TELEKINESIS","BODY_ATTR_POISON","BODY_ATTR_SAINT","BODY_ATTR_DARKNESS","BODY_ATTR_TELEKINESIS";
+	setarray $@romin_astrologika_4[0], 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2000,5,5,5,3000,5000,5000,5,5,5,5,5,5,5,5000,2000,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
+	setarray $@romax_astrologika_4[0], 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2000,5,5,5,3000,5000,5000,5,5,5,5,5,5,5,5000,2000,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
+	setarray $@roch_astrologika_4[0], 1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000;
+	setarray $@roparam_astrologika_4[0], 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_astrologika, 0;
+	set $rorand_size_astrologika, 0;
+
+	// ===== group: axe — fixed slots =====
+	setarray $@ro_slotnums_axe[0], 1,2,3,4;
+	set $ro_slotcount_axe, 4;
+	// slot 1
+	set $rok_size_axe_1, 4;
+	setarray $@rok_axe_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT";
+	setarray $@romin_axe_1[0], 3,3,3,3;
+	setarray $@romax_axe_1[0], 3,3,3,3;
+	setarray $@roch_axe_1[0], 2000,2000,2000,2000;
+	setarray $@roparam_axe_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_axe_2, 6;
+	setarray $@rok_axe_2$[0], "VAR_ATTPOWER","VAR_ATTMPOWER","DEC_SPELL_DELAY_TIME","VAR_PLUSASPD","VAR_HITSUCCESSVALUE","ADDEXPPERCENT_KILLRACE_HUMAN";
+	setarray $@romin_axe_2[0], 5,5,10,2,20,10;
+	setarray $@romax_axe_2[0], 5,5,10,2,20,10;
+	setarray $@roch_axe_2[0], 3000,3000,3000,3000,3000,3000;
+	setarray $@roparam_axe_2[0], 0,0,0,0,0,0;
+	// slot 3
+	set $rok_size_axe_3, 4;
+	setarray $@rok_axe_3$[0], "ADDSKILLMDAMAGE_ALL","MELEE_ATTACK_DAMAGE_TARGET","DAMAGE_SIZE_PERFECT","REFLECT_DAMAGE_PERCENT";
+	setarray $@romin_axe_3[0], 10,10,0,100;
+	setarray $@romax_axe_3[0], 10,10,0,100;
+	setarray $@roch_axe_3[0], 4000,4000,1000,1000;
+	setarray $@roparam_axe_3[0], 0,0,0,0;
+	// slot 4
+	set $rok_size_axe_4, 8;
+	setarray $@rok_axe_4$[0], "ADDEXPPERCENT_KILLRACE_ALL","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_PLANT","ADDEXPPERCENT_KILLRACE_INSECT","ADDEXPPERCENT_KILLRACE_FISHS","ADDEXPPERCENT_KILLRACE_DEVIL","ADDEXPPERCENT_KILLRACE_ANGEL","ADDEXPPERCENT_KILLRACE_DRAGON";
+	setarray $@romin_axe_4[0], 10,10,200,3,3,10,4,2;
+	setarray $@romax_axe_4[0], 10,10,200,3,3,10,4,2;
+	setarray $@roch_axe_4[0], 4000,4000,4000,4000,4000,4000,4000,1000;
+	setarray $@roparam_axe_4[0], 0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_axe, 0;
+	set $rorand_size_axe, 0;
+
+	// ===== group: bow — fixed slots =====
+	setarray $@ro_slotnums_bow[0], 1,2,3,4;
+	set $ro_slotcount_bow, 4;
+	// slot 1
+	set $rok_size_bow_1, 4;
+	setarray $@rok_bow_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT";
+	setarray $@romin_bow_1[0], 3,3,3,3;
+	setarray $@romax_bow_1[0], 3,3,3,3;
+	setarray $@roch_bow_1[0], 2000,2000,2000,2000;
+	setarray $@roparam_bow_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_bow_2, 6;
+	setarray $@rok_bow_2$[0], "VAR_ATTPOWER","VAR_ATTMPOWER","VAR_CRITICALSUCCESSVALUE","VAR_PLUSASPD","VAR_HITSUCCESSVALUE","ADDEXPPERCENT_KILLRACE_HUMAN";
+	setarray $@romin_bow_2[0], 5,5,10,2,20,10;
+	setarray $@romax_bow_2[0], 5,5,10,2,20,10;
+	setarray $@roch_bow_2[0], 3000,3000,3000,3000,3000,3000;
+	setarray $@roparam_bow_2[0], 0,0,0,0,0,0;
+	// slot 3
+	set $rok_size_bow_3, 4;
+	setarray $@rok_bow_3$[0], "ADDSKILLMDAMAGE_ALL","RANGE_ATTACK_DAMAGE_TARGET","VAR_MAXSPPERCENT","ADDSKILLMDAMAGE_UNDEAD";
+	setarray $@romin_bow_3[0], 10,10,5,2;
+	setarray $@romax_bow_3[0], 10,10,5,2;
+	setarray $@roch_bow_3[0], 4000,4000,2000,1000;
+	setarray $@roparam_bow_3[0], 0,0,0,0;
+	// slot 4
+	set $rok_size_bow_4, 8;
+	setarray $@rok_bow_4$[0], "ADDEXPPERCENT_KILLRACE_ALL","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_PLANT","ADDEXPPERCENT_KILLRACE_UNDEAD","DAMAGE_CRI_TARGET","ADDEXPPERCENT_KILLRACE_DEVIL","ADDEXPPERCENT_KILLRACE_ANGEL","ADDSKILLMDAMAGE_UNDEAD";
+	setarray $@romin_bow_4[0], 10,10,200,10,10,10,1,1;
+	setarray $@romax_bow_4[0], 10,10,200,10,10,10,1,1;
+	setarray $@roch_bow_4[0], 4000,4000,4000,4000,4000,4000,4000,1000;
+	setarray $@roparam_bow_4[0], 0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_bow, 0;
+	set $rorand_size_bow, 0;
+
+	// ===== group: codex — fixed slots =====
+	setarray $@ro_slotnums_codex[0], 1;
+	set $ro_slotcount_codex, 1;
+	// slot 1
+	set $rok_size_codex_1, 6;
+	setarray $@rok_codex_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_codex_1[0], 10,10,10,10,10,10;
+	setarray $@romax_codex_1[0], 10,10,10,10,10,10;
+	setarray $@roch_codex_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_codex_1[0], 0,0,0,0,0,0;
+
+	set $rorand_slots_codex, 0;
+	set $rorand_size_codex, 0;
+
+	// ===== group: dagger — fixed slots =====
+	setarray $@ro_slotnums_dagger[0], 1,2,3,4;
+	set $ro_slotcount_dagger, 4;
+	// slot 1
+	set $rok_size_dagger_1, 4;
+	setarray $@rok_dagger_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT";
+	setarray $@romin_dagger_1[0], 3,3,3,3;
+	setarray $@romax_dagger_1[0], 3,3,3,3;
+	setarray $@roch_dagger_1[0], 2000,2000,2000,2000;
+	setarray $@roparam_dagger_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_dagger_2, 6;
+	setarray $@rok_dagger_2$[0], "VAR_ATTPOWER","VAR_ATTMPOWER","VAR_CRITICALSUCCESSVALUE","VAR_PLUSASPD","VAR_HITSUCCESSVALUE","ADDEXPPERCENT_KILLRACE_HUMAN";
+	setarray $@romin_dagger_2[0], 5,5,10,2,20,10;
+	setarray $@romax_dagger_2[0], 5,5,10,2,20,10;
+	setarray $@roch_dagger_2[0], 3000,3000,3000,3000,3000,3000;
+	setarray $@roparam_dagger_2[0], 0,0,0,0,0,0;
+	// slot 3
+	set $rok_size_dagger_3, 4;
+	setarray $@rok_dagger_3$[0], "ADDSKILLMDAMAGE_ALL","MELEE_ATTACK_DAMAGE_TARGET","DAMAGE_SIZE_PERFECT","REFLECT_DAMAGE_PERCENT";
+	setarray $@romin_dagger_3[0], 10,10,0,100;
+	setarray $@romax_dagger_3[0], 10,10,0,100;
+	setarray $@roch_dagger_3[0], 4000,4000,1000,1000;
+	setarray $@roparam_dagger_3[0], 0,0,0,0;
+	// slot 4
+	set $rok_size_dagger_4, 8;
+	setarray $@rok_dagger_4$[0], "ADDEXPPERCENT_KILLRACE_ALL","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_PLANT","ADDEXPPERCENT_KILLRACE_UNDEAD","DAMAGE_CRI_TARGET","ADDEXPPERCENT_KILLRACE_DEVIL","ADDEXPPERCENT_KILLRACE_ANGEL","ADDEXPPERCENT_KILLRACE_DRAGON";
+	setarray $@romin_dagger_4[0], 10,10,200,10,10,10,2,1;
+	setarray $@romax_dagger_4[0], 10,10,200,10,10,10,2,1;
+	setarray $@roch_dagger_4[0], 4000,4000,4000,4000,4000,4000,4000,1000;
+	setarray $@roparam_dagger_4[0], 0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_dagger, 0;
+	set $rorand_size_dagger, 0;
+
+	// ===== group: deck — fixed slots =====
+	setarray $@ro_slotnums_deck[0], 1,2,3;
+	set $ro_slotcount_deck, 3;
+	// slot 1
+	set $rok_size_deck_1, 2;
+	setarray $@rok_deck_1$[0], "VAR_ATTPOWER","VAR_ATTMPOWER";
+	setarray $@romin_deck_1[0], 7,7;
+	setarray $@romax_deck_1[0], 7,7;
+	setarray $@roch_deck_1[0], 5000,5000;
+	setarray $@roparam_deck_1[0], 0,0;
+	// slot 2
+	set $rok_size_deck_2, 1;
+	setarray $@rok_deck_2$[0], "VAR_LUKAMOUNT";
+	setarray $@romin_deck_2[0], 7;
+	setarray $@romax_deck_2[0], 7;
+	setarray $@roch_deck_2[0], 10000;
+	setarray $@roparam_deck_2[0], 0;
+	// slot 3
+	set $rok_size_deck_3, 1;
+	setarray $@rok_deck_3$[0], "BODY_ATTR_WIND";
+	setarray $@romin_deck_3[0], 7;
+	setarray $@romax_deck_3[0], 7;
+	setarray $@roch_deck_3[0], 1000;
+	setarray $@roparam_deck_3[0], 0;
+
+	set $rorand_slots_deck, 0;
+	set $rorand_size_deck, 0;
+
+	// ===== group: dracomvp — fixed slots =====
+	setarray $@ro_slotnums_dracomvp[0], 1,2;
+	set $ro_slotcount_dracomvp, 2;
+	// slot 1
+	set $rok_size_dracomvp_1, 1;
+	setarray $@rok_dracomvp_1$[0], "BODY_ATTR_UNDEAD";
+	setarray $@romin_dracomvp_1[0], 5;
+	setarray $@romax_dracomvp_1[0], 5;
+	setarray $@roch_dracomvp_1[0], 5000;
+	setarray $@roparam_dracomvp_1[0], 0;
+	// slot 2
+	set $rok_size_dracomvp_2, 1;
+	setarray $@rok_dracomvp_2$[0], "VAR_MAXHPPERCENT";
+	setarray $@romin_dracomvp_2[0], 5;
+	setarray $@romax_dracomvp_2[0], 5;
+	setarray $@roch_dracomvp_2[0], 5000;
+	setarray $@roparam_dracomvp_2[0], 0;
+
+	set $rorand_slots_dracomvp, 0;
+	set $rorand_size_dracomvp, 0;
+
+	// ===== group: dracoorb — fixed slots =====
+	setarray $@ro_slotnums_dracoorb[0], 1,2;
+	set $ro_slotcount_dracoorb, 2;
+	// slot 1
+	set $rok_size_dracoorb_1, 1;
+	setarray $@rok_dracoorb_1$[0], "BODY_ATTR_UNDEAD";
+	setarray $@romin_dracoorb_1[0], 3;
+	setarray $@romax_dracoorb_1[0], 3;
+	setarray $@roch_dracoorb_1[0], 5000;
+	setarray $@roparam_dracoorb_1[0], 0;
+	// slot 2
+	set $rok_size_dracoorb_2, 1;
+	setarray $@rok_dracoorb_2$[0], "VAR_MAXHPPERCENT";
+	setarray $@romin_dracoorb_2[0], 3;
+	setarray $@romax_dracoorb_2[0], 3;
+	setarray $@roch_dracoorb_2[0], 5000;
+	setarray $@roparam_dracoorb_2[0], 0;
+
+	set $rorand_slots_dracoorb, 0;
+	set $rorand_size_dracoorb, 0;
+
+	// ===== group: garment — fixed slots =====
+	setarray $@ro_slotnums_garment[0], 1,2,3;
+	set $ro_slotcount_garment, 3;
+	// slot 1
+	set $rok_size_garment_1, 6;
+	setarray $@rok_garment_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_garment_1[0], 2,2,2,2,2,2;
+	setarray $@romax_garment_1[0], 2,2,2,2,2,2;
+	setarray $@roch_garment_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_garment_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_garment_2, 2;
+	setarray $@rok_garment_2$[0], "VAR_AVOIDSUCCESSVALUE","VAR_PLUSAVOIDSUCCESSVALUE";
+	setarray $@romin_garment_2[0], 10,3;
+	setarray $@romax_garment_2[0], 10,3;
+	setarray $@roch_garment_2[0], 5000,5000;
+	setarray $@roparam_garment_2[0], 0,0;
+	// slot 3
+	set $rok_size_garment_3, 4;
+	setarray $@rok_garment_3$[0], "VAR_HPACCELERATION","VAR_SPACCELERATION","BODY_ATTR_FIRE","ADDEXPPERCENT_KILLRACE_PLANT";
+	setarray $@romin_garment_3[0], 20,10,5,200;
+	setarray $@romax_garment_3[0], 20,10,5,200;
+	setarray $@roch_garment_3[0], 1000,1000,1000,250;
+	setarray $@roparam_garment_3[0], 0,0,0,0;
+
+	set $rorand_slots_garment, 0;
+	set $rorand_size_garment, 0;
+
+	// ===== group: higherscroll — fixed slots =====
+	setarray $@ro_slotnums_higherscroll[0], 1,2,3;
+	set $ro_slotcount_higherscroll, 3;
+	// slot 1
+	set $rok_size_higherscroll_1, 6;
+	setarray $@rok_higherscroll_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_higherscroll_1[0], 1,1,1,1,1,1;
+	setarray $@romax_higherscroll_1[0], 1,1,1,1,1,1;
+	setarray $@roch_higherscroll_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_higherscroll_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_higherscroll_2, 1;
+	setarray $@rok_higherscroll_2$[0], "ATTR_TOLERACE_WATER";
+	setarray $@romin_higherscroll_2[0], 10;
+	setarray $@romax_higherscroll_2[0], 10;
+	setarray $@roch_higherscroll_2[0], 10000;
+	setarray $@roparam_higherscroll_2[0], 0;
+	// slot 3
+	set $rok_size_higherscroll_3, 1;
+	setarray $@rok_higherscroll_3$[0], "ATTR_TOLERACE_GROUND";
+	setarray $@romin_higherscroll_3[0], 10;
+	setarray $@romax_higherscroll_3[0], 10;
+	setarray $@roch_higherscroll_3[0], 10000;
+	setarray $@roparam_higherscroll_3[0], 0;
+
+	set $rorand_slots_higherscroll, 0;
+	set $rorand_size_higherscroll, 0;
+
+	// ===== group: katar — fixed slots =====
+	setarray $@ro_slotnums_katar[0], 1,2,3,4;
+	set $ro_slotcount_katar, 4;
+	// slot 1
+	set $rok_size_katar_1, 4;
+	setarray $@rok_katar_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT";
+	setarray $@romin_katar_1[0], 3,3,3,3;
+	setarray $@romax_katar_1[0], 3,3,3,3;
+	setarray $@roch_katar_1[0], 2000,2000,2000,2000;
+	setarray $@roparam_katar_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_katar_2, 6;
+	setarray $@rok_katar_2$[0], "VAR_ATTPOWER","VAR_ATTMPOWER","VAR_CRITICALSUCCESSVALUE","VAR_PLUSASPD","VAR_HITSUCCESSVALUE","ADDEXPPERCENT_KILLRACE_HUMAN";
+	setarray $@romin_katar_2[0], 5,5,10,2,20,10;
+	setarray $@romax_katar_2[0], 5,5,10,2,20,10;
+	setarray $@roch_katar_2[0], 3000,3000,3000,3000,3000,3000;
+	setarray $@roparam_katar_2[0], 0,0,0,0,0,0;
+	// slot 3
+	set $rok_size_katar_3, 4;
+	setarray $@rok_katar_3$[0], "DAMAGE_CRI_TARGET","MELEE_ATTACK_DAMAGE_TARGET","DAMAGE_SIZE_PERFECT","REFLECT_DAMAGE_PERCENT";
+	setarray $@romin_katar_3[0], 10,10,0,100;
+	setarray $@romax_katar_3[0], 10,10,0,100;
+	setarray $@roch_katar_3[0], 4000,4000,1000,1000;
+	setarray $@roparam_katar_3[0], 0,0,0,0;
+	// slot 4
+	set $rok_size_katar_4, 8;
+	setarray $@rok_katar_4$[0], "ADDEXPPERCENT_KILLRACE_ALL","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_PLANT","CLASS_IGNORE_DEF_PERCENT_NORMAL","DAMAGE_CRI_TARGET","ADDEXPPERCENT_KILLRACE_DEVIL","ADDEXPPERCENT_KILLRACE_ANGEL","ADDEXPPERCENT_KILLRACE_DRAGON";
+	setarray $@romin_katar_4[0], 10,10,200,10,10,10,2,1;
+	setarray $@romax_katar_4[0], 10,10,200,10,10,10,2,1;
+	setarray $@roch_katar_4[0], 4000,4000,4000,4000,4000,4000,4000,4000;
+	setarray $@roparam_katar_4[0], 0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_katar, 0;
+	set $rorand_size_katar, 0;
+
+	// ===== group: lowerscroll — fixed slots =====
+	setarray $@ro_slotnums_lowerscroll[0], 1,2,3;
+	set $ro_slotcount_lowerscroll, 3;
+	// slot 1
+	set $rok_size_lowerscroll_1, 6;
+	setarray $@rok_lowerscroll_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_lowerscroll_1[0], 3,3,3,3,3,3;
+	setarray $@romax_lowerscroll_1[0], 3,3,3,3,3,3;
+	setarray $@roch_lowerscroll_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_lowerscroll_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_lowerscroll_2, 1;
+	setarray $@rok_lowerscroll_2$[0], "ATTR_TOLERACE_WATER";
+	setarray $@romin_lowerscroll_2[0], 5;
+	setarray $@romax_lowerscroll_2[0], 5;
+	setarray $@roch_lowerscroll_2[0], 10000;
+	setarray $@roparam_lowerscroll_2[0], 0;
+	// slot 3
+	set $rok_size_lowerscroll_3, 1;
+	setarray $@rok_lowerscroll_3$[0], "ATTR_TOLERACE_GROUND";
+	setarray $@romin_lowerscroll_3[0], 5;
+	setarray $@romax_lowerscroll_3[0], 5;
+	setarray $@roch_lowerscroll_3[0], 10000;
+	setarray $@roparam_lowerscroll_3[0], 0;
+
+	set $rorand_slots_lowerscroll, 0;
+	set $rorand_size_lowerscroll, 0;
+
+	// ===== group: manual — fixed slots =====
+	setarray $@ro_slotnums_manual[0], 1;
+	set $ro_slotcount_manual, 1;
+	// slot 1
+	set $rok_size_manual_1, 6;
+	setarray $@rok_manual_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_manual_1[0], 1,1,1,1,1,1;
+	setarray $@romax_manual_1[0], 1,1,1,1,1,1;
+	setarray $@roch_manual_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_manual_1[0], 0,0,0,0,0,0;
+
+	set $rorand_slots_manual, 0;
+	set $rorand_size_manual, 0;
+
+	// ===== group: scythe — fixed slots =====
+	setarray $@ro_slotnums_scythe[0], 1,2,3,4;
+	set $ro_slotcount_scythe, 4;
+	// slot 1
+	set $rok_size_scythe_1, 4;
+	setarray $@rok_scythe_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT";
+	setarray $@romin_scythe_1[0], 3,3,3,3;
+	setarray $@romax_scythe_1[0], 3,3,3,3;
+	setarray $@roch_scythe_1[0], 2000,2000,2000,2000;
+	setarray $@roparam_scythe_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_scythe_2, 6;
+	setarray $@rok_scythe_2$[0], "VAR_ATTPOWER","VAR_ATTMPOWER","VAR_CRITICALSUCCESSVALUE","VAR_PLUSASPD","VAR_HITSUCCESSVALUE","ADDEXPPERCENT_KILLRACE_HUMAN";
+	setarray $@romin_scythe_2[0], 5,5,10,2,20,10;
+	setarray $@romax_scythe_2[0], 5,5,10,2,20,10;
+	setarray $@roch_scythe_2[0], 3000,3000,3000,3000,3000,3000;
+	setarray $@roparam_scythe_2[0], 0,0,0,0,0,0;
+	// slot 3
+	set $rok_size_scythe_3, 4;
+	setarray $@rok_scythe_3$[0], "DAMAGE_CRI_TARGET","MELEE_ATTACK_DAMAGE_TARGET","RANGE_ATTACK_DAMAGE_TARGET","REFLECT_DAMAGE_PERCENT";
+	setarray $@romin_scythe_3[0], 10,10,10,100;
+	setarray $@romax_scythe_3[0], 10,10,10,100;
+	setarray $@roch_scythe_3[0], 3000,3000,3000,1000;
+	setarray $@roparam_scythe_3[0], 0,0,0,0;
+	// slot 4
+	set $rok_size_scythe_4, 7;
+	setarray $@rok_scythe_4$[0], "ADDEXPPERCENT_KILLRACE_ALL","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_PLANT","ADDEXPPERCENT_KILLRACE_DEVIL","ADDEXPPERCENT_KILLRACE_ANGEL","ADDEXPPERCENT_KILLRACE_DRAGON","ADDSKILLMDAMAGE_UNDEAD";
+	setarray $@romin_scythe_4[0], 10,10,200,10,7,1,1;
+	setarray $@romax_scythe_4[0], 10,10,200,10,7,1,1;
+	setarray $@roch_scythe_4[0], 4000,4000,4000,4000,4000,4000,4000;
+	setarray $@roparam_scythe_4[0], 0,0,0,0,0,0,0;
+
+	set $rorand_slots_scythe, 0;
+	set $rorand_size_scythe, 0;
+
+	// ===== group: shadow — fixed slots =====
+	setarray $@ro_slotnums_shadow[0], 1,2;
+	set $ro_slotcount_shadow, 2;
+	// slot 1
+	set $rok_size_shadow_1, 6;
+	setarray $@rok_shadow_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_shadow_1[0], 1,1,1,1,1,1;
+	setarray $@romax_shadow_1[0], 1,1,1,1,1,1;
+	setarray $@roch_shadow_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_shadow_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_shadow_2, 157;
+	setarray $@rok_shadow_2$[0], "DAMAGE_PROPERTY_NOTHING_USER","DAMAGE_PROPERTY_NOTHING_TARGET","DAMAGE_PROPERTY_WATER_USER","DAMAGE_PROPERTY_WATER_TARGET","DAMAGE_PROPERTY_GROUND_USER","DAMAGE_PROPERTY_GROUND_TARGET","DAMAGE_PROPERTY_FIRE_USER","DAMAGE_PROPERTY_FIRE_TARGET","DAMAGE_PROPERTY_WIND_USER","DAMAGE_PROPERTY_WIND_TARGET","DAMAGE_PROPERTY_POISON_USER","DAMAGE_PROPERTY_POISON_TARGET","DAMAGE_PROPERTY_SAINT_USER","DAMAGE_PROPERTY_SAINT_TARGET","DAMAGE_PROPERTY_DARKNESS_USER","DAMAGE_PROPERTY_DARKNESS_TARGET","DAMAGE_PROPERTY_TELEKINESIS_USER","DAMAGE_PROPERTY_TELEKINESIS_TARGET","DAMAGE_PROPERTY_UNDEAD_USER","DAMAGE_PROPERTY_UNDEAD_TARGET","MDAMAGE_PROPERTY_NOTHING_USER","MDAMAGE_PROPERTY_NOTHING_TARGET","MDAMAGE_PROPERTY_WATER_USER","MDAMAGE_PROPERTY_WATER_TARGET","MDAMAGE_PROPERTY_GROUND_USER","MDAMAGE_PROPERTY_GROUND_TARGET","MDAMAGE_PROPERTY_FIRE_USER","MDAMAGE_PROPERTY_FIRE_TARGET","MDAMAGE_PROPERTY_WIND_USER","MDAMAGE_PROPERTY_WIND_TARGET","MDAMAGE_PROPERTY_POISON_USER","MDAMAGE_PROPERTY_POISON_TARGET","MDAMAGE_PROPERTY_SAINT_USER","MDAMAGE_PROPERTY_SAINT_TARGET","MDAMAGE_PROPERTY_DARKNESS_USER","MDAMAGE_PROPERTY_DARKNESS_TARGET","MDAMAGE_PROPERTY_TELEKINESIS_USER","MDAMAGE_PROPERTY_TELEKINESIS_TARGET","MDAMAGE_PROPERTY_UNDEAD_USER","MDAMAGE_PROPERTY_UNDEAD_TARGET","RACE_TOLERACE_NOTHING","RACE_TOLERACE_UNDEAD","RACE_TOLERACE_ANIMAL","RACE_TOLERACE_PLANT","RACE_TOLERACE_INSECT","RACE_TOLERACE_FISHS","RACE_TOLERACE_DEVIL","RACE_TOLERACE_HUMAN","RACE_TOLERACE_ANGEL","RACE_TOLERACE_DRAGON","RACE_DAMAGE_NOTHING","RACE_DAMAGE_UNDEAD","RACE_DAMAGE_ANIMAL","RACE_DAMAGE_PLANT","RACE_DAMAGE_INSECT","RACE_DAMAGE_FISHS","RACE_DAMAGE_DEVIL","RACE_DAMAGE_HUMAN","RACE_DAMAGE_ANGEL","RACE_DAMAGE_DRAGON","RACE_MDAMAGE_NOTHING","RACE_MDAMAGE_UNDEAD","RACE_MDAMAGE_ANIMAL","RACE_MDAMAGE_PLANT","RACE_MDAMAGE_INSECT","RACE_MDAMAGE_FISHS","RACE_MDAMAGE_DEVIL","RACE_MDAMAGE_HUMAN","RACE_MDAMAGE_ANGEL","RACE_MDAMAGE_DRAGON","RACE_CRI_PERCENT_NOTHING","RACE_CRI_PERCENT_UNDEAD","RACE_CRI_PERCENT_ANIMAL","RACE_CRI_PERCENT_PLANT","RACE_CRI_PERCENT_INSECT","RACE_CRI_PERCENT_FISHS","RACE_CRI_PERCENT_DEVIL","RACE_CRI_PERCENT_HUMAN","RACE_CRI_PERCENT_ANGEL","RACE_CRI_PERCENT_DRAGON","RACE_IGNORE_DEF_PERCENT_NOTHING","RACE_IGNORE_DEF_PERCENT_UNDEAD","RACE_IGNORE_DEF_PERCENT_ANIMAL","RACE_IGNORE_DEF_PERCENT_PLANT","RACE_IGNORE_DEF_PERCENT_INSECT","RACE_IGNORE_DEF_PERCENT_FISHS","RACE_IGNORE_DEF_PERCENT_DEVIL","RACE_IGNORE_DEF_PERCENT_HUMAN","RACE_IGNORE_DEF_PERCENT_ANGEL","RACE_IGNORE_DEF_PERCENT_DRAGON","RACE_IGNORE_MDEF_PERCENT_NOTHING","RACE_IGNORE_MDEF_PERCENT_UNDEAD","RACE_IGNORE_MDEF_PERCENT_ANIMAL","RACE_IGNORE_MDEF_PERCENT_PLANT","RACE_IGNORE_MDEF_PERCENT_INSECT","RACE_IGNORE_MDEF_PERCENT_FISHS","RACE_IGNORE_MDEF_PERCENT_DEVIL","RACE_IGNORE_MDEF_PERCENT_HUMAN","RACE_IGNORE_MDEF_PERCENT_ANGEL","RACE_IGNORE_MDEF_PERCENT_DRAGON","CLASS_DAMAGE_NORMAL_TARGET","CLASS_DAMAGE_BOSS_TARGET","CLASS_DAMAGE_NORMAL_USER","CLASS_DAMAGE_BOSS_USER","CLASS_MDAMAGE_NORMAL","CLASS_MDAMAGE_BOSS","DAMAGE_SIZE_SMALL_TARGET","DAMAGE_SIZE_MIDIUM_TARGET","DAMAGE_SIZE_LARGE_TARGET","DAMAGE_SIZE_SMALL_USER","DAMAGE_SIZE_MIDIUM_USER","DAMAGE_SIZE_LARGE_USER","MDAMAGE_SIZE_SMALL_TARGET","MDAMAGE_SIZE_MIDIUM_TARGET","MDAMAGE_SIZE_LARGE_TARGET","MDAMAGE_SIZE_SMALL_USER","MDAMAGE_SIZE_MIDIUM_USER","MDAMAGE_SIZE_LARGE_USER","RACE_WEAPON_TOLERACE_NOTHING","RACE_WEAPON_TOLERACE_UNDEAD","RACE_WEAPON_TOLERACE_ANIMAL","RACE_WEAPON_TOLERACE_PLANT","RACE_WEAPON_TOLERACE_INSECT","RACE_WEAPON_TOLERACE_FISHS","RACE_WEAPON_TOLERACE_DEVIL","RACE_WEAPON_TOLERACE_HUMAN","RACE_WEAPON_TOLERACE_ANGEL","RACE_WEAPON_TOLERACE_DRAGON","RACE_TOLERACE_PLAYER_HUMAN","RACE_TOLERACE_PLAYER_DORAM","RACE_DAMAGE_PLAYER_HUMAN","RACE_DAMAGE_PLAYER_DORAM","RACE_MDAMAGE_PLAYER_HUMAN","RACE_MDAMAGE_PLAYER_DORAM","RACE_CRI_PERCENT_PLAYER_HUMAN","RACE_CRI_PERCENT_PLAYER_DORAM","RACE_IGNORE_DEF_PERCENT_PLAYER_HUMAN","RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM","ADDSKILLMDAMAGE_NOTHING","ADDSKILLMDAMAGE_WATER","ADDSKILLMDAMAGE_GROUND","ADDSKILLMDAMAGE_FIRE","ADDSKILLMDAMAGE_WIND","ADDSKILLMDAMAGE_POISON","ADDSKILLMDAMAGE_SAINT","ADDSKILLMDAMAGE_DARKNESS","ADDSKILLMDAMAGE_TELEKINESIS","BODY_ATTR_NOTHING","BODY_ATTR_WATER","BODY_ATTR_GROUND","ATTR_TOLERACE_UNDEAD","ATTR_TOLERACE_ALLBUTNOTHING","ATTR_TOLERACE_TELEKINESIS","BODY_ATTR_POISON","BODY_ATTR_SAINT","BODY_ATTR_DARKNESS","BODY_ATTR_TELEKINESIS";
+	setarray $@romin_shadow_2[0], 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2000,5,5,5,3000,5000,5000,5,5,5,5,5,5,5,5000,2000,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
+	setarray $@romax_shadow_2[0], 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2000,5,5,5,3000,5000,5000,5,5,5,5,5,5,5,5000,2000,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5;
+	setarray $@roch_shadow_2[0], 1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000;
+	setarray $@roparam_shadow_2[0], 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_shadow, 0;
+	set $rorand_size_shadow, 0;
+
+	// ===== group: shield — fixed slots =====
+	setarray $@ro_slotnums_shield[0], 1,2,3;
+	set $ro_slotcount_shield, 3;
+	// slot 1
+	set $rok_size_shield_1, 6;
+	setarray $@rok_shield_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_shield_1[0], 2,2,2,2,2,2;
+	setarray $@romax_shield_1[0], 2,2,2,2,2,2;
+	setarray $@roch_shield_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_shield_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_shield_2, 3;
+	setarray $@rok_shield_2$[0], "VAR_ITEMDEFPOWER","VAR_MDEFPOWER","VAR_PLUSAVOIDSUCCESSVALUE";
+	setarray $@romin_shield_2[0], 5,3,2;
+	setarray $@romax_shield_2[0], 5,3,2;
+	setarray $@roch_shield_2[0], 4000,4000,4000;
+	setarray $@roparam_shield_2[0], 0,0,0;
+	// slot 3
+	set $rok_size_shield_3, 3;
+	setarray $@rok_shield_3$[0], "ADDEXPPERCENT_KILLRACE_INSECT","ADDEXPPERCENT_KILLRACE_FISHS","HEAL_MODIFY_PERCENT";
+	setarray $@romin_shield_3[0], 3,3,10;
+	setarray $@romax_shield_3[0], 3,3,10;
+	setarray $@roch_shield_3[0], 5000,5000,5000;
+	setarray $@roparam_shield_3[0], 0,0,0;
+
+	set $rorand_slots_shield, 0;
+	set $rorand_size_shield, 0;
+
+	// ===== group: shoes — fixed slots =====
+	setarray $@ro_slotnums_shoes[0], 1,2,3;
+	set $ro_slotcount_shoes, 3;
+	// slot 1
+	set $rok_size_shoes_1, 6;
+	setarray $@rok_shoes_1$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_shoes_1[0], 2,2,2,2,2,2;
+	setarray $@romax_shoes_1[0], 2,2,2,2,2,2;
+	setarray $@roch_shoes_1[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_shoes_1[0], 0,0,0,0,0,0;
+	// slot 2
+	set $rok_size_shoes_2, 2;
+	setarray $@rok_shoes_2$[0], "ADDEXPPERCENT_KILLRACE_NOTHING","VAR_PLUSASPDPERCENT";
+	setarray $@romin_shoes_2[0], 10,10;
+	setarray $@romax_shoes_2[0], 10,10;
+	setarray $@roch_shoes_2[0], 5000,5000;
+	setarray $@roparam_shoes_2[0], 0,0;
+	// slot 3
+	set $rok_size_shoes_3, 3;
+	setarray $@rok_shoes_3$[0], "DEC_SPELL_CAST_TIME","DEC_SPELL_DELAY_TIME","BODY_ATTR_WIND";
+	setarray $@romin_shoes_3[0], 10,10,1;
+	setarray $@romax_shoes_3[0], 10,10,1;
+	setarray $@roch_shoes_3[0], 1000,1000,1000;
+	setarray $@roparam_shoes_3[0], 0,0,0;
+
+	set $rorand_slots_shoes, 0;
+	set $rorand_size_shoes, 0;
+
+	// ===== group: spear — fixed slots =====
+	setarray $@ro_slotnums_spear[0], 1,2,3;
+	set $ro_slotcount_spear, 3;
+	// slot 1
+	set $rok_size_spear_1, 2;
+	setarray $@rok_spear_1$[0], "VAR_ATTPOWER","VAR_ATTMPOWER";
+	setarray $@romin_spear_1[0], 5,5;
+	setarray $@romax_spear_1[0], 5,5;
+	setarray $@roch_spear_1[0], 5000,5000;
+	setarray $@roparam_spear_1[0], 0,0;
+	// slot 2
+	set $rok_size_spear_2, 2;
+	setarray $@rok_spear_2$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT";
+	setarray $@romin_spear_2[0], 10,10;
+	setarray $@romax_spear_2[0], 10,10;
+	setarray $@roch_spear_2[0], 5000,5000;
+	setarray $@roparam_spear_2[0], 0,0;
+	// slot 3
+	set $rok_size_spear_3, 6;
+	setarray $@rok_spear_3$[0], "VAR_STRAMOUNT","VAR_AGIAMOUNT","VAR_VITAMOUNT","VAR_INTAMOUNT","VAR_DEXAMOUNT","VAR_LUKAMOUNT";
+	setarray $@romin_spear_3[0], 3,3,3,3,3,3;
+	setarray $@romax_spear_3[0], 3,3,3,3,3,3;
+	setarray $@roch_spear_3[0], 2000,2000,2000,2000,2000,2000;
+	setarray $@roparam_spear_3[0], 0,0,0,0,0,0;
+
+	set $rorand_slots_spear, 0;
+	set $rorand_size_spear, 0;
+
+	// ===== group: sword — fixed slots =====
+	setarray $@ro_slotnums_sword[0], 1,2,3,4;
+	set $ro_slotcount_sword, 4;
+	// slot 1
+	set $rok_size_sword_1, 4;
+	setarray $@rok_sword_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATKPERCENT","VAR_MAGICATKPERCENT";
+	setarray $@romin_sword_1[0], 3,3,3,3;
+	setarray $@romax_sword_1[0], 3,3,3,3;
+	setarray $@roch_sword_1[0], 2000,2000,2000,2000;
+	setarray $@roparam_sword_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_sword_2, 6;
+	setarray $@rok_sword_2$[0], "VAR_ATTPOWER","VAR_ATTMPOWER","VAR_CRITICALSUCCESSVALUE","VAR_PLUSASPD","VAR_HITSUCCESSVALUE","ADDEXPPERCENT_KILLRACE_HUMAN";
+	setarray $@romin_sword_2[0], 5,5,10,2,20,10;
+	setarray $@romax_sword_2[0], 5,5,10,2,20,10;
+	setarray $@roch_sword_2[0], 3000,3000,3000,3000,3000,3000;
+	setarray $@roparam_sword_2[0], 0,0,0,0,0,0;
+	// slot 3
+	set $rok_size_sword_3, 5;
+	setarray $@rok_sword_3$[0], "ADDSKILLMDAMAGE_ALL","MELEE_ATTACK_DAMAGE_TARGET","RANGE_ATTACK_DAMAGE_TARGET","DAMAGE_SIZE_PERFECT","REFLECT_DAMAGE_PERCENT";
+	setarray $@romin_sword_3[0], 10,10,10,0,100;
+	setarray $@romax_sword_3[0], 10,10,10,0,100;
+	setarray $@roch_sword_3[0], 4000,4000,4000,1000,1000;
+	setarray $@roparam_sword_3[0], 0,0,0,0,0;
+	// slot 4
+	set $rok_size_sword_4, 8;
+	setarray $@rok_sword_4$[0], "ADDEXPPERCENT_KILLRACE_ALL","ADDEXPPERCENT_KILLRACE_ANIMAL","ADDEXPPERCENT_KILLRACE_PLANT","CLASS_IGNORE_DEF_PERCENT_NORMAL","CLASS_IGNORE_MDEF_PERCENT_NORMAL","ADDEXPPERCENT_KILLRACE_DEVIL","ADDEXPPERCENT_KILLRACE_ANGEL","ADDEXPPERCENT_KILLRACE_DRAGON";
+	setarray $@romin_sword_4[0], 10,10,200,10,10,10,3,1;
+	setarray $@romax_sword_4[0], 10,10,200,10,10,10,3,1;
+	setarray $@roch_sword_4[0], 4000,4000,4000,1000,4000,4000,4000,1000;
+	setarray $@roparam_sword_4[0], 0,0,0,0,0,0,0,0;
+
+	set $rorand_slots_sword, 0;
+	set $rorand_size_sword, 0;
+
+	// ===== group: whip — fixed slots =====
+	setarray $@ro_slotnums_whip[0], 1,2,3;
+	set $ro_slotcount_whip, 3;
+	// slot 1
+	set $rok_size_whip_1, 4;
+	setarray $@rok_whip_1$[0], "VAR_MAXHPPERCENT","VAR_MAXSPPERCENT","VAR_ATTPOWER","VAR_ATTMPOWER";
+	setarray $@romin_whip_1[0], 3,3,5,5;
+	setarray $@romax_whip_1[0], 3,3,5,5;
+	setarray $@roch_whip_1[0], 2000,2000,3000,3000;
+	setarray $@roparam_whip_1[0], 0,0,0,0;
+	// slot 2
+	set $rok_size_whip_2, 4;
+	setarray $@rok_whip_2$[0], "MELEE_ATTACK_DAMAGE_TARGET","RANGE_ATTACK_DAMAGE_TARGET","VAR_MAGICATKPERCENT","DAMAGE_CRI_TARGET";
+	setarray $@romin_whip_2[0], 5,5,5,5;
+	setarray $@romax_whip_2[0], 5,5,5,5;
+	setarray $@roch_whip_2[0], 4000,4000,2000,4000;
+	setarray $@roparam_whip_2[0], 0,0,0,0;
+	// slot 3
+	set $rok_size_whip_3, 3;
+	setarray $@rok_whip_3$[0], "VAR_PLUSASPD","DEC_SPELL_DELAY_TIME","VAR_CRITICALSUCCESSVALUE";
+	setarray $@romin_whip_3[0], 2,5,5;
+	setarray $@romax_whip_3[0], 2,5,5;
+	setarray $@roch_whip_3[0], 3000,1000,3000;
+	setarray $@roparam_whip_3[0], 0,0,0;
+
+	set $rorand_slots_whip, 0;
+	set $rorand_size_whip, 0;
+
+	end;
+}

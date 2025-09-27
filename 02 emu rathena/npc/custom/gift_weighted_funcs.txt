@@ -1,0 +1,68 @@
+// helper global: roleta ponderada
+function	script	F_PickWeighted	{
+	.@argc = getargcount();
+	.@sum = 0;
+	for (.@i = 0; .@i < .@argc; .@i += 2) .@sum += getarg(.@i+1);
+	.@r = rand(.@sum);
+	.@acc = 0;
+	for (.@i = 0; .@i < .@argc; .@i += 2) {
+		.@acc += getarg(.@i+1);
+		if (.@r < .@acc) return getarg(.@i);
+	}
+	return getarg(0);
+}
+
+// Gift Box - 644  (p(664|644) ≈ 0.5)
+function	script	GiftToyBox	{
+	getitem callfunc("F_PickWeighted",
+		664,10,
+		15249,1, 5260,1, 5445,1, 1468,1, 1308,1,
+		1238,1, 24342,1, 24343,1, 24344,1, 24345,1
+	), 1;
+	end;
+}
+
+// 664 (p(665|664) ≈ 0.5) — sem duplicata de 31476
+function	script	GiftToyBox2	{
+	getitem callfunc("F_PickWeighted",
+		665,5,
+		19682,1, 19767,1, 31314,1, 31476,1, 19683,1
+	), 1;
+	end;
+}
+
+// 665 (p(666|665) ≈ 0.4)
+function	script	GiftToyBox3	{
+	getitem callfunc("F_PickWeighted",
+		666,10,
+		20191,3, 20019,3, 20463,3, 19738,3, 19935,3
+	), 1;
+	end;
+}
+
+// 666 (p(667|666) ≈ 0.2952)
+function	script	GiftToyBox4	{
+	getitem callfunc("F_PickWeighted",
+		667,67,
+		31922,32, 31407,32, 31575,32, 31638,32, 31944,32
+	), 1;
+	end;
+}
+
+// 667 (agora com PESO 11 para 668 e 11 para cada outro)
+function	script	GiftToyBox5	{
+	getitem callfunc("F_PickWeighted",
+		668,11,
+		19930,11, 31190,11, 31195,11, 31465,11, 31153,11
+	), 1;
+	end;
+}
+
+// 668 (uniforme)
+function	script	GiftToyBox6	{
+	getitem callfunc("F_PickWeighted",
+		31062,10, 31395,10, 31415,10, 31481,10, 31565,10,
+		31708,10, 31735,10, 31827,10, 20102,10, 31721,10
+	), 1;
+	end;
+}

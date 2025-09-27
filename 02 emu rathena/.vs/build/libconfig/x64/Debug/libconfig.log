@@ -1,0 +1,34 @@
+﻿  grammar.c
+  libconfig.c
+  scanctx.c
+  scanner.c
+\scanner.c(941,3): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.l(182,1): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1452,22): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1460,3): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1417,59): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1430,35): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1907,43): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1945,19): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+\scanner.c(1967,39): warning C4267: 'função': conversão de 'size_t' para 'int', possível perda de dados
+  (compilando o arquivo fonte 'scanner.c')
+  
+  strbuf.c
+  Gerando Código...
+  libconfig.vcxproj -> E:\PRM\test\02 emu rathena\.vs\build\libconfig.lib

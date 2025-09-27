@@ -1,0 +1,4 @@
+// npc/custom/clone_self_test.txt
+-	script	CloneSelfTest	-1,{
+
+}

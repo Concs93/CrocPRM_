@@ -1,0 +1,206 @@
+Item_ID,Item_Aegis_Name,Item_Display_Name,Drop_Type,Target_Item_ID,Target_Item_Name,Target_Item_Aegis,Rate,Race,Script_Example,Notes
+4030,King_Poring_Card,King Poring Card,item,909,Jellopy,Jellopy,10000,All,"bonus2 bAddMonsterDropItem,909,10000",Aumenta drop de item específico de todos os monstros
+4188,Leib_Olmai_Card,Leib Olmai Card,item,990,Red Blood,Boody_Red,100,RC_Brute,"bonus2 bAddMonsterDropItem,990,100",Aumenta drop de item específico de monstros da raça RC_Brute
+4205,Mimic_Card,Mimic Card,item,603,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,603,10",Aumenta drop de item específico de todos os monstros
+4224,Stem_Worm_Card,Stem Worm Card,item,12032,Unknown Item,Unknown_Aegis,100,RC_Brute,"bonus2 bAddMonsterDropItem,12032,100",Aumenta drop de item específico de monstros da raça RC_Brute
+4265,Li_Me_Mang_Ryang_Card,Jing Guai Card,item,12033,Unknown Item,Unknown_Aegis,100,RC_Angel,"bonus2 bAddMonsterDropItem,12033,100",Aumenta drop de item específico de monstros da raça RC_Angel
+4271,Giant_Honet_Card,Giant Hornet Card,item,992,Wind of Verdure,Wind_Of_Verdure,100,RC_Insect,"bonus2 bAddMonsterDropItem,992,100",Aumenta drop de item específico de monstros da raça RC_Insect
+4344,Anopheles_Card,Anopheles Card,item,12058,Unknown Item,Unknown_Aegis,50,RC_Insect,"bonus2 bAddMonsterDropItem,12058,50",Aumenta drop de item específico de monstros da raça RC_Insect
+4385,Dragon_Egg_Card,Dragon Egg Card,item,12048,Unknown Item,Unknown_Aegis,50,RC_Dragon,"bonus2 bAddMonsterDropItem,12048,50",Aumenta drop de item específico de monstros da raça RC_Dragon
+4389,Plasma_Card,Plasma Card,item,12118,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12118,50",Aumenta drop de item específico de todos os monstros
+4389,Plasma_Card,Plasma Card,item,12119,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12119,50",Aumenta drop de item específico de todos os monstros
+4389,Plasma_Card,Plasma Card,item,12120,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12120,50",Aumenta drop de item específico de todos os monstros
+4389,Plasma_Card,Plasma Card,item,12121,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12121,50",Aumenta drop de item específico de todos os monstros
+4468,Pinguicula_Dark_Card,Dark Pinguicula Card,item,7932,Poison Herb Nerium,Poison_Herb_Nerium,10,All,"bonus2 bAddMonsterDropItem,7932,10",Aumenta drop de item específico de todos os monstros
+4468,Pinguicula_Dark_Card,Dark Pinguicula Card,item,7933,Poison Herb Rantana,Poison_Herb_Rantana,10,All,"bonus2 bAddMonsterDropItem,7933,10",Aumenta drop de item específico de todos os monstros
+4468,Pinguicula_Dark_Card,Dark Pinguicula Card,item,7934,Poison Herb Makulata,Poison_Herb_Makulata,10,All,"bonus2 bAddMonsterDropItem,7934,10",Aumenta drop de item específico de todos os monstros
+4468,Pinguicula_Dark_Card,Dark Pinguicula Card,item,7935,Poison Herb Seratum,Poison_Herb_Seratum,10,All,"bonus2 bAddMonsterDropItem,7935,10",Aumenta drop de item específico de todos os monstros
+4468,Pinguicula_Dark_Card,Dark Pinguicula Card,item,7936,Poison Herb Scoporia,Poison_Herb_Scopolia,10,All,"bonus2 bAddMonsterDropItem,7936,10",Aumenta drop de item específico de todos os monstros
+4468,Pinguicula_Dark_Card,Dark Pinguicula Card,item,7937,Poison Herb Amoena,Poison_Herb_Amoena,10,All,"bonus2 bAddMonsterDropItem,7937,10",Aumenta drop de item específico de todos os monstros
+4498,Sealed_Lady_Tanee_Card,Sealed Lady Tanee Card,item,513,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,513,100",Aumenta drop de item específico de todos os monstros
+4880,Lucky_Day,Lucky Day,item,7444,Treasure Box,Treasure_Box,10,All,"bonus2 bAddMonsterDropItem,7444,10",Aumenta drop de item específico de todos os monstros
+4880,Lucky_Day,Lucky Day,item,7444,Treasure Box,Treasure_Box,1,All,"bonus2 bAddMonsterDropItem,7444,1",Aumenta drop de item específico de todos os monstros
+25706,HighpriestStone_Top,High Priest Stone (Upper),item,664,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,664,30",Aumenta drop de item específico de todos os monstros
+25706,HighpriestStone_Top,High Priest Stone (Upper),item,665,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,665,30",Aumenta drop de item específico de todos os monstros
+25706,HighpriestStone_Top,High Priest Stone (Upper),item,666,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,666,30",Aumenta drop de item específico de todos os monstros
+25706,HighpriestStone_Top,High Priest Stone (Upper),item,667,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,667,30",Aumenta drop de item específico de todos os monstros
+27200,Nihil_Card,Nihil Card,item,12806,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,12806,30",Aumenta drop de item específico de todos os monstros
+1300,Cleaver_,Cleaver,item,517,Unknown Item,Unknown_Aegis,3000,RC_Brute,"bonus2 bAddMonsterDropItem,517,3000",Aumenta drop de item específico de monstros da raça RC_Brute
+1422,Hunting_Spear,Hunting Spear,item,517,Unknown Item,Unknown_Aegis,1000,RC_Brute,"bonus2 bAddMonsterDropItem,517,1000",Aumenta drop de item específico de monstros da raça RC_Brute
+2705,Golden_Accessory2,Golden Accessories,item,12018,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,12018,500",Aumenta drop de item específico de todos os monstros
+5105,Hat_Of_Cake_,2nd Anniversary Hat,item,7864,Love Flower,Love_Flower,7,All,"bonus2 bAddMonsterDropItem,7864,7",Aumenta drop de item específico de todos os monstros
+5105,Hat_Of_Cake_,2nd Anniversary Hat,item,7864,Love Flower,Love_Flower,7,All,"bonus2 bAddMonsterDropItem,7864,7",Aumenta drop de item específico de todos os monstros
+5108,Detective_Hat,Renown Detective's Cap,item,605,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,605,100",Aumenta drop de item específico de todos os monstros
+5202,Pumpkin_Hat_,Fantastic Pumpkin-Head,item,529,Unknown Item,Unknown_Aegis,1500,RC_DemiHuman,"bonus2 bAddMonsterDropItem,529,1500",Aumenta drop de item específico de monstros da raça RC_DemiHuman
+5204,Event_Pierrot_Nose,Rudolph's Nose,item,12130,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,12130,30",Aumenta drop de item específico de todos os monstros
+5213,Black_Bunny_Band,Sheila Hairnet,item,558,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,558,500",Aumenta drop de item específico de todos os monstros
+5307,Carmen_Miranda's_Hat,Carmen Miranda's Hat,item,512,Unknown Item,Unknown_Aegis,10,RC_All,"bonus2 bAddMonsterDropItem,512,10",Aumenta drop de item específico de monstros da raça RC_All
+5307,Carmen_Miranda's_Hat,Carmen Miranda's Hat,item,513,Unknown Item,Unknown_Aegis,10,RC_All,"bonus2 bAddMonsterDropItem,513,10",Aumenta drop de item específico de monstros da raça RC_All
+5307,Carmen_Miranda's_Hat,Carmen Miranda's Hat,item,514,Unknown Item,Unknown_Aegis,10,RC_All,"bonus2 bAddMonsterDropItem,514,10",Aumenta drop de item específico de monstros da raça RC_All
+5307,Carmen_Miranda's_Hat,Carmen Miranda's Hat,item,578,Unknown Item,Unknown_Aegis,10,RC_All,"bonus2 bAddMonsterDropItem,578,10",Aumenta drop de item específico de monstros da raça RC_All
+5321,Indonesian_Bandana,Bandana Merah Putih,item,518,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,518,300",Aumenta drop de item específico de todos os monstros
+5364,Dark_Snake_Lord_Hat,Evil Snake Lord Hat,item,12582,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,12582,30",Aumenta drop de item específico de todos os monstros
+5368,White_Wing,White Wing,item,12280,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,12280,300",Aumenta drop de item específico de todos os monstros
+5369,Dark_Wing,Dark Wing,item,12279,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,12279,300",Aumenta drop de item específico de todos os monstros
+5386,Ayam_,Ayam,item,12198,Unknown Item,Unknown_Aegis,200,All,"bonus2 bAddMonsterDropItem,12198,200",Aumenta drop de item específico de todos os monstros
+5391,Toast_C,Toast,item,617,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,617,10",Aumenta drop de item específico de todos os monstros
+5472,Red_White_Hat,Red Hat,item,554,Unknown Item,Unknown_Aegis,200,RC_DemiHuman,"bonus2 bAddMonsterDropItem,554,200",Aumenta drop de item específico de monstros da raça RC_DemiHuman
+5473,Forceps_Hairpin,Nipper Crab Hairpin,item,991,Crystal Blue,Crystal_Blue,100,RC_Fish,"bonus2 bAddMonsterDropItem,991,100",Aumenta drop de item específico de monstros da raça RC_Fish
+5536,Spare_Card,Spare Card,item,6187,Blank Card,Blank_Card,500,All,"bonus2 bAddMonsterDropItem,6187,500",Aumenta drop de item específico de todos os monstros
+5558,Saci_Hat,Luxury Hat,item,510,Unknown Item,Unknown_Aegis,20,RC_Plant,"bonus2 bAddMonsterDropItem,510,20",Aumenta drop de item específico de monstros da raça RC_Plant
+5573,Bogy_Horn,Dokebi Horn,item_group,Jewel,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItemGroup,IG_Jewel,100",Aumenta drop de itens do grupo Jewel
+5668,Weird_Pumpkin_Hat,Weird Pumpkin Hat,item,12192,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,12192,100",Aumenta drop de item específico de todos os monstros
+5675,Poring_Letter,Poring Letter,item,619,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,619,10",Aumenta drop de item específico de todos os monstros
+5742,Rudolf_Santa_Hat,Rudolph Santa Hat,item,538,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,538,100",Aumenta drop de item específico de todos os monstros
+5742,Rudolf_Santa_Hat,Rudolph Santa Hat,item,539,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,539,100",Aumenta drop de item específico de todos os monstros
+5777,Remover_Hat,Remover Hat,item,713,Empty Bottle,Empty_Bottle,200,RC_Formless,"bonus2 bAddMonsterDropItem,713,200",Aumenta drop de item específico de monstros da raça RC_Formless
+5777,Remover_Hat,Remover Hat,item,971,Detrimindexta,Detrimindexta,30,RC_Formless,"bonus2 bAddMonsterDropItem,971,30",Aumenta drop de item específico de monstros da raça RC_Formless
+5777,Remover_Hat,Remover Hat,item,972,Karvodailnirol,Karvodailnirol,10,RC_Formless,"bonus2 bAddMonsterDropItem,972,10",Aumenta drop de item específico de monstros da raça RC_Formless
+5802,Upgrade_Elephant_Hat,Upgraded Elephant Hat,item,608,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,608,100",Aumenta drop de item específico de todos os monstros
+5902,Harvester_Hat_,Harvester Hat,item,6211,Bloodsuck Plant Seed,Bloodsuck_Plant_Seed,100,All,"bonus2 bAddMonsterDropItem,6211,100",Aumenta drop de item específico de todos os monstros
+5902,Harvester_Hat_,Harvester Hat,item,6212,Bomb Mushroom Spore,Bomb_Mushroom_Spore,100,All,"bonus2 bAddMonsterDropItem,6212,100",Aumenta drop de item específico de todos os monstros
+5902,Harvester_Hat_,Harvester Hat,item,6210,Seed Of Thorny Plant,Seed_Of_Horny_Plant,50,All,"bonus2 bAddMonsterDropItem,6210,50",Aumenta drop de item específico de todos os monstros
+5934,Happy_Balloon_J,Happy Balloon,item,12355,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,12355,30",Aumenta drop de item específico de todos os monstros
+15113,Shadow_M_Coat,Shadow M Coat,item,25729,Shadowdecon,Shadowdecon,20,All,"bonus2 bAddMonsterDropItem,25729,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,501,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,501,50",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,502,Unknown Item,Unknown_Aegis,20,All,"bonus2 bAddMonsterDropItem,502,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,503,Unknown Item,Unknown_Aegis,20,All,"bonus2 bAddMonsterDropItem,503,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,504,Unknown Item,Unknown_Aegis,20,All,"bonus2 bAddMonsterDropItem,504,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,505,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,505,10",Aumenta drop de item específico de todos os monstros
+18505,Umbala_Spirit,Umbala Spirit,item,517,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,517,500",Aumenta drop de item específico de todos os monstros
+18507,Elven_Ears_,Elven Ears,item,522,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,522,100",Aumenta drop de item específico de todos os monstros
+18527,Gloomy_Pumpkin_Hat,Dark Pumpkin-head,item,12192,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,12192,10",Aumenta drop de item específico de todos os monstros
+18549,Nabi_Hair_Pin,Butterfly Hairpin,item,709,Izidor,Izidor,30,RC_Plant,"bonus2 bAddMonsterDropItem,709,30",Aumenta drop de item específico de monstros da raça RC_Plant
+18553,Mini_Tree,Mini Tree,item,12130,Unknown Item,Unknown_Aegis,900,All,"bonus2 bAddMonsterDropItem,12130,900",Aumenta drop de item específico de todos os monstros
+18553,Mini_Tree,Mini Tree,item,12130,Unknown Item,Unknown_Aegis,400,All,"bonus2 bAddMonsterDropItem,12130,400",Aumenta drop de item específico de todos os monstros
+18553,Mini_Tree,Mini Tree,item,12130,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,12130,100",Aumenta drop de item específico de todos os monstros
+18555,General_Helmet,General Helmet,item,7444,Treasure Box,Treasure_Box,2,RC_Dragon,"bonus2 bAddMonsterDropItem,7444,2",Aumenta drop de item específico de monstros da raça RC_Dragon
+18565,Leprechaun_Hat,St Patrick's Hat,item,12135,Unknown Item,Unknown_Aegis,8,All,"bonus2 bAddMonsterDropItem,12135,8",Aumenta drop de item específico de todos os monstros
+18589,Strawberry_Hat,Strawberry Hat,item,578,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,578,50",Aumenta drop de item específico de todos os monstros
+18631,Ribbon_Chef_Hat,Ribbon Chef Hat,item,12125,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,12125,500",Aumenta drop de item específico de todos os monstros
+18631,Ribbon_Chef_Hat,Ribbon Chef Hat,item,12126,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,12126,500",Aumenta drop de item específico de todos os monstros
+18631,Ribbon_Chef_Hat,Ribbon Chef Hat,item,12127,Unknown Item,Unknown_Aegis,400,All,"bonus2 bAddMonsterDropItem,12127,400",Aumenta drop de item específico de todos os monstros
+18631,Ribbon_Chef_Hat,Ribbon Chef Hat,item,12128,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,12128,300",Aumenta drop de item específico de todos os monstros
+18631,Ribbon_Chef_Hat,Ribbon Chef Hat,item,12129,Unknown Item,Unknown_Aegis,200,All,"bonus2 bAddMonsterDropItem,12129,200",Aumenta drop de item específico de todos os monstros
+18646,Cow_Hat,Cow Hat,item,519,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,519,100",Aumenta drop de item específico de todos os monstros
+18753,Tw_Rice_Ball,Tw Rice Ball,item,564,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,564,100",Aumenta drop de item específico de todos os monstros
+18758,Hat_Of_Scrat,Hat Of Scrat,item,1032,Maneater Blossom,Blossom_Of_Maneater,400,All,"bonus2 bAddMonsterDropItem,1032,400",Aumenta drop de item específico de todos os monstros
+18758,Hat_Of_Scrat,Hat Of Scrat,item,1033,Maneater Root,Root_Of_Maneater,100,All,"bonus2 bAddMonsterDropItem,1033,100",Aumenta drop de item específico de todos os monstros
+18758,Hat_Of_Scrat,Hat Of Scrat,item,576,Unknown Item,Unknown_Aegis,40,RC_Plant,"bonus2 bAddMonsterDropItem,576,40",Aumenta drop de item específico de monstros da raça RC_Plant
+18850,Polar_Bear_Cap,Polar Bear Cap,item,12354,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,12354,100",Aumenta drop de item específico de todos os monstros
+18902,Shovel_Hat,Shovel Hat,item,553,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,553,500",Aumenta drop de item específico de todos os monstros
+19143,Poring_Balloon,Poring Balloon,item,909,Jellopy,Jellopy,2000,All,"bonus2 bAddMonsterDropItem,909,2000",Aumenta drop de item específico de todos os monstros
+19168,Band_Of_Kafra_,Kafra Staff Headband,item,23177,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,23177,10",Aumenta drop de item específico de todos os monstros
+19168,Band_Of_Kafra_,Kafra Staff Headband,item,7059,Free Ticket for Kafra Storage,Cargo_Free_Ticket,10,All,"bonus2 bAddMonsterDropItem,7059,10",Aumenta drop de item específico de todos os monstros
+19168,Band_Of_Kafra_,Kafra Staff Headband,item,7060,Free Ticket for Kafra Transportation,Warp_Free_Ticket,10,All,"bonus2 bAddMonsterDropItem,7060,10",Aumenta drop de item específico de todos os monstros
+19407,Work_Cap,Work Cap,item,732,3carat Diamond,Crystal_Jewel__,10,All,"bonus2 bAddMonsterDropItem,732,10",Aumenta drop de item específico de todos os monstros
+19580,C_Sphinx_Helm,Costume Sphinx Helm,item,6614,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,6614,50",Aumenta drop de item específico de todos os monstros
+19854,C_Ear_Of_Black_Cat_,Costume Black Cat Ears,item,11589,Unknown Item,Unknown_Aegis,5,All,"bonus2 bAddMonsterDropItem,11589,5",Aumenta drop de item específico de todos os monstros
+19874,C_Carnival_Circlet,Costume Carnival Circlet,item,6658,Halloween Coin,Halloween_Coin,300,All,"bonus2 bAddMonsterDropItem,6658,300",Aumenta drop de item específico de todos os monstros
+19910,C_Halloween_Hat,Costume Halloween Hat,item,6658,Halloween Coin,Halloween_Coin,300,All,"bonus2 bAddMonsterDropItem,6658,300",Aumenta drop de item específico de todos os monstros
+20012,C_Double_Horn_Helm,Costume Double Horn Helm,item,519,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,519,100",Aumenta drop de item específico de todos os monstros
+20026,C_Cow_Hat2,Costume Cow Hat 2,item,519,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,519,100",Aumenta drop de item específico de todos os monstros
+20027,C_Cow_Hat3,Costume Cow Hat 3,item,519,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,519,100",Aumenta drop de item específico de todos os monstros
+20028,C_Cow_Hat4,Costume Cow Hat 4,item,519,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,519,100",Aumenta drop de item específico de todos os monstros
+20155,C_Ladys_Feather_Hat,Costume Lady's Feather Hat,item,6658,Halloween Coin,Halloween_Coin,300,All,"bonus2 bAddMonsterDropItem,6658,300",Aumenta drop de item específico de todos os monstros
+24310,Mining_A,Mining A,item,984,Oridecon,Oridecon,5,All,"bonus2 bAddMonsterDropItem,984,5",Aumenta drop de item específico de todos os monstros
+24310,Mining_A,Mining A,item,985,Elunium,Elunium,5,All,"bonus2 bAddMonsterDropItem,985,5",Aumenta drop de item específico de todos os monstros
+24311,Mining_G,Mining G,item,984,Oridecon,Oridecon,5,All,"bonus2 bAddMonsterDropItem,984,5",Aumenta drop de item específico de todos os monstros
+24311,Mining_G,Mining G,item,985,Elunium,Elunium,5,All,"bonus2 bAddMonsterDropItem,985,5",Aumenta drop de item específico de todos os monstros
+24312,Mining_S,Mining S,item,984,Oridecon,Oridecon,5,All,"bonus2 bAddMonsterDropItem,984,5",Aumenta drop de item específico de todos os monstros
+24312,Mining_S,Mining S,item,985,Elunium,Elunium,5,All,"bonus2 bAddMonsterDropItem,985,5",Aumenta drop de item específico de todos os monstros
+24313,Mining_P,Mining P,item,984,Oridecon,Oridecon,5,All,"bonus2 bAddMonsterDropItem,984,5",Aumenta drop de item específico de todos os monstros
+24313,Mining_P,Mining P,item,985,Elunium,Elunium,5,All,"bonus2 bAddMonsterDropItem,985,5",Aumenta drop de item específico de todos os monstros
+28429,Arquien's_Necklace,Arquien's Necklace,item,529,Unknown Item,Unknown_Aegis,2000,All,"bonus2 bAddMonsterDropItem,529,2000",Aumenta drop de item específico de todos os monstros
+28429,Arquien's_Necklace,Arquien's Necklace,item,530,Unknown Item,Unknown_Aegis,2000,All,"bonus2 bAddMonsterDropItem,530,2000",Aumenta drop de item específico de todos os monstros
+28429,Arquien's_Necklace,Arquien's Necklace,item,573,Unknown Item,Unknown_Aegis,150,All,"bonus2 bAddMonsterDropItem,573,150",Aumenta drop de item específico de todos os monstros
+31762,Costume_Gambler_Card,C Heart Card in Mouth,item,6658,Halloween Coin,Halloween_Coin,300,All,"bonus2 bAddMonsterDropItem,6658,300",Aumenta drop de item específico de todos os monstros
+31770,C_Vampire_Tie,C Vampire Tie,item,6658,Halloween Coin,Halloween_Coin,300,All,"bonus2 bAddMonsterDropItem,6658,300",Aumenta drop de item específico de todos os monstros
+31771,C_Witching_Hat,C Witching Hat,item,6658,Halloween Coin,Halloween_Coin,300,All,"bonus2 bAddMonsterDropItem,6658,300",Aumenta drop de item específico de todos os monstros
+4149,Gargoyle_Card,Gargoyle Card,item,12028,Unknown Item,Unknown_Aegis,100,RC_Insect,"bonus2 bAddMonsterDropItem,12028,100",Aumenta drop de item específico de monstros da raça RC_Insect
+4152,Galapago_Card,Galapago Card,item,531,Unknown Item,Unknown_Aegis,300,RC_Insect,"bonus2 bAddMonsterDropItem,531,300",Aumenta drop de item específico de monstros da raça RC_Insect
+4152,Galapago_Card,Galapago Card,item,532,Unknown Item,Unknown_Aegis,300,RC_Insect,"bonus2 bAddMonsterDropItem,532,300",Aumenta drop de item específico de monstros da raça RC_Insect
+4152,Galapago_Card,Galapago Card,item,534,Unknown Item,Unknown_Aegis,300,RC_Insect,"bonus2 bAddMonsterDropItem,534,300",Aumenta drop de item específico de monstros da raça RC_Insect
+4154,Rice_Cake_Boy_Card,Dumpling Child Card,item,529,Unknown Item,Unknown_Aegis,300,RC_DemiHuman,"bonus2 bAddMonsterDropItem,529,300",Aumenta drop de item específico de monstros da raça RC_DemiHuman
+4154,Rice_Cake_Boy_Card,Dumpling Child Card,item,530,Unknown Item,Unknown_Aegis,100,RC_DemiHuman,"bonus2 bAddMonsterDropItem,530,100",Aumenta drop de item específico de monstros da raça RC_DemiHuman
+4177,Dryad_Card,Dryad Card,item,993,Green Live,Yellow_Live,100,RC_Plant,"bonus2 bAddMonsterDropItem,993,100",Aumenta drop de item específico de monstros da raça RC_Plant
+4187,Raydric_Archer_Card,Raydric Archer Card,item,12030,Unknown Item,Unknown_Aegis,100,RC_Demon,"bonus2 bAddMonsterDropItem,12030,100",Aumenta drop de item específico de monstros da raça RC_Demon
+4188,Leib_Olmai_Card,Leib Olmai Card,item,990,Red Blood,Boody_Red,100,RC_Brute,"bonus2 bAddMonsterDropItem,990,100",Aumenta drop de item específico de monstros da raça RC_Brute
+4190,Wraith_Card,Wraith Card,item,12027,Unknown Item,Unknown_Aegis,100,RC_Undead,"bonus2 bAddMonsterDropItem,12027,100",Aumenta drop de item específico de monstros da raça RC_Undead
+4195,Leaf_Cat_Card,Leaf Cat Card,item,991,Crystal Blue,Crystal_Blue,100,RC_Fish,"bonus2 bAddMonsterDropItem,991,100",Aumenta drop de item específico de monstros da raça RC_Fish
+4196,Marin_Card,Marin Card,item,909,Jellopy,Jellopy,2000,All,"bonus2 bAddMonsterDropItem,909,2000",Aumenta drop de item específico de todos os monstros
+4196,Marin_Card,Marin Card,item,7126,Large Jellopy,Large_Jellopy,10,All,"bonus2 bAddMonsterDropItem,7126,10",Aumenta drop de item específico de todos os monstros
+4205,Mimic_Card,Mimic Card,item,603,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,603,10",Aumenta drop de item específico de todos os monstros
+4206,Mystcase_Card,Myst Case Card,item,644,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,644,30",Aumenta drop de item específico de todos os monstros
+4215,Blazzer_Card,Blazer Card,item_group,Food,Unknown Item,Unknown_Aegis,600,All,"bonus2 bAddMonsterDropItemGroup,IG_Food,600",Aumenta drop de itens do grupo Food
+4219,Sageworm_Card,Sage Worm Card,item,715,Yellow Gemstone,Yellow_Gemstone,30,All,"bonus2 bAddMonsterDropItem,715,30",Aumenta drop de item específico de todos os monstros
+4219,Sageworm_Card,Sage Worm Card,item,716,Red Gemstone,Red_Gemstone,30,All,"bonus2 bAddMonsterDropItem,716,30",Aumenta drop de item específico de todos os monstros
+4219,Sageworm_Card,Sage Worm Card,item,717,Blue Gemstone,Blue_Gemstone,30,All,"bonus2 bAddMonsterDropItem,717,30",Aumenta drop de item específico de todos os monstros
+4224,Stem_Worm_Card,Stem Worm Card,item,12032,Unknown Item,Unknown_Aegis,100,RC_Brute,"bonus2 bAddMonsterDropItem,12032,100",Aumenta drop de item específico de monstros da raça RC_Brute
+4227,Spring_Rabbit_Card,Spring Rabbit Card,item,517,Unknown Item,Unknown_Aegis,200,RC_Brute,"bonus2 bAddMonsterDropItem,517,200",Aumenta drop de item específico de monstros da raça RC_Brute
+4227,Spring_Rabbit_Card,Spring Rabbit Card,item,528,Unknown Item,Unknown_Aegis,200,RC_Brute,"bonus2 bAddMonsterDropItem,528,200",Aumenta drop de item específico de monstros da raça RC_Brute
+4228,Sleeper_Card,Sleeper Card,item,12031,Unknown Item,Unknown_Aegis,100,RC_Fish,"bonus2 bAddMonsterDropItem,12031,100",Aumenta drop de item específico de monstros da raça RC_Fish
+4232,Wild_Ginseng_Card,Hermit Plant Card,item,507,Unknown Item,Unknown_Aegis,300,RC_Plant,"bonus2 bAddMonsterDropItem,507,300",Aumenta drop de item específico de monstros da raça RC_Plant
+4232,Wild_Ginseng_Card,Hermit Plant Card,item,508,Unknown Item,Unknown_Aegis,200,RC_Plant,"bonus2 bAddMonsterDropItem,508,200",Aumenta drop de item específico de monstros da raça RC_Plant
+4232,Wild_Ginseng_Card,Hermit Plant Card,item,509,Unknown Item,Unknown_Aegis,100,RC_Plant,"bonus2 bAddMonsterDropItem,509,100",Aumenta drop de item específico de monstros da raça RC_Plant
+4256,Orc_Archer_Card,Orc Archer Card,item,12034,Unknown Item,Unknown_Aegis,100,RC_DemiHuman,"bonus2 bAddMonsterDropItem,12034,100",Aumenta drop de item específico de monstros da raça RC_DemiHuman
+4262,Evil_Cloud_Hermit_Card,Cloud Hermit Card,item,12029,Unknown Item,Unknown_Aegis,100,RC_Plant,"bonus2 bAddMonsterDropItem,12029,100",Aumenta drop de item específico de monstros da raça RC_Plant
+4265,Li_Me_Mang_Ryang_Card,Jing Guai Card,item,12033,Unknown Item,Unknown_Aegis,100,RC_Angel,"bonus2 bAddMonsterDropItem,12033,100",Aumenta drop de item específico de monstros da raça RC_Angel
+4271,Giant_Honet_Card,Giant Hornet Card,item,992,Wind of Verdure,Wind_Of_Verdure,100,RC_Insect,"bonus2 bAddMonsterDropItem,992,100",Aumenta drop de item específico de monstros da raça RC_Insect
+4282,Tengu_Card,Tengu Card,item_group,Recovery,Unknown Item,Unknown_Aegis,600,All,"bonus2 bAddMonsterDropItemGroup,IG_Recovery,600",Aumenta drop de itens do grupo Recovery
+4326,See_Otter_Card,Sea-Otter Card,item,551,Unknown Item,Unknown_Aegis,300,RC_Fish,"bonus2 bAddMonsterDropItem,551,300",Aumenta drop de item específico de monstros da raça RC_Fish
+4326,See_Otter_Card,Sea-Otter Card,item,544,Unknown Item,Unknown_Aegis,300,RC_Fish,"bonus2 bAddMonsterDropItem,544,300",Aumenta drop de item específico de monstros da raça RC_Fish
+4344,Anopheles_Card,Anopheles Card,item,12058,Unknown Item,Unknown_Aegis,50,RC_Insect,"bonus2 bAddMonsterDropItem,12058,50",Aumenta drop de item específico de monstros da raça RC_Insect
+4347,Armaia_Card,Armeyer Dinze Card,item,12053,Unknown Item,Unknown_Aegis,50,RC_Fish,"bonus2 bAddMonsterDropItem,12053,50",Aumenta drop de item específico de monstros da raça RC_Fish
+4355,Gremlin_Card,Gremlin Card,item,12043,Unknown Item,Unknown_Aegis,50,RC_Brute,"bonus2 bAddMonsterDropItem,12043,50",Aumenta drop de item específico de monstros da raça RC_Brute
+4376,Lady_Tanee_Card,Lady Tanee Card,item,513,Unknown Item,Unknown_Aegis,200,All,"bonus2 bAddMonsterDropItem,513,200",Aumenta drop de item específico de todos os monstros
+4377,Green_Iguana_Card,Grove Card,item,12063,Unknown Item,Unknown_Aegis,50,RC_Formless,"bonus2 bAddMonsterDropItem,12063,50",Aumenta drop de item específico de monstros da raça RC_Formless
+4385,Dragon_Egg_Card,Dragon Egg Card,item,12048,Unknown Item,Unknown_Aegis,50,RC_Dragon,"bonus2 bAddMonsterDropItem,12048,50",Aumenta drop de item específico de monstros da raça RC_Dragon
+4389,Plasma_Card,Plasma Card,item,12118,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12118,50",Aumenta drop de item específico de todos os monstros
+4389,Plasma_Card,Plasma Card,item,12119,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12119,50",Aumenta drop de item específico de todos os monstros
+4389,Plasma_Card,Plasma Card,item,12120,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12120,50",Aumenta drop de item específico de todos os monstros
+4389,Plasma_Card,Plasma Card,item,12121,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,12121,50",Aumenta drop de item específico de todos os monstros
+4391,Retribution_Card,Baroness of Retribution Card,item,12068,Unknown Item,Unknown_Aegis,50,RC_Angel,"bonus2 bAddMonsterDropItem,12068,50",Aumenta drop de item específico de monstros da raça RC_Angel
+4415,Snowier_Card,Snowier Card,item,536,Unknown Item,Unknown_Aegis,2000,All,"bonus2 bAddMonsterDropItem,536,2000",Aumenta drop de item específico de todos os monstros
+4434,Knocker_Card,Knocker Card,item,756,Rough Oridecon,Oridecon_Stone,10,RC_Formless,"bonus2 bAddMonsterDropItem,756,10",Aumenta drop de item específico de monstros da raça RC_Formless
+4434,Knocker_Card,Knocker Card,item,757,Rough Elunium,Elunium_Stone,10,RC_Formless,"bonus2 bAddMonsterDropItem,757,10",Aumenta drop de item específico de monstros da raça RC_Formless
+1142,Jewel_Sword,Jeweled Sword,item_group,Jewel,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItemGroup,IG_Jewel,100",Aumenta drop de itens do grupo Jewel
+1143,Gaia_Sword,Gaia Sword,item_group,Ore,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItemGroup,IG_Ore,30",Aumenta drop de itens do grupo Ore
+1144,Sasimi,Sashimi,item,544,Unknown Item,Unknown_Aegis,4000,RC_Fish,"bonus2 bAddMonsterDropItem,544,4000",Aumenta drop de item específico de monstros da raça RC_Fish
+1229,Mama's_Knife,Kitchen Knife,item,517,Unknown Item,Unknown_Aegis,5000,RC_Brute,"bonus2 bAddMonsterDropItem,517,5000",Aumenta drop de item específico de monstros da raça RC_Brute
+1301,Axe,Axe,item,517,Unknown Item,Unknown_Aegis,3000,RC_Brute,"bonus2 bAddMonsterDropItem,517,3000",Aumenta drop de item específico de monstros da raça RC_Brute
+1422,Hunting_Spear,Hunting Spear,item,517,Unknown Item,Unknown_Aegis,1000,RC_Brute,"bonus2 bAddMonsterDropItem,517,1000",Aumenta drop de item específico de monstros da raça RC_Brute
+1429,Hunting_Spear_M,Hunting Spear,item,517,Unknown Item,Unknown_Aegis,1000,RC_Brute,"bonus2 bAddMonsterDropItem,517,1000",Aumenta drop de item específico de monstros da raça RC_Brute
+1544,Lunakaligo,Lunakaligo,item,12065,Unknown Item,Unknown_Aegis,500,RC_Plant,"bonus2 bAddMonsterDropItem,12065,500",Aumenta drop de item específico de monstros da raça RC_Plant
+1544,Lunakaligo,Lunakaligo,item,12043,Unknown Item,Unknown_Aegis,500,RC_Brute,"bonus2 bAddMonsterDropItem,12043,500",Aumenta drop de item específico de monstros da raça RC_Brute
+1544,Lunakaligo,Lunakaligo,item,12069,Unknown Item,Unknown_Aegis,500,RC_Fish,"bonus2 bAddMonsterDropItem,12069,500",Aumenta drop de item específico de monstros da raça RC_Fish
+1724,Dragon_Wing,Dragon Wing,item,1765,Oridecon Arrow,Oridecon_Arrow,300,RC_Dragon,"bonus2 bAddMonsterDropItem,1765,300",Aumenta drop de item específico de monstros da raça RC_Dragon
+1732,Earth_Bow,Earth Bow,item,1753,Steel Arrow,Steel_Arrow,200,All,"bonus2 bAddMonsterDropItem,1753,200",Aumenta drop de item específico de todos os monstros
+2676,Hunter_Earring,Hunter's Earring,item,7618,Monster Crystal,Monster_Crystal,100,All,"bonus2 bAddMonsterDropItem,7618,100",Aumenta drop de item específico de todos os monstros
+2705,Golden_Accessory2,Golden Accessories,item,12018,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,12018,500",Aumenta drop de item específico de todos os monstros
+5105,Hat_Of_Cake_,2nd Anniversary Hat,item,7864,Love Flower,Love_Flower,7,All,"bonus2 bAddMonsterDropItem,7864,7",Aumenta drop de item específico de todos os monstros
+5105,Hat_Of_Cake_,2nd Anniversary Hat,item,7864,Love Flower,Love_Flower,7,All,"bonus2 bAddMonsterDropItem,7864,7",Aumenta drop de item específico de todos os monstros
+5107,Well_Baked_Toast,Crunch Toast,item,605,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,605,100",Aumenta drop de item específico de todos os monstros
+5204,Event_Pierrot_Nose,Rudolph's Nose,item,12130,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,12130,30",Aumenta drop de item específico de todos os monstros
+5368,White_Wing,White Wing,item,12280,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,12280,300",Aumenta drop de item específico de todos os monstros
+5369,Dark_Wing,Dark Wing,item,12279,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,12279,300",Aumenta drop de item específico de todos os monstros
+5386,Ayam_,Ayam,item,12198,Unknown Item,Unknown_Aegis,200,All,"bonus2 bAddMonsterDropItem,12198,200",Aumenta drop de item específico de todos os monstros
+5391,Toast_C,Toast,item,617,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,617,10",Aumenta drop de item específico de todos os monstros
+5403,Fish_In_Mouth,Fish In Mouth,item,579,Unknown Item,Unknown_Aegis,500,All,"bonus2 bAddMonsterDropItem,579,500",Aumenta drop de item específico de todos os monstros
+5527,Lunatic_Hat,Lunatic Hat,item,622,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,622,50",Aumenta drop de item específico de todos os monstros
+5536,Spare_Card,Spare Card,item,6187,Blank Card,Blank_Card,1000,All,"bonus2 bAddMonsterDropItem,6187,1000",Aumenta drop de item específico de todos os monstros
+5558,Saci_Hat,Luxury Hat,item,510,Unknown Item,Unknown_Aegis,500,RC_Plant,"bonus2 bAddMonsterDropItem,510,500",Aumenta drop de item específico de monstros da raça RC_Plant
+5738,Snowman_Hat,Snowman Hat,item,530,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,530,100",Aumenta drop de item específico de todos os monstros
+5738,Snowman_Hat,Snowman Hat,item,12354,Unknown Item,Unknown_Aegis,300,All,"bonus2 bAddMonsterDropItem,12354,300",Aumenta drop de item específico de todos os monstros
+5802,Upgrade_Elephant_Hat,Upgraded Elephant Hat,item,608,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,608,100",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,501,Unknown Item,Unknown_Aegis,50,All,"bonus2 bAddMonsterDropItem,501,50",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,502,Unknown Item,Unknown_Aegis,20,All,"bonus2 bAddMonsterDropItem,502,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,503,Unknown Item,Unknown_Aegis,20,All,"bonus2 bAddMonsterDropItem,503,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,504,Unknown Item,Unknown_Aegis,20,All,"bonus2 bAddMonsterDropItem,504,20",Aumenta drop de item específico de todos os monstros
+16001,Red_Square_Bag,Red Square Bag,item,505,Unknown Item,Unknown_Aegis,10,All,"bonus2 bAddMonsterDropItem,505,10",Aumenta drop de item específico de todos os monstros
+1998,Jeramiah's_Jur,Jeramiah's Jur,item,12130,Unknown Item,Unknown_Aegis,30,All,"bonus2 bAddMonsterDropItem,12130,30",Aumenta drop de item específico de todos os monstros
+1998,Jeramiah's_Jur,Jeramiah's Jur,item,539,Unknown Item,Unknown_Aegis,100,All,"bonus2 bAddMonsterDropItem,539,100",Aumenta drop de item específico de todos os monstros
+1998,Jeramiah's_Jur,Jeramiah's Jur,item,529,Unknown Item,Unknown_Aegis,200,All,"bonus2 bAddMonsterDropItem,529,200",Aumenta drop de item específico de todos os monstros
+1998,Jeramiah's_Jur,Jeramiah's Jur,item,530,Unknown Item,Unknown_Aegis,200,All,"bonus2 bAddMonsterDropItem,530,200",Aumenta drop de item específico de todos os monstros
+1998,Jeramiah's_Jur,Jeramiah's Jur,item,12192,Unknown Item,Unknown_Aegis,2500,All,"bonus2 bAddMonsterDropItem,12192,2500",Aumenta drop de item específico de todos os monstros
+1998,Jeramiah's_Jur,Jeramiah's Jur,item,529,Unknown Item,Unknown_Aegis,1500,RC_DemiHuman,"bonus2 bAddMonsterDropItem,529,1500",Aumenta drop de item específico de monstros da raça RC_DemiHuman

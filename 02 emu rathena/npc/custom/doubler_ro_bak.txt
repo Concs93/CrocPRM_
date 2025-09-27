@@ -1,0 +1,175 @@
+//============================================================
+//  NPC: The Arcanist of Echoes (RO Doubler - 1x per item)
+//  Map/pos: va_orpha,288,317
+//  Requirements: equipped item with refine >= +9 and >=1 Random Option
+//  Effect: doubles Random Options values (keeps id/param), then sets refine to +0
+//  Anti-abuse: stores item UniqueID in SQL; cannot evolve twice
+//  Notes: keeps cards, slots, enchants; does NOT recreate the item.
+//  Encoding: keep this file in plain ASCII or UTF-8 (no smart quotes).
+//============================================================
+va_orpha,288,317,4	script	The Arcanist of Echoes	4_M_JOB_WIZARD,{
+
+	// ---------- build selectable list first (silent) ----------
+	.@menu$ = "";
+	.@n = 0;
+
+	for (.@i = 0; .@i < EQI_MAX; .@i++) {
+		// must be an equipped item in this slot
+		.@id = getequipid(.@i);
+		if (.@id <= 0) continue;
+
+		// refine >= +9
+		.@ref = getequiprefinerycnt(.@i);
+		if (.@ref < 9) continue;
+
+		// must have at least 1 random option
+		.@has_ro = 0;
+		for (.@k = 0; .@k < 5; .@k++) {
+			if (getequiprandomoption(.@i, .@k, 0) > 0) { .@has_ro = 1; break; }
+		}
+		if (!.@has_ro) continue;
+
+		// UID required and not already evolved
+		.@uid$ = getequipuniqueid(.@i);
+		if (.@uid$ == "") continue;
+
+		.@uid_esc$ = escape_sql(.@uid$);
+		.@has = 0; // reset before SQL
+		query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
+		if (.@has) continue;
+
+		// item name (no RO hint for players)
+		.@name$ = getitemname(.@id);
+
+		// build menu line
+		.@menu$ += "["+.@name$+"] ^777777(+"+.@ref+")^000000:";
+		.@slot_list[.@n] = .@i;
+		.@n++;
+	}
+
+	// ---------- FIRST MESSAGE: either neophytes or intro ----------
+	.@tag$ = "[Arcanist]";
+
+	if (!.@n) {
+		mes .@tag$;
+		mes "I won't waste time with neophytes.";
+		close;
+	}
+
+	mes .@tag$;
+	mes "Hush... the desert listens. Bring me gear tempered by nine flames.";
+	mes "I shall fold its secrets once, ^00CCFFand only once^000000, into greater might.";
+	mes "But its edge will ^FF0000become dull^000000.";
+	next;
+
+	// ---------- choose item ----------
+	mes .@tag$;
+	mes "Choose the vessel for the rite.";
+	next;
+	.@sel  = select(.@menu$) - 1;
+	.@slot = .@slot_list[.@sel];
+
+	// Safety: recheck conditions
+	if (getequipid(.@slot) <= 0 || getequiprefinerycnt(.@slot) < 9) {
+		mes .@tag$; mes "The fabric shifted. Return when your choice is certain."; close;
+	}
+	// still must have at least 1 RO
+	.@has_ro = 0;
+	for (.@k = 0; .@k < 5; .@k++) {
+		if (getequiprandomoption(.@slot, .@k, 0) > 0) { .@has_ro = 1; break; }
+	}
+	if (!.@has_ro) { mes .@tag$; mes "This vessel holds no lines to mirror."; close; }
+
+	// UID ok & not evolved
+	.@uid$ = getequipuniqueid(.@slot);
+	if (.@uid$ == "") { mes .@tag$; mes "This relic will not answer my call."; close; }
+	.@uid_esc$ = escape_sql(.@uid$);
+	.@has = 0; // reset before SQL
+	query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
+	if (.@has) { mes .@tag$; mes "It has already tasted the mirror. No more."; close; }
+
+	// ---------- show price ----------
+	// ---------- show price (clickable item links) ----------
+	set .@link1$, "<ITEM>"+getitemname(.COST_IT1_ID)+"<INFO>"+.COST_IT1_ID+"</INFO></ITEM>";
+	set .@link2$, "<ITEM>"+getitemname(.COST_IT2_ID)+"<INFO>"+.COST_IT2_ID+"</INFO></ITEM>";
+
+	mes .@tag$;
+	mes "The price:";
+	mes " - "+.COST_IT1_Q+"x "+.@link1$;
+	mes " - "+.COST_IT2_Q+"x "+.@link2$;
+	mes " - "+.COST_ZENY+" zeny";
+	next;
+
+	// Confirmation
+	if (select("Weave it.:Not today.") == 2) {
+		mes .@tag$; mes "Then let the sands keep their secrets."; close;
+	}
+
+	// Final rechecks (gear)
+	if (getequipid(.@slot) <= 0 || getequiprefinerycnt(.@slot) < 9) {
+		mes .@tag$; mes "Your focus wavered. Not now."; close;
+	}
+	.@has_ro = 0;
+	for (.@k = 0; .@k < 5; .@k++) {
+		if (getequiprandomoption(.@slot, .@k, 0) > 0) { .@has_ro = 1; break; }
+	}
+	if (!.@has_ro) { mes .@tag$; mes "The lines have faded. Not now."; close; }
+	.@uid$ = getequipuniqueid(.@slot);
+	if (.@uid$ == "") { mes .@tag$; mes "Nameless steel draws no sigils."; close; }
+	.@uid_esc$ = escape_sql(.@uid$);
+	.@has = 0; // reset before SQL
+	query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
+	if (.@has) { mes .@tag$; mes "It is already done."; close; }
+
+	// Final rechecks (price)
+	if (countitem(.COST_IT1_ID) < .COST_IT1_Q || countitem(.COST_IT2_ID) < .COST_IT2_Q || Zeny < .COST_ZENY) {
+		mes .@tag$; mes "Bring the price."; close;
+	}
+
+	// Take payment
+	delitem .COST_IT1_ID, .COST_IT1_Q;
+	delitem .COST_IT2_ID, .COST_IT2_Q;
+	Zeny -= .COST_ZENY;
+
+	// Double RO values (read fresh; no on-screen preview)
+	for (.@k = 0; .@k < 5; .@k++) {
+		.@rid = getequiprandomoption(.@slot, .@k, 0);
+		if (!.@rid) continue;
+		.@rval = getequiprandomoption(.@slot, .@k, 1);
+		.@rpar = getequiprandomoption(.@slot, .@k, 2);
+
+		.@newv = .@rval * 2;
+		if (.MAX_VALUE_CAP > 0 && .@newv > .MAX_VALUE_CAP) .@newv = .MAX_VALUE_CAP;
+
+		setrandomoption(.@slot, .@k, .@rid, .@newv, .@rpar);
+	}
+
+	// Reset refine to +0 (preserves cards/enchants)
+	while (getequiprefinerycnt(.@slot) > 0) {
+		downrefitem(.@slot, 1);
+	}
+
+	// Mark as evolved
+	query_sql "INSERT IGNORE INTO `evolved_items_uid` (`uid`, `char_id`) VALUES ('"+.@uid_esc$+"', "+getcharid(0)+")";
+
+	specialeffect2 EF_ENHANCE;
+	specialeffect2 EF_ENCHANTBLADE;
+	mes .@tag$;
+	mes "It is done. Walk softly; the night is listening.";
+	close;
+
+OnInit:
+	// Global cap (0 = no cap)
+	set .MAX_VALUE_CAP, 0;
+
+	// ---- Cost config ----
+	set .COST_IT1_ID, 7360;    // Distortion Shard
+	set .COST_IT1_Q,  1000;
+	set .COST_IT2_ID, 6468;    // Star Piece
+	set .COST_IT2_Q,  1000;
+	set .COST_ZENY,   1000000; // 1kk
+
+	// Create table if not exists (single-line string)
+	query_sql "CREATE TABLE IF NOT EXISTS `evolved_items_uid` (`uid` varchar(64) NOT NULL PRIMARY KEY, `char_id` int(11) NOT NULL, `ts` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB";
+	end;
+}

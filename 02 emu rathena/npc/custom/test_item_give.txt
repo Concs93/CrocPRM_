@@ -1,0 +1,98 @@
+// ===============================================================
+// RO Test Bench - prova de getitem, getitem2 e @rotest (CSV/ROs)
+// Prontera 155,183
+// ===============================================================
+
+prontera,155,183,4	script	RO Test Bench	4_F_JOB_BLACKSMITH,{
+
+	mes "[RO Test Bench]";
+	mes "Escolhe um teste:";
+	next;
+
+	switch(select(
+		"1) getitem (item simples)",
+		"2) getitem2 (equip + refine + cartas)",
+		"3) @rotest (CSV/Random Options)"))
+	{
+		// ----------------------------------------------------------
+		case 1:
+			// 3x Red Potion (501) via getitem
+			if (!checkweight(501, 3)) { mes "^FF0000Sem espaço/peso.^000000"; close; }
+			getitem 501, 3;
+			dispbottom "[TEST] Dei 3x Red Potion com getitem.";
+			close;
+
+		// ----------------------------------------------------------
+		case 2:
+			// +7 Main Gauche[4] com 4 cartas básicas via getitem2
+			// IDs muito estáveis no rAthena:
+			//   1207 = Main Gauche[4]
+			//   4001 = Poring  | 4002 = Drops | 4003 = Poporing | 4004 = Fabre
+			if (!checkweight(1207, 1)) { mes "^FF0000Sem espaço/peso.^000000"; close; }
+
+			setarray .@cards[0], 4001, 4002, 4003, 4004;
+			// getitem2 <id>,<qt>,<identify>,<refine>,<attr>,<card1..4>
+			getitem2 1207, 1, 1, 7, 0, .@cards[0], .@cards[1], .@cards[2], .@cards[3];
+
+			dispbottom "[TEST] Dei 1x +7 Main Gauche[4] com 4 cartas via getitem2.";
+			close;
+
+        // ----------------------------------------------------------
+        case 3:
+            // Verificação simples do include (usa variável GLOBAL)
+            if ($ro_groups_count <= 0) {
+                mes "^FF0000O include do CSV não está carregado.^000000";
+                mes "Confere se 'ro_data_from_csv.txt' foi importado e usa @reloadscript.";
+                close;
+            }
+
+            mes "Vou disparar dois @rotest:";
+            mes " • armor Adventure_Suit 1 G3";
+            mes " • armor Adventure_Suit 1 G5";
+            next;
+
+            // Fecha a janela ANTES de executar o atcommand (evita travar)
+            close2;
+
+            // Se preferir, use ID do item pra eliminar dúvida de AegisName (ex.: 2301)
+            // atcommand "@rotest armor 2301 1 G3";
+            // atcommand "@rotest armor 2301 1 G5";
+            atcommand "@rotest armor Adventure_Suit 1 G3";
+            atcommand "@rotest armor Adventure_Suit 1 G5";
+
+            end;
+
+	}
+}
+
+// ---------------------------------------------------------------
+// Atcommands de atalho (opcional): @test_gi / @test_gi2 / @test_ro
+// ---------------------------------------------------------------
+-	script	RO Test Shortcuts	-1,{
+
+OnInit:
+	bindatcmd "test_gi",  strnpcinfo(3)+"::OnGi";
+	bindatcmd "test_gi2", strnpcinfo(3)+"::OnGi2";
+	bindatcmd "test_ro",  strnpcinfo(3)+"::OnRo";
+	end;
+
+OnGi:
+	if (!checkweight(501, 3)) end;
+	getitem 501, 3;
+	dispbottom "[TEST] getitem OK (3x Red Potion).";
+	end;
+
+OnGi2:
+	if (!checkweight(1207, 1)) end;
+	setarray .@c[0], 4001,4002,4003,4004;
+	getitem2 1207, 1, 1, 7, 0, .@c[0], .@c[1], .@c[2], .@c[3];
+	dispbottom "[TEST] getitem2 OK (+7 Main Gauche[4] com cartas).";
+	end;
+
+OnRo:
+	// roda dois exemplos prontos; edite à vontade
+	atcommand "@rotest armor Adventure_Suit 1 G3";
+	atcommand "@rotest armor Adventure_Suit 1 G5";
+	dispbottom "[TEST] @rotest disparado (G3 e G5).";
+	end;
+}

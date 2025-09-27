@@ -1,0 +1,499 @@
+Item_ID,Aegis_Name,Display_Name,View_Sprite,Costume_Type,Status
+5157,C_Orc_Helm,C Orc Helm,86,Head_Top,Official
+5224,C_Orc_Hero_Helm,C Orc Hero Helm,179,Head_Top,Official
+5909,C_Valkyrie_Circlet,C Valkyrie Circlet,940,Head_Top,Official
+5979,C_Angel_Fluttering,C Angel Fluttering,1380,Head_Low,Official
+14677,C_Perfect_Ronin,C Perfect Ronin,1974,Head_Top,Official
+14678,C_Elegant_Peaceke,C Elegant Peaceke,1973,Head_Top,Official
+14679,C_Glowing_Mimic,C Glowing Mimic,1972,Head_Top,Official
+18740,C_Hair_Of_The_Strong,C Hair Of The Strong,879,Head_Top,Official
+18741,C_Will_O_Wisp,Costume Will O Wisp,880,Head_Top,Official
+18742,C_MoonStar_Accessory,Costume Moon and Stars,881,Head_Mid,Official
+18744,C_World_Star,Costume Twilight,883,Head_Mid,Official
+19424,C_Master_Cat,Costume Master's Head,1806,Head_Low,Official
+19433,C_Resonate_Taego,Costume Resonate Taego,1823,Head_Low,Official
+19459,C_Luna_On_Shoulder,Costume Lunatic on Shoulder,1881,Head_Low,Official
+19466,C_Small_ocean,Costume small sea    # !todo check english name,1883,Head_Top,Official
+19524,C_Green_Feeler,Costume Green Feeler,2222,Head_Top,Official
+19525,C_Jack_A_Dandy,Costume Jack A Dandy,58,Head_Top,Official
+19526,C_Helm,Costume Helm,40,Head_Top,Official
+19527,C_Sharp_Gear,Costume Spiky Band,43,Head_Top,Official
+19528,C_Iron_Cane,Costume Iron Cain,53,Head_Low,Official
+19529,C_Angelic_Chain,Costume Angel Wing,38,Head_Top,Official
+19530,C_Wild_Rose,Costume Wild Rose,541,Head_Top,Official
+19531,C_Cube_Mask,Costume Cube Mask,472,Head_Low,Official
+19532,C_Red_Bunny_Band,Red Bunny Band,640,Head_Top,Official
+19533,C_Spore_Hat,Costume Spore Hat,114,Head_Top,Official
+19534,C_Tha_Despero_Mask,Costume Thanatos Despero Mask,693,Head_Low,Official
+19535,C_Sinsuncho_Hat,Costume Sinsuncho Hat,730,Head_Top,Official
+19536,C_Rose_Corsage,Costume Rose Corsage,533,Head_Top,Official
+19537,C_Gryphon_Hat,Costume Gryphon Hat,591,Head_Top,Official
+19539,C_Reginleif_Hairband,Costume Hairband Of Reginleif,468,Head_Mid,Official
+19540,C_Rabbit_Earplug,Costume Rabbit Earplugs,515,Head_Mid,Official
+19541,C_Romantic_White_Flower,Costume Romantic White Flower,259,Head_Low,Official
+19542,C_Devil_Whisper,Costume Devil Whisper,712,Head_Mid,Official
+19544,C_Tare_Neko_Cru,Costume Tare Neko Cru,692,Head_Top,Official
+19545,C_Boys_Cap,Costume Boy's Cap,102,Head_Top,Official
+19546,C_Valkyrie_Helm,Costume Valkyrie Helm,225,Head_Top,Official
+19547,C_Deviruchi_Cap,Costume Deviruchi Cap,123,Head_Top,Official
+19548,C_Frog_Cap,Costume Frog Cap,448,Head_Top,Official
+19549,C_Magestic_Goat,Costume Magestic Goat,41,Head_Top,Official
+19550,C_Blush,Costume Blush,125,Head_Mid,Official
+19551,C_Elven_Ears,Costume Elven Ears,73,Head_Mid,Official
+19552,C_Centimental_Flower,Costume Centimental Flower,56,Head_Low,Official
+19553,C_Assassin_Mask_,Costume Assassin Mask,180,Head_Low,Official
+19554,C_Hahoe_Mask,Costume Hahoe Mask,230,Head_Low,Official
+19555,C_Crescent_Helm,Costume Crescent Moon Helm,213,Head_Mid,Official
+19556,C_Kabuki_Mask,Costume Kabuki Mask,214,Head_Low,Official
+19557,C_Ayothaya_Hat,Costume Ayothaya Hat,334,Head_Top,Official
+19558,C_Crow_Hat,Costume Crow Hat,524,Head_Top,Official
+19559,C_Baby_Dragon_Hat,Costume Baby Dragon Hat,525,Head_Top,Official
+19560,C_Coati_Hat,Costume Coati Hat,527,Head_Top,Official
+19561,C_Tucan_Hat,Costume Tucan Hat,528,Head_Top,Official
+19562,C_Jaguar_Hat,Costume Jaguar Hat,530,Head_Low,Official
+19563,C_Arhat_Mask,C Arhat Mask,545,Head_Low,Official
+19564,C_Tiger_Arhat_Mask,Costume Tiger Arhat Mask,546,Head_Low,Official
+19565,C_Chung_Hairband,Costume Chung Hairpin,583,Head_Top,Official
+19566,C_Samurai_Mask,Costume Samurai Mask,644,Head_Low,Official
+19567,C_Hatta_Black,Costume Hatta Black,676,Head_Low,Official
+19568,C_Ancient_Horns,Costume Ancient Horns,757,Head_Top,Official
+19569,C_Sprout_Hat,Costume Sprout Hat,758,Head_Top,Official
+19570,C_Mercury_Riser,Costume Mercury Riser,759,Head_Top,Official
+19571,C_White_Musang_Hat,Costume White Musang Hat,770,Head_Top,Official
+19572,C_Black_Musang_Hat,Costume Black Musang Hat,771,Head_Top,Official
+19573,C_Heart_Wing_Hairband,Costume Heart Wing Hairband,733,Head_Top,Official
+19576,C_Tare_Pope,Costume Tare Pope,817,Head_Top,Official
+19579,C_Red_Wind_Hat,Costume Red Wind Hat,613,Head_Top,Official
+19581,C_Brabery_Hat,Costume Adventurer's Hat,891,Head_Top,Official
+19586,C_Pink_Bunny_Band_J,Costume Pink Bunny Hair Band,898,Head_Top,Official
+19587,C_King_Poring_Hat,Costume King Poring Hat,905,Head_Top,Official
+19588,C_Cat_Hat_J,Costume Cat Hat,182,Head_Top,Official
+19598,C_Wondering_Wolf_Helm,Costume Wandering Wolf Hat,490,Head_Mid,Official
+19599,C_Imp_Hat,Costume Imp Hat,589,Head_Top,Official
+19619,C_Corsair,C Corsair,105,Head_Top,Official
+19627,C_Satellite_Hairband,Costume Satellite Hairband,266,Head_Top,Official
+19628,C_Headset,Costume Headset,87,Head_Top,Official
+19630,C_Crown,Costume Crown,45,Head_Top,Official
+19632,C_Hat,Costume Hat,16,Head_Top,Official
+19645,C_Phoenix_Crown,Costume Phoenix Crown,840,Head_Mid,Official
+19650,C_Rainbow_Feather_Deco,Costume Rainbow Feather Deco,934,Head_Top,Official
+19666,C_Cookie_Hat,Costume Cookie Hat,217,Head_Top,Official
+19669,C_Reginleif_Hairband_,Costume Reginleif Hairband,468,Head_Mid,Official
+19676,C_Rainbow_Poring_Hat,Costume Rainbow Poring Hat,900,Head_Top,Official
+19683,C_Sweet_Candy,Costume Sweet Candy,414,Head_Low,Official
+19686,C_SantaHairband,Costume Santa Hairband,964,Head_Top,Official
+19692,C_Antique_Pipe,C Antique Pipe,383,Head_Low,Official
+19702,C_Santa_Hat_1,Costume Twin Pompom,390,Head_Top,Official
+19704,C_Afro_Wig_Red,Costume Red Afro Wig,970,Head_Top,Official
+19707,C_Polar_Bear_Cap,Costume Polar Bear Cap,966,Head_Top,Official
+19710,C_Wings_Of_Victory,Costume Wings Of Victory,365,Head_Mid,Official
+19711,C_Kafra_Band,Costume Kafra Band,106,Head_Top,Official
+19731,C_Satanic_Chain,Costume Evolved Evil Wing,39,Head_Top,Official
+19733,C_Panda_Cap,Costume Panda Cap,115,Head_Top,Official
+19734,C_Binoculars,Costume Binoculars,83,Head_Mid,Official
+19736,C_Gas_Mask,Costume Gas Mask,91,Head_Low,Official
+19737,C_Corsair_K,Costume Refined Corsair,105,Head_Top,Official
+19739,C_Sleeping_Kitty_Cat,Costume Sleeping Kitty Hat,838,Head_Top,Official
+19742,C_Small_Golden_Wings,Costume Small Golden Wings,724,Head_Mid,Official
+19750,C_Saint_Frill_Ribbon,Costume Saint Frill Ribbon,987,Head_Top,Official
+19758,C_Indomitable_Crown,C Indomitable Crown,522,Head_Top,Official
+19759,C_Umbrella_Hat,Costume Umbrella Hat,338,Head_Top,Official
+19764,C_Monster_Card,Costume Monster Card,526,Head_Low,Official
+19765,C_Wing_Angels_Ears,Costume Wing Angels Ears,158,Head_Mid,Official
+19775,C_First_Manteau,C First Manteau,307,Head_Low,Official
+19779,C_Persika,Costume Persika,659,Head_Top,Official
+19780,C_Rabbit_Ear_Knit_Hat,Costume Knit Rabbit Ears,867,Head_Top,Official
+19804,C_Red_Vane_Hairpin,Costume Red Vane Hairpin,1044,Head_Top,Official
+19809,C_Cowboy_Hat_J,Costume Purple Cowboy Hat,411,Head_Top,Official
+19827,C_Amistr_Cap,Costume Amistr,643,Head_Top,Official
+19831,C_Filir_Hat,Costume Filir Hat,408,Head_Top,Official
+19835,C_Lif_Doll_Hat,Costume Lif Doll Hat,297,Head_Top,Official
+19839,C_Vanilmirth_Hat,Costume Vanilmirth Hat,317,Head_Top,Official
+19849,C_Munak_Turban,Costume Munak Hat,51,Head_Low,Official
+19853,C_Filir_Wing_Ears,Costume Filir Wings,595,Head_Mid,Official
+19856,C_Iceflake_Hat,Costume Snow Cone Hat,1080,Head_Top,Official
+19862,C_Horn_Of_Succubus,Costume Succubus Horn,150,Head_Top,Official
+19863,C_Inccubus_Horn,Costume Incubus Horn,156,Head_Top,Official
+19871,C_Music_Decoration,Costume Decoration of Music,1074,Head_Mid,Official
+19875,C_Love_Rabbit_Hood,Costume Love Rabbit Hood,549,Head_Low,Official
+19881,C_Pretty_Rabbit_Hood,Costume Pretty Rabbit Hood,1085,Head_Low,Official
+19882,C_Flowerpot_Mask,Costume Flowerpot Mask,1086,Head_Low,Official
+19903,C_Witchs_Hat,Costume Witch's Hat,717,Head_Top,Official
+19910,C_Halloween_Hat,Costume Halloween Hat,1098,Head_Top,Official
+19911,C_Triangular_Roof_Hat,Costume Triangle roof hat,1099,Head_Top,Official
+19917,C_Gloomy_Pumpkin_Hat,C Gloomy Pumpkin Hat,691,Head_Top,Official
+19918,C_Lude_Mask,Costume Lude Mask,802,Head_Low,Official
+19919,C_Cube_Mask_,Costume Quve Mask,472,Head_Low,Official
+19920,C_Adv_Whisper_Mask,Costume Evolved Whisper Mask,458,Head_Low,Official
+19927,C_Gray_Drooping_Kitty,Costume Drooping Gray Kitty,275,Head_Top,Official
+19947,C_Agent_Dark,C Agent Dark,460,Head_Low,Official
+19951,C_Solo_Play_Box2,Costume Cardboard Box,450,Head_Low,Official
+19976,C_Cat_Santa_Hat,Cat Santa Hat,1144,Head_Top,Official
+19982,C_Santa's_Hat,Costume Santa Hat,20,Head_Top,Official
+19990,C_Snow_Rabbit_Knit_Hat,Costume Rabbit Knit Hat,1157,Head_Top,Official
+20000,C_Mouse_Hat2,Costume Mouse Hat 2,1194,Head_Top,Official
+20001,C_Mouse_Hat3,Costume Mouse Hat 3,1195,Head_Top,Official
+20002,C_Mouse_Hat4,Costume Mouse Hat 4,1196,Head_Top,Official
+20003,C_Mouse_Hat5,Costume Mouse Hat 5,1197,Head_Top,Official
+20004,C_Golden_Bell,C Golden Bell,175,Head_Top,Official
+20011,C_Last_Crown,C Last Crown,1199,Head_Top,Official
+20025,C_Cow_Hat1,Costume Cow Hat 1,1211,Head_Top,Official
+20026,C_Cow_Hat2,Costume Cow Hat 2,1212,Head_Top,Official
+20027,C_Cow_Hat3,Costume Cow Hat 3,1213,Head_Top,Official
+20028,C_Cow_Hat4,Costume Cow Hat 4,1214,Head_Top,Official
+20033,C_Ceremony_Crown,C Ceremony Crown,1217,Head_Top,Official
+20043,C_Red_Cherry_Blossom,Costume Cherryblossom in Mouth,823,Head_Low,Official
+20053,C_W_King_Tiger_Doll_Hat,Costume White King Tiger Doll Hat,973,Head_Top,Official
+20060,C_Safety_Helmet,C Safety Helmet,95,Head_Top,Official
+20063,C_Yellow_Brain_Hat,Costume Yellow Brain Hat,1228,Head_Top,Official
+20064,C_Blue_Brain_Hat,Costume Blue Brain Hat,1229,Head_Top,Official
+20067,C_White_Rabbit_Headband,Costume White Rabbit Headband,719,Head_Top,Official
+20068,C_Black_Rabbit_Headband,Costume Black Rabbit Headband,718,Head_Top,Official
+20086,C_Dragon_Cintamani_Hat1,Costume Dragon Cintamani Hat,1245,Head_Top,Official
+20087,C_Dragon_Cintamani_Hat2,Costume Dragon Cintamani Hat,1246,Head_Top,Official
+20088,C_Dragon_Cintamani_Hat3,Costume Dragon Cintamani Hat,1247,Head_Top,Official
+20089,C_Dragon_Cintamani_Hat4,Costume Dragon Cintamani Hat,1248,Head_Top,Official
+20099,C_Ljosalfar,Flying Ljosalfar,1239,Head_Top,Official
+20110,C_Coiledup_Snake,Costume Coiledup Snake,1258,Head_Top,Official
+20111,C_Coiledup_Snake_Hat2,Costume Coiledup Snake Hat,1259,Head_Top,Official
+20126,C_Odium_Thanatos_Mask,Costume Odium Thanatos Mask,667,Head_Low,Official
+20132,C_Subject_Aura,Costume Aura Vicious Mind,1267,Head_Low,Official
+20136,C_12_Anniversary_Elf_Ears,Costume 12 Anniversary Elf Ears,875,Head_Mid,Official
+20139,C_Horse_Hairpin,Costume Horse Hairpin,1271,Head_Top,Official
+20140,C_Horse_Hairpin_,Costume Horse Hairpin,1272,Head_Top,Official
+20154,C_Maple_Which_Falls,Costume Maple Which Falls,1275,Head_Mid,Official
+20162,C_Fleece_Hat,Costume Fleece Hat,1277,Head_Low,Official
+20163,C_Fleece_Hat_,Costume Fleece Hat,1278,Head_Low,Official
+20164,C_Sif_Hat,C Sif Hat,639,Head_Top,Official
+20165,C_Tendrilion_Hat,Costume Tendrilion Hat,658,Head_Top,Official
+20168,C_Skull_Hood,Costume Skull Hood,598,Head_Mid,Official
+20174,C_Halloween_Hat_Orange,Costume Orange Halloween Hat,1283,Head_Top,Official
+20179,C_Monkey_On_Fur_Hat,Costume Monkey Coat Hat,858,Head_Top,Official
+20183,C_There_Is_SomethingX,C There Is SomethingX,1091,Head_Mid,Official
+20185,C_Fashionable_Glasses,Costume Fashionable Glasses,131,Head_Top,Official
+20206,C_Chicken_Hat,Costume Chicken Hat,1296,Head_Low,Official
+20209,C_Mermaid_Longing,Costume Mermaid Bubbles,1299,Head_Top,Official
+20210,C_Chicken_Hat_,Costume Chicken Hat,1297,Head_Low,Official
+20211,C_Chicken_Hat__,Costume Chicken Hat,1298,Head_Low,Official
+20220,C_Dark_Night_Veil,Costume Dark Night Veil,1303,Head_Top,Official
+20227,C_Husky_Hat,Costume Husky Hat,1016,Head_Top,Official
+20228,C_Pig_MoneyBox,Costume Pig MoneyBox,603,Head_Top,Official
+20234,C_Baphomet_Hat,Costume Baphomet Hat,1311,Head_Low,Official
+20237,C_Pink_Fur_Hat,Costume Pink Beanie,281,Head_Top,Official
+20246,C_Time_Accessory,Costume Decoration Time,1309,Head_Mid,Official
+20264,C_Blood_Sucker,Costume Blood Sucker,893,Head_Low,Official
+20278,C_Man_Medal,Costume Man's Medal,775,Head_Top,Official
+20304,C_Raccoon_Hat,Costume Raccoon Hat,118,Head_Top,Official
+20323,C_Sparkling_Sound,Costume Sparkling Sound,1074,Head_Low,Official
+20371,C_First_Kafra_Hat,Costume First Kafra Hat,581,Head_Top,Official
+20379,C_Pocketwatch_Hair_Ornament,Costume Pocketwatch Hair Ornament,1404,Head_Mid,Official
+20388,C_Ayam,Costume Ayam,228,Head_Top,Official
+20397,C_Jakk,Costume Jack,1415,Head_Low,Official
+20403,C_Dolor_Thanatos,Costume Dolor Thanatos,547,Head_Top,Official
+20404,C_Blessing_Of_Angels,Costume Blessing of Angel,1425,Head_Mid,Official
+20407,C_Subject_Aura_Red,Costume Vicious Mind Aura Crimson,1418,Head_Low,Official
+20409,C_There_is_Something_,Costume There is Something,1091,Head_Mid,Official
+20416,C_Scarf_Rag,C Scarf Rag,1371,Head_Low,Official
+20417,C_Scarf_Bra,C Scarf Bra,1975,Head_Low,Official
+20418,C_Scarf_Bel,C Scarf Bel,1976,Head_Low,Official
+20419,C_Scarf_Saf,C Scarf Saf,1977,Head_Low,Official
+20420,C_Scarf_Att,C Scarf Att,1978,Head_Low,Official
+20421,C_Scarf_Foc,C Scarf Foc,1979,Head_Low,Official
+20422,C_Scarf_Cal,C Scarf Cal,1776,Head_Low,Official
+20423,C_Scarf_Sma,C Scarf Sma,1416,Head_Low,Official
+20424,C_Scarf_Occ,C Scarf Occ,1953,Head_Low,Official
+20435,C_Camellia_Hair_Pin,Costume Camellia Hair Pin,1203,Head_Top,Official
+20440,C_Tone_of_Gold,Costume Tone of Gold,1447,Head_Low,Official
+20450,C_Gram_Peony,Costume Gram Peony,1453,Head_Top,Official
+20451,C_Sky_of_Memory,Costume Sky of Memory,1454,Head_Top,Official
+20457,C_Feather_Fluttering,Costume Fluttering Feathers,1461,Head_Low,Official
+20459,C_Valhalla_Idol,Costume Valhalla Idol,1423,Head_Mid,Official
+20472,C_Helm_Of_Angel,Costume Helm of Angel,110,Head_Top,Official
+20473,C_Mine_Helm,C Mine Helm,116,Head_Top,Official
+20487,C_Floral_Waltz,Costume Floral Waltz,1473,Head_Low,Official
+20514,C_Thanatos_Sword,Costume Thanatos Sword,23,Garment,Official
+20525,C_Bloody_Wing,Costume Crimson Wings,33,Garment,Official
+20526,C_BlueAngel_Wing,C BlueAngel Wing,34,Garment,Official
+20528,C_GoldButterfly_Wing,Costume Golden Butterfly Wings,36,Garment,Official
+20541,C_AngelRibbonWing_TW,Costume Angel's Ribboned Wings,42,Garment,Official
+20571,C_Valkyrie_Wing,Costume Valkyrie Wings,48,Garment,Official
+20575,C_School_Bag_BL,Costume Backpack (Black),52,Garment,Official
+20577,C_Balloon_Wing,Costume Ballon Wings,54,Garment,Official
+20578,C_Wings_Of_Raguel,Costume Raguel's Wings,56,Garment,Official
+20579,C_Wings_Of_Raphael,Costume Raphael's Wings,57,Garment,Official
+20586,C_Loli_Ruri_Moon,"""Costume: Loli Ruri's Crescent""",64,Garment,Official
+20589,C_Gimmick_One_Feather,Costume One Wing,66,Garment,Official
+20590,C_Evil_Druid_Cross,Costume Evil Druid Cross,67,Garment,Official
+20593,C_Ice_Wing,"""Costume: Ice Wings""",71,Garment,Official
+20594,C_Big_Ribbon_Cloak,Costume Big Ribbon Manteau,76,Garment,Official
+20595,C_School_Bag_RD_E,Costume Novice Red Backpack,51,Garment,Official
+20597,C_Evil_Scythe,"""Costume: Evil Scythe""",79,Garment,Official
+20598,C_GiantCatBag_JP_BL,Costume Giant Cat Bag,80,Garment,Official
+20599,C_Sakura_Wing,"""Costume: Sakura Wings""",83,Garment,Official
+20603,C_P_Ulysses_Feather,Costume Ulysses Wings,85,Garment,Official
+20746,C_Rudra_Wing,Costume Rudra Wings,8,Garment,Official
+20761,C_Wing_Of_Happiness,Costume Happiness Wings,9,Garment,Official
+20763,C_Amistr_Bag,Costume Amistr Bag,4,Garment,Official
+20764,C_Fallen_Angel_Wing,Costume Fallen Angel Wing,3,Garment,Official
+20765,C_Archangel_Wing,Costume Archangel Wing,49,Garment,Official
+20766,C_Fallen_Angel_WingX,C Fallen Angel WingX,73,Garment,Official
+21202,C_Eat_Coin,Costume Eatcoin Helm,1869,Head_Low,Official
+21206,C_Nut_Cracker,Costume Nut Cracker,1991,Head_Low,Official
+21207,C_Bullhead,Costume Bull Head,2078,Head_Low,Official
+21300,C_Guardian_Lion_Mask,Costume Lion Mask,231,Head_Mid,Official
+23723,C_Freya_Crown,C Freya Crown,328,Head_Top,Official
+25101,CH_Spare_Card,CH Spare Card,526,Head_Low,Official
+25102,CH_Lush_Rose,CH Lush Rose,963,Head_Top,Official
+25103,CH_Kafra_Band,CH Kafra Band,106,Head_Top,Official
+25104,CH_Ice_Ears,CH Ice Ears,584,Head_Mid,Official
+25105,CH_Skull_Hood,CH Skull Hood,598,Head_Top,Official
+25106,CH_Royal_Pirate,CH Royal Pirate,1360,Head_Top,Official
+25107,CH_Magician_Hat,CH Magician Hat,130,Head_Top,Official
+25108,CH_Mech_Hairband,CH Mech Hairband,1405,Head_Top,Official
+25109,CH_Forest_Guide,CH Forest Guide,1802,Head_Top,Official
+25110,CH_Filir_Wings,CH Filir Wings,595,Head_Mid,Official
+25111,CH_Desert_Prince,CH Desert Prince,567,Head_Top,Official
+25112,CH_Assassin_Mask,CH Assassin Mask,180,Head_Low,Official
+25113,CH_Angel_Wing,CH Angel Wing,38,Head_Top,Official
+25114,CH_Evil_Wing,CH Evil Wing,39,Head_Top,Official
+25115,CH_Sakkat,CH Sakkat,67,Head_Top,Official
+25116,CH_Hahoe_Mask,CH Hahoe Mask,230,Head_Low,Official
+25117,CH_Wizard_Hat,CH Wizard Hat,36,Head_Top,Official
+25118,CH_Elven_Ears,CH Elven Ears,73,Head_Mid,Official
+25119,CH_Banana_Hat,CH Banana Hat,197,Head_Top,Official
+25120,CH_Cactus_Hat,CH Cactus Hat,615,Head_Top,Official
+25121,CH_Legionaire_Helm,CH Legionaire Helm,660,Head_Top,Official
+25122,CH_Burning_Breath,CH Burning Breath,1050,Head_Low,Official
+25123,CH_Orc_Hero_H,CH Orc Hero H,178,Head_Top,Official
+25124,CH_Necromancer_Hood,CH Necromancer Hood,491,Head_Top,Official
+25125,CH_Samurai_Mask,CH Samurai Mask,644,Head_Low,Official
+25126,CH_Majestic_Helm,CH Majestic Helm,1047,Head_Top,Official
+25127,CH_Wandering_Minst,CH Wandering Minst,240,Head_Top,Official
+25128,CH_Straw_Hat,CH Straw Hat,146,Head_Low,Official
+25129,CH_Snake_Head,CH Snake Head,393,Head_Top,Official
+25130,CH_Sprout_Hat,CH Sprout Hat,758,Head_Top,Official
+25131,CH_Gambler_Seal,CH Gambler Seal,1202,Head_Mid,Official
+25132,CH_Darkness_Crown,CH Darkness Crown,941,Head_Top,Official
+25133,CH_Valkyrie_Circlet,CH Valkyrie Circlet,940,Head_Top,Official
+25134,CH_Crimson_W_Helm,CH Crimson W Helm,1055,Head_Top,Official
+25135,CH_Hermod_Cap,CH Hermod Cap,478,Head_Top,Official
+25136,CH_Fox_Ear_Bells,CH Fox Ear Bells,1070,Head_Top,Official
+25137,CH_Snapping_Turtle,CH Snapping Turtle,585,Head_Top,Official
+25138,CH_White_Flower,CH White Flower,259,Head_Low,Official
+25139,CH_Butterfly_Ears,CH Butterfly Ears,695,Head_Mid,Official
+25140,CH_Honey_Bee_Hat,CH Honey Bee Hat,709,Head_Top,Official
+25141,CH_Boys_Cap,CH Boys Cap,102,Head_Top,Official
+25142,CH_Snowman_Hat,CH Snowman Hat,616,Head_Top,Official
+25143,CH_Beanie,CH Beanie,160,Head_Top,Official
+25144,CH_Vane_Hairpin,CH Vane Hairpin,313,Head_Top,Official
+25145,CH_Gryphon_Headband,CH Gryphon Headband,1233,Head_Top,Official
+25146,CH_Hat_Sungod,CH Hat Sungod,138,Head_Top,Official
+25147,CH_Peco_Hairband,CH Peco Hairband,314,Head_Top,Official
+25148,CH_Pagdayaw,CH Pagdayaw,303,Head_Top,Official
+25149,CH_Ancient_Gold_Orn,CH Ancient Gold Orn,739,Head_Top,Official
+25150,CH_Noble_High,CH Noble High,830,Head_Top,Official
+25151,CH_Ignis_Cap,CH Ignis Cap,803,Head_Top,Official
+25152,CH_Dark_Blindfold,CH Dark Blindfold,187,Head_Mid,Official
+25153,CH_Shrine_Maiden,CH Shrine Maiden,908,Head_Top,Official
+25154,CH_Feather_Beret,CH Feather Beret,224,Head_Top,Official
+25155,CH_Ulle_Cap,CH Ulle Cap,254,Head_Top,Official
+25156,CH_Bird_Nest,CH Bird Nest,201,Head_Top,Official
+25157,CH_Magic_Booster,CH Magic Booster,873,Head_Mid,Official
+25158,CH_Power_Booster,CH Power Booster,1355,Head_Mid,Official
+25159,CH_Ifrit_Mask,CH Ifrit Mask,421,Head_Mid,Official
+25160,CH_Miracle_B_Rose,CH Miracle B Rose,1064,Head_Top,Official
+25161,CH_Darkness_Helm,CH Darkness Helm,586,Head_Top,Official
+25162,CH_Yellow_Bandana,CH Yellow Bandana,309,Head_Top,Official
+25163,CH_Riot_Chip,CH Riot Chip,1201,Head_Top,Official
+25164,CH_Angel_W_Ears,CH Angel W Ears,158,Head_Mid,Official
+25165,CH_Evil_W_Ears,CH Evil W Ears,152,Head_Mid,Official
+25166,CH_Bone_Helm,CH Bone Helm,103,Head_Top,Official
+25167,CH_Crown_of_Deceit,CH Crown of Deceit,544,Head_Top,Official
+25168,CH_Coif,CH Coif,176,Head_Top,Official
+25169,CH_Cigarette,CH Cigarette,54,Head_Low,Official
+25170,CH_Fafnir_Mask,CH Fafnir Mask,180,Head_Low,Official
+25171,CH_Opera_Mask,CH Opera Mask,68,Head_Mid,Official
+25172,CH_Toy_Soldier_Hat,CH Toy Soldier Hat,420,Head_Top,Official
+25173,CH_Ghost_Bandana,CH Ghost Bandana,61,Head_Top,Official
+25174,CH_Doctor_Band,CH Doctor Band,60,Head_Top,Official
+25175,CH_Ice_Cream_Hat,CH Ice Cream Hat,488,Head_Top,Official
+25176,CH_Devil_Bone_Helm,CH Devil Bone Helm,523,Head_Top,Official
+25177,CH_Sheep_Hat,CH Sheep Hat,205,Head_Top,Official
+25178,CH_Airship_Captain,CH Airship Captain,367,Head_Top,Official
+25179,CH_Drowned_King,CH Drowned King,870,Head_Top,Official
+25180,CH_Gas_Mask,CH Gas Mask,91,Head_Mid,Official
+25181,CH_Winged_Dragon,CH Winged Dragon,999,Head_Top,Official
+25182,CH_Sloth_Hat,CH Sloth Hat,638,Head_Top,Official
+25183,CH_Magic_Stone_H,CH Magic Stone H,630,Head_Top,Official
+25184,CH_Welding_Mask,CH Welding Mask,79,Head_Mid,Official
+25185,CH_Gemini_Eyes,CH Gemini Eyes,1456,Head_Mid,Official
+25186,CH_Dropping_Cat,CH Dropping Cat,142,Head_Top,Official
+25187,CH_Valkyrie_Helm,CH Valkyrie Helm,225,Head_Top,Official
+25188,CH_Crown,CH Crown,45,Head_Top,Official
+25189,CH_Dark_Bacilium,CH Dark Bacilium,364,Head_Top,Official
+25190,CH_Angel_Helm,CH Angel Helm,110,Head_Top,Official
+29982,C_Sun_9,C Sun 9,1622,Head_Top,Official
+29983,C_Moon_9,C Moon 9,1621,Head_Top,Official
+29984,C_Sun_8,C Sun 8,1620,Head_Top,Official
+29985,C_Moon_8,C Moon 8,1619,Head_Top,Official
+29986,C_Sun_7,C Sun 7,1618,Head_Top,Official
+29987,C_Moon_7,C Moon 7,1617,Head_Top,Official
+29988,C_Sun_6,C Sun 6,1616,Head_Top,Official
+29989,C_Moon_6,C Moon 6,1615,Head_Top,Official
+29990,C_Sun_5,C Sun 5,1614,Head_Top,Official
+29991,C_Moon_5,C Moon 5,1613,Head_Top,Official
+29992,C_Sun_4,C Sun 4,1612,Head_Top,Official
+29993,C_Moon_4,C Moon 4,1611,Head_Top,Official
+29994,C_Sun_3,C Sun 3,1610,Head_Top,Official
+29995,C_Moon_3,C Moon 3,1609,Head_Top,Official
+29996,C_Sun_2,C Sun 2,1608,Head_Top,Official
+29997,C_Moon_2,C Moon 2,1607,Head_Top,Official
+29998,C_Sun_1,C Sun 1,1606,Head_Top,Official
+29999,C_Moon_1,C Moon 1,1605,Head_Top,Official
+31033,C_BelieversCap,Costume Believer's Mask,1485,Head_Low,Official
+31034,C_Pirate_Bandana,C Pirate Bandana,74,Head_Top,Official
+31040,C_Magical_Feather,Costume Magical Feather,1279,Head_Top,Official
+31047,C_First_Love_Cheek,Costume First Love Cheek,1494,Head_Mid,Official
+31089,C_Exploding_Crimson_Flame,Costume Exploding Crimson Flame,1500,Head_Mid,Official
+31091,C_Gold_Shower,Costume Show Me The Zeny,1528,Head_Top,Official
+31105,C_RO_Celebration_Hat,Costume RO Celebration Hat,1541,Head_Top,Official
+31125,C_Royal_Pirate_Hat,C Royal Pirate Hat,1360,Head_Top,Official
+31140,C_Cowboy_Hat_,Costume Black Cowboy Hat,1569,Head_Top,Official
+31141,C_Rose_Corsage_,Costume Cactus Flower Corsage,1570,Head_Top,Official
+31142,C_Time_Prison,Costume Prison of Time,1309,Head_Low,Official
+31143,C_Krathong_Crown_TH,"""Costume: Krathong Crown""",1560,Head_Top,Official
+31150,C_Shalosh_Head_Dress,Costume Shalosh Headdress,1564,Head_Top,Official
+31157,C_Spirit_Chain,Costume Soul Ring,69,Head_Top,Official
+31160,C_Wyrdbrand,C Wyrdbrand,1361,Head_Top,Official
+31195,C_Choco_Minihat,Costume Mini Chocolate Hat,1592,Head_Top,Official
+31205,C_Large_Orc_Hero_Helm,C Large Orc Hero Helm,381,Head_Top,Official
+31259,C_Bubble_A_Angel_H,Costume Bubbly Arc Angeling Hairband,1633,Head_Top,Official
+31262,C_Disposable_3D_Glasses,C Disposable 3D Glasses,661,Head_Mid,Official
+31263,C_Disposable_Popcorn_Hat,C Disposable Popcorn Hat,415,Head_Top,Official
+31308,C_Protect_Feathers,C Protect Feathers,1232,Head_Mid,Official
+31311,C_Maero_Thanatos_Mask,C Maero Thanatos Mask,666,Head_Low,Official
+31316,C_C_FlutterButterfly_BL,C Black Fluttering Butterfly,1665,Head_Low,Official
+31319,C_Summer_Fan_,C Summer Fan,1051,Head_Low,Official
+31320,C_Pinwheel_Hat,C Pinwheel Hat,456,Head_Top,Official
+31325,C_Queen_Scarabas_Helmet,C Queen Scarabas Helmet,1231,Head_Low,Official
+31375,C_Morroc_Mark,C Morroc Mark,1813,Head_Mid,Official
+31388,C_Garden_Of_Eden,Costume Garden of Eden,1653,Head_Top,Official
+31391,C_Floating_Stone_Of_Int,C Floating Stone of Sage,1230,Head_Mid,Official
+31398,C_Blinking_Thin_Eyes,C Blinking Thin Eyes,1693,Head_Mid,Official
+31410,C_GodsHelm,Costume God's Helm,1678,Head_Top,Official
+31416,C_SeraphimCoronet,Costume Seraphim Coronet,1487,Head_Mid,Official
+31461,C_Male_Poring_Earmuff,Costume Marin Earrings,1160,Head_Mid,Official
+31479,C_ManyStars_TW,Costume Group of Stars,1729,Head_Low,Official
+31482,C_LunaticMuffler_TW,Costume Lunatic Shawl,1732,Head_Low,Official
+31488,C_MVP,Costume MVP,1738,Head_Mid,Official
+31490,C_Poring_Muffler,C Poring Muffler,1740,Head_Low,Official
+31497,C_Flowery_Vision_TH,"""Costume: Flowery Vision""",1744,Head_Mid,Official
+31530,C_Greater_Horn,C Greater Horn,1695,Head_Top,Official
+31542,C_Clay_Poring_Jar,C Clay Poring Jar,1634,Head_Mid,Official
+31551,C_Black_Glasses_Lower,C Black Glasses Lower,404,Head_Mid,Official
+31577,C_Roast_Memory_Upper,C Roast Memory Upper,1576,Head_Top,Official
+31583,C_Will_O_Wisp_Lower,C Will O Wisp Lower,880,Head_Low,Official
+31586,C_Poporing_Muffler,C Poporing Muffler,1797,Head_Low,Official
+31588,C_SnowFlake_Tiara,C Snow Flower,1799,Head_Top,Official
+31602,C_Midgarts_Glory,C Rune-Midgarts Glory,1807,Head_Top,Official
+31611,C_Dark_Stall,C Dark Stall,1810,Head_Low,Official
+31614,C_Fox,C Fox,1812,Head_Mid,Official
+31617,C_Lady_Tanee_TW,Costume Lady Tanee,1815,Head_Mid,Official
+31618,C_DancingButterfly_TW,Costume Butterfly Charm,1816,Head_Mid,Official
+31620,C_Snow_Fox_TW,Costume Magic Successor,1818,Head_Mid,Official
+31645,C_Doctore_Hat,C Doctore Hat,1842,Head_Top,Official
+31646,C_Doctore_Mask,C Doctore Mask,1843,Head_Mid,Official
+31647,C_Carnivale_Hat,C Carnivale Hat,1844,Head_Top,Official
+31648,C_Carnivale_Cape,C Carnivale Cape,1845,Head_Low,Official
+31649,C_Stargazer_Hat,C Stargazer Hat,1846,Head_Top,Official
+31650,C_Smug_Ears,C Smug Ears,1847,Head_Top,Official
+31651,C_Black_Cupid,C Black Cupid,1848,Head_Low,Official
+31652,C_Rodent_Squire,C Rodent Squire,1849,Head_Mid,Official
+31653,C_Loyal_Muffler,C Loyal Muffler,1850,Head_Low,Official
+31654,C_Valhalla_Guardian,C Valhalla Guardian,1851,Head_Top,Official
+31655,C_Classic_Valkyrie,C Classic Valkyrie,1852,Head_Top,Official
+31656,C_Master_Loki_S,C Master Loki S,1853,Head_Low,Official
+31657,C_Thanatos_Doll,C Thanatos Doll,1854,Head_Top,Official
+31658,C_Flaming_Majestic,C Flaming Majestic,1855,Head_Top,Official
+31659,C_GvG_Hero,C GvG Hero,1856,Head_Top,Official
+31660,C_Black_Valkyrie,C Black Valkyrie,1857,Head_Top,Official
+31706,C_Tatenashi_Helm,C Tatenashi Helm,810,Head_Top,Official
+31721,C_ResonateTaego,C Resonating Drums,1823,Head_Top,Official
+31728,C_Nobility_Hat,Costume Ribbon Straw Hat,1181,Head_Top,Official
+31737,C_Wings_Of_Lucifer,Costume Lucifer's Wings,55,Garment,Official
+31766,C_Peony_Hair_Ornament,C Peony Hair Ornament,1907,Head_Mid,Official
+31769,C_Vampire_Hat,C Vampire Hat,751,Head_Top,Official
+31770,C_Vampire_Tie,C Vampire Tie,752,Head_Low,Official
+31771,C_Witching_Hat,C Witching Hat,754,Head_Top,Official
+31772,C_Halloween_Collar,C Halloween Collar,753,Head_Low,Official
+31773,C_Mark_Mastery,C Mark Mastery,1594,Head_Top,Official
+31774,C_Blind_Justice,C Blind Justice,1593,Head_Low,Official
+31775,C_Invincible_Perf,C Invincible Perf,1595,Head_Mid,Official
+31776,C_Mini_Pope,C Mini Pope,1015,Head_Mid,Official
+31777,C_Partner_Tiger,C Partner Tiger,2058,Head_Mid,Official
+31844,C_Mob_Mask,Costume Runaway Mask,1568,Head_Low,Official
+31845,C_Palace_Guard_Cap,Costume Guard's Hat,991,Head_Top,Official
+31846,C_Lovely_Ribbon_Hair,Costume Lovely Ribbon Hair,1944,Head_Low,Official
+31848,C_Rose_Gothic_Bonnet,Costume Rose Gothic Bonnet,1946,Head_Top,Official
+31849,C_Runaway_Accelerator,Costume Runaway Accelerator,1947,Head_Top,Official
+31850,C_Gift_of_Panagia,Costume Crown of Faithful Faith,1948,Head_Top,Official
+31851,C_Phalanx,Costume Floating Shield,1949,Head_Mid,Official
+31853,C_ZombieMask,Costume Zombie Mask,1951,Head_Mid,Official
+31856,C_Amazing_Prowler,C Amazing Prowler,1954,Head_Top,Official
+31857,C_Vigilant_Shadowseer,C Vigilant Shadowseer,1955,Head_Top,Official
+31858,C_Diving_Dracom,C Diving Dracom,1956,Head_Top,Official
+31859,C_Missing_Illusionist,C Missing Illusionist,1957,Head_Top,Official
+31860,C_Lost_Dark_Knight,C Lost Dark Knight,1958,Head_Top,Official
+31861,C_Valiant_Judge,C Valiant Judge,1959,Head_Top,Official
+31862,C_Surprise_Thief,C Surprise Thief,1960,Head_Mid,Official
+31863,C_Playful_Jester,C Playful Jester,1961,Head_Top,Official
+31864,C_Wandering_Lege,C Wandering Lege,1962,Head_Top,Official
+31865,C_Death_Revenant,C Death Revenant,1963,Head_Mid,Official
+31866,C_Silent_Night_R,C Silent Night R,1964,Head_Low,Official
+31867,C_Rotten_Black_P,C Rotten Black P,1965,Head_Top,Official
+31868,C_Brooding_Gravek,C Brooding Gravek,1966,Head_Top,Official
+31869,C_Skilled_Satsujin,C Skilled Satsujin,1967,Head_Top,Official
+31870,C_Genius_Arcane,C Genius Arcane,1968,Head_Top,Official
+31871,C_Boom_Blast_Ju,C Boom Blast Ju,1969,Head_Top,Official
+31886,C_Dark_Hero_H,C Dark Hero H,1952,Head_Top,Official
+31905,C_Blanc_Neige_Prince,Costume Snow Ice Hair,1983,Head_Low,Official
+31906,C_PGstone_Knit_Hat_PK,Costume Cat Paw Knitted Hat,1984,Head_Top,Official
+31907,C_PGstone_Knit_Hat_BW,Costume Cat Paw Knitted Hat (Brown),1985,Head_Top,Official
+31911,C_LittleGarden,Costume Little Garden,1830,Head_Mid,Official
+31916,C_Frill_Collar,Costume Frill Neckcap,1988,Head_Low,Official
+31922,C_Fluffy_Semi_Long_SV,Costume Fluffy Semi-Long (Silver),1993,Head_Low,Official
+31923,C_Baby_Polar_Bear,Costume Baby Polar Bear,1994,Head_Mid,Official
+31927,C_Blue_Pencil_In_Mouth,Costume Pencil in Mouth (Blue),932,Head_Low,Official
+31930,C_Mike_Stand,Costume Standing Mic,2000,Head_Mid,Official
+31931,C_Half_Rim_Glasses,Costume Half Rim Glasses,2001,Head_Mid,Official
+31932,C_Suit_Sollar,Costume Suit Lapel,2002,Head_Low,Official
+31933,C_Miyabi_Long_Hair_LPP,Costume Miyabi Doll Long Hair (Light Purple),2003,Head_Low,Official
+31934,C_Blink_Eyes_Sakura,Costume Blinking Purple Eyes,2004,Head_Mid,Official
+31936,C_Nut_Donut_In_Mouth,Costume Honeynut Donut,736,Head_Low,Official
+31937,C_Unicorn_Ornament,Costume Unicorn Headdress,2006,Head_Top,Official
+31938,C_L_Knitting_Low_Twin,Costume Loose Knitting Twin,2007,Head_Low,Official
+31943,C_Frog_Hood,Costume Tree Frog Hood,2010,Head_Top,Official
+31944,C_Elegant_Wave,Costume Elegant Wave,2011,Head_Low,Official
+31946,C_Angry_Look,C Angry Look,1897,Head_Mid,Official
+400055,C_ShineSantaPoringE,Costume Shiny Santa Poring Hat,961,Head_Top,Official
+400074,C_Disapear_Time_TW,Costume Lost Time,1998,Head_Top,Official
+400076,C_20th_Anniversary,Costume Gravity's 20th Anniversary Balloon,2005,Head_Low,Official
+400115,C_Rag_Origin_Hat,Costume Angeling Bread Hat,2019,Head_Top,Official
+400124,C_Magestic_Goat2,Costume Majestic Goat of Dawn,513,Head_Top,Official
+400148,C_Dragon_Style,C Dragon Style,2115,Head_Low,Official
+410005,C_Magic_Heir_TW,Costume Magic Heir,1996,Head_Mid,Official
+410056,C_Chick_Doll,C Chick Doll,2086,Head_Mid,Official
+410062,C_Carefree,C Carefree,2113,Head_Mid,Official
+420010,C_Cons_Of_Darkness,Costume Dark Master,2020,Head_Low,Official
+420025,C_OneEyedJack,Costume One Eyed Jack,2023,Head_Low,Official
+420095,C_Costume1,C Costume1,2052,Head_Top,Official
+420096,C_Costume2,C Costume2,2053,Head_Top,Official
+420097,C_Costume3,C Costume3,2054,Head_Top,Official
+420098,C_Costume4,C Costume4,2051,Head_Top,Official
+420099,C_Costume5,C Costume5,2047,Head_Top,Official
+420100,C_Costume6,C Costume6,2049,Head_Top,Official
+420101,C_Costume7,C Costume7,2048,Head_Top,Official
+420102,C_Costume8,C Costume8,2050,Head_Top,Official
+440002,C_Happy_Cat_TW,Costume Happy Cat,1980,Head_Low,Official
+440003,C_Pretty_Rabbit_Hood_E,Costume Novice Rabbit Hood,1085,Head_Low,Official
+440006,C_Black_Cat_Hood_kr,Costume Black Cat Hood,1481,Head_Low,Official

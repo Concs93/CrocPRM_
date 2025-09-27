@@ -1,0 +1,105 @@
+//============================================================
+// CloneCardCtrl — controlador da carta "Star Scourge Card"
+// - Sem atraso fantasma: cancela se não houve hit recente
+// - Fila comprimida: no máx. 1 spawn pendente
+// - Cadência controlada no SPAWN (LOCAL_CD_MS)
+//============================================================
+-	script	CloneCardCtrl	-1,{
+
+	// ---------- CONFIG ----------
+OnInit:
+		.CHANCE_PERMILLE   = 1000;  // 100% para teste
+		.DUR_MIN_MS        = 4000;
+		.DUR_MAX_MS        = 4000;
+		.SPAWN_DELAY_MS    = 0;     // sem “warm-up”; 0 = imediato
+		.LOCAL_CD_MS       = 2000;  // 1 clone/seg (cadência real)
+		.ACTIVE_WINDOW_MS  = 700;   // hit recente necessário (anti rastro)
+		.MAX_QUEUE         = 1;     // não acumular spawns
+		.SKILL_ID          = 0;
+		.SKILL_LV          = 0;
+		.CARD_ID           = 13744;
+		setarray .FX_LIST[0], 744, 586, 865;
+		end;
+
+	// Gatilho via item
+OnHit:
+		// --------- GATES ---------
+		.@rid = getcharid(3); if (!.@rid) end;           // precisa ser player
+		if (@hit_from_clone) end;                         // não procca de clone
+		if (!isequipped(.CARD_ID)) end;                   // precisa da carta
+		if (rand(1000) >= .CHANCE_PERMILLE) end;          // chance
+
+		// CAPTURA DO TARGET: Simplificado - C++ busca o mob mais próximo do master
+		.@player_target = 0; // Será ignorado, C++ faz a busca
+
+		// monta comando do clone (parâmetros fixos)
+		.@dur   = rand(.DUR_MIN_MS, .DUR_MAX_MS);
+		.@hpfix = 5;
+		.@friendly  = 1; .@copy_eq = 1;
+		.@biolab_fx = 744;
+		.@fx_main   = .FX_LIST[0];
+		.@fx_ex1    = .FX_LIST[1];
+		.@fx_ex2    = .FX_LIST[2];
+
+		@_cc_cmd$ = sprintf("@myclone dur=%d friendly=%d copy_eq=%d skill=%d/%d biolab=1 fx=%d pskills=0 kit=0 hp=%d random_spawn=1 fx2=%d fx3=%d target=%d",
+			.@dur, .@friendly, .@copy_eq,
+			.SKILL_ID, .SKILL_LV,
+			.@fx_main, .@hpfix,
+			.@fx_ex1, .@fx_ex2, .@player_target);
+
+		// marca último hit (para janela de atividade)
+		@_cc_last_hit_ms = gettimetick(0);
+
+		// fila comprimida: no máx. 1 spawn pendente
+		@_cc_queue = min(@_cc_queue + 1, .MAX_QUEUE);
+
+		// se não há ciclo rodando, começa AGORA (sem delay inicial)
+		if (!@_cc_pending) {
+			@_cc_pending = 1;
+			doevent strnpcinfo(3)+"::OnSpawn";
+		}
+		end;
+
+	// Consumidor da fila (respeita janela e cooldown reale)
+	OnSpawn:
+		// ainda é player + ainda está com a carta?
+		if (!getcharid(3) || !isequipped(.CARD_ID)) { @_cc_pending = 0; @_cc_queue = 0; end; }
+
+		// nada a consumir?
+		if (@_cc_queue <= 0) { @_cc_pending = 0; end; }
+
+		// cancela “rastro”: precisa de hit MUITO recente
+		.@now = gettimetick(0);
+		if (!@_cc_last_hit_ms || .@now - @_cc_last_hit_ms > .ACTIVE_WINDOW_MS) {
+			@_cc_queue = 0; @_cc_pending = 0; end;
+		}
+
+		// respeita cadência real (LOCAL_CD_MS contado no SPAWN)
+		if (@clonecard_last_ms && .@now - @clonecard_last_ms < .LOCAL_CD_MS) {
+			.@wait = .LOCAL_CD_MS - (.@now - @clonecard_last_ms);
+			if (.@wait < 1) .@wait = 1;
+			addtimer .@wait, strnpcinfo(3)+"::OnSpawn";
+			end;
+		}
+
+		// SPawna 1 clone
+		@_cc_queue -= 1;
+		
+		// Efeitos visuais e sonoros no spawn (aplicados no player)
+		specialeffect2 425; // Efeito visual 1
+		specialeffect2 227; // Efeito visual 2
+		
+		atcommand(@_cc_cmd$);
+		@clonecard_last_ms = gettimetick(0);
+
+		// agenda próximo se ainda tem 1 pendente
+		.@pace = .LOCAL_CD_MS;
+		if (.@pace < .SPAWN_DELAY_MS) .@pace = .SPAWN_DELAY_MS;
+
+		if (@_cc_queue > 0) {
+			addtimer .@pace, strnpcinfo(3)+"::OnSpawn";
+		} else {
+			@_cc_pending = 0;
+		}
+	end;
+}

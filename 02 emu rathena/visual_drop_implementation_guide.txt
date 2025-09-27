@@ -1,0 +1,30 @@
+// ===== GUIA DE IMPLEMENTAÇÃO =====
+
+// ===== PASSO 1: CONFIGURAR ITENS =====
+// No item_db, adicionar campo customizado:
+// CustomField: visual_drop_config
+// Valores: 500, 1000, 2005, 5000, etc.
+
+// ===== PASSO 2: SUBSTITUIR bDropAddRace =====
+// Trocar:
+// bonus2 bDropAddRace,RC_All,50;
+// Por:
+// bonus_script "{ callfunc('TryVisualDrop'); }", 100, 1, 0;
+
+// ===== PASSO 3: TESTAR SISTEMA =====
+// 1. Equipar item com configuração
+// 2. Atacar mobs
+// 3. Verificar se costumes são dropados
+// 4. Ajustar chances conforme necessário
+
+// ===== PASSO 4: BALANCEAR =====
+// - Ajustar valores base conforme necessário
+// - Modificar bônus de refino
+// - Testar com diferentes combinações
+
+// ===== VANTAGENS DO SISTEMA =====
+// ✅ Configurável por item
+// ✅ Acumulativo entre itens
+// ✅ Bônus de refino
+// ✅ Fácil de balancear
+// ✅ Substitui bDropAddRace
