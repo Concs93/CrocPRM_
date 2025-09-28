@@ -63808,6 +63808,8 @@ Body:
     Rate: 300
   - Item: Enriched_Oridecon
     Rate: 200
+  - Item: Part_Of_Star's_Sob
+    Rate: 200
   - Item: Gu_Warrior_Card
     Rate: 100
     StealProtected: true
@@ -63855,6 +63857,8 @@ Body:
     RandomOptionGroup: shoes
   - Item: 4th_Shadow_Coffer
     Rate: 300
+  - Item: Part_Of_Star's_Sob
+    Rate: 200
   - Item: Gu_Support_Card
     Rate: 100
     StealProtected: true
@@ -63903,6 +63907,8 @@ Body:
     Rate: 50
   - Item: Emperium_Ring
     Rate: 100
+  - Item: Part_Of_Star's_Sob
+    Rate: 200
     RandomOptionGroup: accessory
   - Item: Gu_Defender_Card
     Rate: 100
@@ -63952,6 +63958,8 @@ Body:
     RandomOptionGroup: garment
   - Item: 4th_Shadow_Coffer
     Rate: 300
+  - Item: Part_Of_Star's_Sob
+    Rate: 200
   - Item: Gu_Magician_Card
     Rate: 100
     StealProtected: true
@@ -63999,6 +64007,8 @@ Body:
     Rate: 745
   - Item: Jewel_Shadowdecon
     Rate: 200
+  - Item: Part_Of_Star's_Sob
+    Rate: 1000
   - Item: Gu_Chamberlain_Card
     Rate: 100
     StealProtected: true
@@ -64051,8 +64061,10 @@ Body:
   - Item: Unleashed_Manual
     Rate: 200
     RandomOptionGroup: manual
+  - Item: Emperium_G
+    Rate: 300
   - Item: Gu_Master_Card
-    Rate: 100
+    Rate: 200
     StealProtected: true
 - Id: 2790
   AegisName: C2_ISIS
@@ -64094,6 +64106,8 @@ Body:
     Rate: 10000
   - Item: Distortion_Essence
     Rate: 10000
+  - Item: Emperium_G
+    Rate: 10000
   - Item: Guiding_Dagger
     Rate: 300
     RandomOptionGroup: dagger
@@ -64110,7 +64124,7 @@ Body:
     Rate: 1000
     RandomOptionGroup: accessory
   - Item: Ymir_Emp_Card
-    Rate: 200
+    Rate: 300
     StealProtected: true
   - Item: Silver_Bullet
     Rate: 500
