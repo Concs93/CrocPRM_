@@ -7,7 +7,7 @@
 -	script	Ast_Farm_Step1	-1,{
 
 	OnInit:
-		.KILLS_REQUIRED   = 100;
+		.KILLS_REQUIRED   = 3;
 		.INST_NAME$       = "Ast_MiniTrial";
 		.INST_ENTRY_MAP$  = "guild_vs4"; // mapa de entrada
 		.INST_ENTRY_X     = 50;
@@ -100,9 +100,53 @@ L_StepCounter:
 		@ast_aid = getcharid(0);
 		attachrid(@ast_aid);
 
-		.@iid = instance_create(.INST_NAME$, IM_CHAR);
-		if (.@iid < 0) { return; }
-
+		// SISTEMA DE PARTY (como orphanentrance.txt) - COM MENSAGENS DO BOSS
+		
+		// Proteção contra dano durante as mensagens
+		sc_start SC_INVINCIBLE, 30000, 0; // 30 segundos de invencibilidade
+		sc_start SC_INVINCIBLEOFF, 30000, 0; // Remove invencibilidade após 30s
+		
+		// Remove player da party atual (se existir)
+		.@partyrest$ = getcharid(0);
+		.@partyrest2$ = getcharid(1);
+		party_delmember(.@partyrest$, .@partyrest2$);
+		
+		mes "[System]";
+		mes "You feel a chill down your spine...";
+		next;
+		
+		// Cria party única com nome aleatório (mais curto e único)
+		.@name$ = "AF" + rand(999999);
+		.@create_result = party_create(.@name$);
+		
+		// Se falhou, tenta com nome diferente
+		if (.@create_result != 0) {
+			.@name$ = "AF" + rand(999999) + "_" + getcharid(0);
+			.@create_result = party_create(.@name$);
+		}
+		
+		mes "[Star Scourge]";
+		mes "You dare enter my room? MY DOMAIN?";
+		next;
+		mes "[Star Scourge]";
+		mes "You are not prepared.";
+		next;
+		
+		// Cria instância baseada na party
+		.@iid = instance_create(.INST_NAME$, IM_PARTY);
+		if (.@iid < 0) {
+			mes "[Star Scourge]";
+			switch (.@iid) {
+				case -1: mes "ERROR: Invalid type."; break;
+				case -2: mes "ERROR: Party not found."; break;
+				case -3: mes "ERROR: Instance already exists."; break;
+				case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+		}
+		
 		instance_enter(.INST_NAME$);
 		.@imap$ = instance_mapname(.INST_ENTRY_MAP$, .@iid);
 		if (.@imap$ == "") { return; }
@@ -158,11 +202,22 @@ OnInstWatch:
 			.inst_iid = 0; .inst_map$ = ""; .instance_owner_aid = 0; .ECO_GID = 0;
 			@ast_iid = 0; @ast_inst_active = 0; @ast_boss_spawned = 0;
 			.inst_watching = 0;
+			
+			// Instância destruída (sistema de party)
 			end;
 		}
 	}
 	addtimer .WATCH_MS, strnpcinfo(3)+"::OnInstWatch";
 	end;
+
+	// ===== Função auxiliar para verificar se o boss ainda existe =====
+L_CheckBossExists:
+	.@imap$ = getarg(0);
+	.@gid = getarg(1);
+	if (.@imap$ == "" || .@gid <= 0) return 0;
+	if (mobcount(.@imap$, strnpcinfo(3)+"::OnAstBossKilled") <= 0) return 0;
+	return 1;
+
 
 	// ===== Spawn do boss no mapa instanciado =====
 L_SpawnBoss:
@@ -177,65 +232,57 @@ L_SpawnBoss:
 	// evita multi-spawn por char
 	if (@ast_boss_spawned) return;
 	@ast_boss_spawned = 1;
+	
+	// LIMPEZA SIMPLES: Apenas reseta variáveis
+	.@current_aid = getcharid(0);
+	
+	// Reset SIMPLES das variáveis (sem operações perigosas)
+	@ast_iid = 0;
+	@ast_inst_active = 0;
+	@ast_boss_spawned = 0;
+	// NÃO resetar .inst_iid aqui - ele é definido depois na criação da instância
+	.inst_map$ = ""; 
+	.instance_owner_aid = 0; 
+	.ECO_GID = 0;
+	.inst_watching = 0;
 
-	// bloqueia todos os drops (normais + MVP)
-	setmapflag .@imap$, mf_nomobloot;
-	setmapflag .@imap$, mf_noloot;
-
-	// posição: ponto de entrada + 10 pra cima
+	// SAFETY CHECK: Spawn básico sem manipulação para evitar crashes
+	
+	// Configurações do mapa para danos visíveis (força PvE)
+	removemapflag .@imap$, mf_pvp;
+	removemapflag .@imap$, mf_gvg;
+	removemapflag .@imap$, mf_gvg_castle;
+	setmapflag .@imap$, mf_nopvp;
+	setmapflag .@imap$, mf_nogvg;
+	setmapflag .@imap$, mf_nobranch;
+	setmapflag .@imap$, mf_noteleport;
+	setmapflag .@imap$, mf_nosave;
+	setmapflag .@imap$, mf_nomemo;
+	setmapflag .@imap$, mf_nopenalty;
+	
+	// Posição: centro do mapa + 10 células para cima
 	@ast_inst_map$ = .@imap$;
 	@ast_boss_x = .INST_ENTRY_X;
 	@ast_boss_y = .INST_ENTRY_Y + 10;
-
-	set $@mobid[0], 0;
-	// spawn do boss (captura correta do GID via $@mobid[0])
+	
+	// Spawn básico sem manipulação
 	monster .@imap$, @ast_boss_x, @ast_boss_y, .BOSS_NAME$, .BOSS_ID, 1, strnpcinfo(3)+"::OnAstBossKilled";
-	sleep2 200;  // Aguarda para garantir spawn
+	sleep2 200;
 	.@gid = $@mobid[0];
-
 	if (.@gid > 0) {
-		// Salva o GID
-		.ECO_GID  = .@gid;
-		.instance_owner_aid = getcharid(0); // Salva quem criou a instância
-
-		// ======= (1) Ajusta status do boss ANTES de ligar o controller =======
-		// Aguarda um pouco antes de modificar stats
-		sleep2 300;
-
-		// pega modo atual via array
-		getunitdata .@gid, .@u;
-		.@mode = .@u[UMOB_MODE];
-		setunitdata .@gid, UMOB_MODE, ( .@mode &~ MD_BOSS );
-
-		// FORÇA HP correto: primeiro MaxHP, depois HP atual
-		setunitdata .@gid, UMOB_MAXHP, .BOSS_MAXHP;
-		sleep2 100;
-		setunitdata .@gid, UMOB_HP, .BOSS_MAXHP;
-		sleep2 100;
-
-		// Verifica se funcionou
-		getunitdata .@gid, .@chk;
-		.@check_maxhp = .@chk[UMOB_MAXHP];
-		.@check_hp    = .@chk[UMOB_HP];
-
-		if (.@check_hp != .BOSS_MAXHP || .@check_maxhp != .BOSS_MAXHP) {
-			setunitdata .@gid, UMOB_MAXHP, .BOSS_MAXHP;
-			setunitdata .@gid, UMOB_HP, .BOSS_MAXHP;
-		}
-
-		// ======= (2) Só agora amarra e inicia o controller P2 =======
+		.ECO_GID = .@gid;
+		.instance_owner_aid = getcharid(0);
+		
+		// Marca instância como ativa
+		@ast_inst_active = 1;
+		
+		// Ativa a Fase 2 (sem manipulação do boss)
 		set getvariableofnpc(.inst_iid,  "Ast_P2Ctrl"), .inst_iid;
-		set getvariableofnpc(.inst_map$, "Ast_P2Ctrl"), .inst_map$;
+		set getvariableofnpc(.inst_map$, "Ast_P2Ctrl"), @ast_inst_map$;
 		set getvariableofnpc(.ECO_GID,   "Ast_P2Ctrl"), .ECO_GID;
-		// guardando dono
 		set getvariableofnpc(.owner_aid, "Ast_P2Ctrl"), .instance_owner_aid;
-		// Inicia o loop do controller P2 com HP já correto
 		donpcevent "Ast_P2Ctrl::OnBind";
-
-	} else {
-		@ast_boss_spawned = 0; // libera re-tentativa
 	}
-
 	return;
 
 	// ===== Kill do boss → Dust + warp fixo + destruir =====
@@ -244,10 +291,15 @@ OnAstBossKilled:
 	if (getcharid(3) <= 0) end;
 
 	// fala final
-	mapannounce .inst_map$, "Star Scourge: You think you've accomplished something? You're pathetic!", bc_map, 0xFF4040;
+	mapannounce @ast_inst_map$, "Star Scourge: You think you've accomplished something? You're pathetic!", bc_map, 0xFF4040;
 	donpcevent "Ast_P2Ctrl::OnCleanup";
 	// Recompensa da instância
 	getitem "Galactic_Dust", 5;
+	
+	// Chance de 6% para item especial
+	if (rand(100) < 6) {
+		getitem 1004927, 1; // Star_Scourge_Echo_C
+	}
 
 	// 3s depois: warp FIXO e destrói a instância
 	sleep2 3000;
@@ -260,8 +312,11 @@ OnAstBossKilled:
 		// Limpa variáveis da instância
 		.inst_iid = 0; .inst_map$ = ""; .instance_owner_aid = 0;
 		.ECO_GID = 0;
+		@ast_inst_map$ = "";
 	}
 	@ast_boss_spawned = 2; // sem respawn
 	end;
+
+	// ========== SISTEMA DE PARTY (como orphanentrance.txt) ==========
 
 }

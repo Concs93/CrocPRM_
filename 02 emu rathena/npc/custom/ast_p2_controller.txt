@@ -14,7 +14,7 @@
 		.PHASE2_HP            = 50000;
 		.SUMMON_INTERVAL_MS   = 5000;
 		.CHANNEL_TIME_MS      = 3000;
-		.SUMMON_RADIUS        = 10;
+		.SUMMON_RADIUS        = 5;
 		.CRYSTAL_MOB_ID       = 21603;
 		.MD_INVUL             = ( MD_IGNOREMELEE | MD_IGNORERANGED | MD_IGNOREMAGIC );
 		.INVUL_REAPPLY_MS     = 2000;
@@ -28,6 +28,11 @@
 		.phase         = 0;
 		.invul_on      = 0;
 		.f2_done       = 0;
+		
+		// Limite de invocações por cristal
+		.MAX_SUMMONS_PER_CRYSTAL = 3;
+		.cL_summon_count = 0;
+		.cR_summon_count = 0;
 		.boss_dead     = 0;
 
 		// cristais como MOB
@@ -102,6 +107,10 @@
 		if (.phase != 1) end;
 		.phase = 2;
 
+		// Reset contadores de invocação
+		.cL_summon_count = 0;
+		.cR_summon_count = 0;
+
 		// invulnerável
 		callsub S_EnableInvul;
 
@@ -134,18 +143,24 @@
 		donpcevent strnpcinfo(3)+"::OnSummonRLoop";
 		end;
 
-	// Loops de add atrelados ao estado “vivo” de cada cristal
+	// Loops de add atrelados ao estado "vivo" de cada cristal
 	OnSummonLLoop:
-		while (.phase==2 && .cL_alive) {
+		while (.phase==2 && .cL_alive && .cL_summon_count < .MAX_SUMMONS_PER_CRYSTAL) {
 			sleep .SUMMON_INTERVAL_MS;
-			if (.cL_alive) callsub S_SummonAt, .cL_x, .cL_y, 0; // 0 = Left
+			if (.cL_alive && .cL_summon_count < .MAX_SUMMONS_PER_CRYSTAL) {
+				callsub S_SummonAt, .cL_x, .cL_y, 0; // 0 = Left
+				.cL_summon_count++;
+			}
 		}
 		end;
 
 	OnSummonRLoop:
-		while (.phase==2 && .cR_alive) {
+		while (.phase==2 && .cR_alive && .cR_summon_count < .MAX_SUMMONS_PER_CRYSTAL) {
 			sleep .SUMMON_INTERVAL_MS;
-			if (.cR_alive) callsub S_SummonAt, .cR_x, .cR_y, 1; // 1 = Right
+			if (.cR_alive && .cR_summon_count < .MAX_SUMMONS_PER_CRYSTAL) {
+				callsub S_SummonAt, .cR_x, .cR_y, 1; // 1 = Right
+				.cR_summon_count++;
+			}
 		}
 		end;
 

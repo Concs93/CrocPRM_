@@ -416,6 +416,6 @@ Body:
     IdleTimeOut: 180      # 3 min
     Destroyable: true
     Enter:
-      Map: guild_vs3
+      Map: guild_vs4
       X: 50
       Y: 50
