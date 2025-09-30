@@ -5,15 +5,53 @@
 //  Anti-abuse: stores item UniqueID in SQL; cannot evolve twice
 //  Rule: MENU lista Moon e Astral; SE selecionar Moon -> mensagem e aborta.
 //  New: Intro menu -> Enhance Items / Who are you? / Leave
+//  Accessories: No refine requirement, reduced cost (500 Distortion Essence + 50 Galactic Dust + 2kk)
+//  Regular Equipment: +9 refine required, full cost (1000 Distortion Shard + 1000 Star Piece + 1kk)
 //  Tone: hints of twin blades (fire/ice), inverted castle, fall & faint redemption
 //============================================================
 va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 
-	// ---------- Intro: persona + menu ----------
+	// ---------- Check if Njord has died (serverwide variable) ----------
+	if ($njord_has_died == 0) {
+		// Apply dark/curse effects to NPC
+		specialeffect 134;
+		
+		// Hexblade is imprisoned - show atmospheric dialogue
+		mes "You approach the ancient figure, but something feels... wrong.";
+		mes "The air around him shimmers with an otherworldly energy.";
+		next;
+		
+		mes "His form appears distorted, as if trapped behind an invisible barrier.";
+		mes "You can see his lips moving, but no sound reaches your ears.";
+		next;
+		
+		mes "As you step closer, you notice his eyes are fixed on something distant.";
+		mes "His hands are bound by ethereal chains that pulse with dark energy.";
+		next;
+		
+		mes "Suddenly, a single word echoes through the void:";
+		mes "^FF0000...n...j...o...r...d...^000000";
+		next;
+		
+		mes "The word hangs in the air like a curse, heavy with meaning.";
+		mes "You realize this being is trapped, waiting for something to break the spell.";
+		next;
+		
+		mes "The chains seem to respond to your presence, tightening slightly.";
+		mes "Whatever binds him here is beyond your power to break.";
+		close;
+	}
+
+	// ---------- Intro: persona + menu (when free) ----------
 	.@tag$ = "[Hexblade]";
 	mes .@tag$;
 	mes "The dunes remember what men try to forget.";
 	mes "Ash freezes. Ice burns. Echoes endure.";
+	next;
+	
+	mes .@tag$;
+	mes "The chains that once bound me have shattered.";
+	mes "I can feel the weight of freedom upon my shoulders.";
 	next;
 
 .Menu:
@@ -57,19 +95,66 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 		.@id = getequipid(.@i);
 		if (.@id <= 0) continue;
 
-		// refine >= +9
-		.@ref = getequiprefinerycnt(.@i);
-		if (.@ref < 9) continue;
+		// dispbottom "DEBUG: Checking slot "+.@i+" - Item: "+getitemname(.@id)+" - Type: "+getiteminfo(.@id, 2)+" - Equip: "+getiteminfo(.@id, 11);
 
-		// must have at least 1 random option
+		// Check if it's an accessory (no refine requirement)
+		.@is_accessory = 0;
+		
+		// Primary check: slots 0 and 1 are accessories in this server
+		// Slot 0 = EQI_ACC_L (Left), Slot 1 = EQI_ACC_R (Right)
+		if (.@i == 0 || .@i == 1) {
+			.@is_accessory = 1;
+			// dispbottom "DEBUG: Slot "+.@i+" detected as accessory by slot number";
+		}
+		
+		// Secondary check: try equip_locations for other slots
+		if (!.@is_accessory) {
+			.@equip_locations = getiteminfo(.@id, 11); // Equipment locations
+			.@item_type = getiteminfo(.@id, 2); // Item type
+			
+			// Check if it's an accessory (ACC_L or ACC_R) but NOT costume or shadow
+			if ((.@equip_locations & 0x200) || (.@equip_locations & 0x400)) {
+				// Check if it's NOT a costume item (costume flags)
+				if (!((.@equip_locations & 0x2000) || (.@equip_locations & 0x4000) || (.@equip_locations & 0x8000) || (.@equip_locations & 0x10000) || (.@equip_locations & 0x80000))) {
+					// Check if it's NOT a shadow item (shadow flags)
+					if (!((.@equip_locations & 0x1000000) || (.@equip_locations & 0x2000000))) {
+						// Check if it's actually an accessory type (not armor/weapon/etc)
+						if (.@item_type == 12) { // Accessory type
+							.@is_accessory = 1;
+							dispbottom "DEBUG: Slot "+.@i+" detected as accessory by equip_locations";
+						}
+					}
+				}
+			}
+		}
+		
+		.@name$ = getitemname(.@id);
+		.@uid$ = getequipuniqueid(.@i);
 		.@has_ro = 0;
 		for (.@k = 0; .@k < 5; .@k++) {
 			if (getequiprandomoption(.@i, .@k, 0) > 0) { .@has_ro = 1; break; }
 		}
-		if (!.@has_ro) continue;
+		
+		// dispbottom "DEBUG: Slot "+.@i+" - is_accessory: "+.@is_accessory+" - has_ro: "+.@has_ro+" - uid: "+.@uid$;
+		
+		// For non-accessories: refine >= +9
+		if (!.@is_accessory) {
+			.@ref = getequiprefinerycnt(.@i);
+			if (.@ref < 9) {
+				// dispbottom "DEBUG: Slot "+.@i+" - Refine too low: "+.@ref;
+				continue;
+			}
+		} else {
+			.@ref = 0; // Accessories don't have refine
+		}
+
+		// must have at least 1 random option
+		if (!.@has_ro) {
+			// dispbottom "DEBUG: Slot "+.@i+" - No random options";
+			continue;
+		}
 
 		// UID required and not already evolved
-		.@uid$ = getequipuniqueid(.@i);
 		if (.@uid$ == "") continue;
 
 		.@uid_esc$ = escape_sql(.@uid$);
@@ -77,12 +162,22 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 		query_sql "SELECT 1 FROM `evolved_items_uid` WHERE `uid` = '"+.@uid_esc$+"' LIMIT 1", .@has;
 		if (.@has) continue;
 
-		// item name (no RO hint for players)
-		.@name$ = getitemname(.@id);
-
-		// build menu line (lista Moon e Astral)
+		// build menu line (different display for accessories)
+		if (.@is_accessory) {
+			// Show L or R based on slot (slot 0 = L, slot 1 = R)
+			// For other slots, show generic (A) for accessory
+			if (.@i == 0) {
+				.@menu$ += "["+.@name$+"] ^777777(L)^000000:"; // L for Left
+			} else if (.@i == 1) {
+				.@menu$ += "["+.@name$+"] ^777777(R)^000000:"; // R for Right
+			} else {
+				.@menu$ += "["+.@name$+"] ^777777(A)^000000:";
+			}
+		} else {
 		.@menu$ += "["+.@name$+"] ^777777(+"+.@ref+")^000000:";
+		}
 		.@slot_list[.@n] = .@i;
+		.@is_accessory_list[.@n] = .@is_accessory;
 		.@n++;
 	}
 
@@ -105,10 +200,207 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 	next;
 	.@sel  = select(.@menu$) - 1;
 	.@slot = .@slot_list[.@sel];
+	.@is_accessory = .@is_accessory_list[.@sel];
 
 	// Safety: recheck basic conditions
 	.@id = getequipid(.@slot);
-	if (.@id <= 0 || getequiprefinerycnt(.@slot) < 9) {
+	if (.@id <= 0) {
+		mes .@tag$; mes "The fabric shifted. Return when your choice is certain."; close;
+	}
+
+	// ---------- SPECIAL QUEST: Ring of Naght Sieger Detection ----------
+	if (.@id == 15384) { // Ring of Naght Sieger
+		// Get unique ID of this specific ring
+		.@ring_uid = getequipuniqueid(.@slot);
+		
+		// Check if ring has shadow random options (already enhanced)
+		.@has_shadow_power = 0;
+		.@shadow_count = 0;
+		
+		for (.@k = 0; .@k < 5; .@k++) {
+			.@opt_id = getequiprandomoption(.@slot, .@k, 0);
+			.@opt_val = getequiprandomoption(.@slot, .@k, 1);
+			
+			// Check if it has the special shadow random options
+			// Accessory options +1 (IDs 3-8, 13-15 with value 1) OR Skill damage +5% (skill IDs with value 5)
+			if ((((.@opt_id >= 3 && .@opt_id <= 8) || (.@opt_id >= 13 && .@opt_id <= 15)) && .@opt_val == 1) || 
+			    (.@opt_id >= 33 && .@opt_id <= 229 && .@opt_val == 5)) {
+				.@shadow_count++;
+			}
+		}
+		
+		// Ring is enhanced if it has exactly 2 shadow random options
+		if (.@shadow_count >= 2) {
+			.@has_shadow_power = 1;
+		}
+		
+		// Check if this specific ring already had its shadow put to sleep
+		if (getd("$naght_sieger_enhanced_" + .@ring_uid) == 1 || .@has_shadow_power == 1) {
+			// Ring already enhanced - treat as normal equipment
+			mes .@tag$;
+			mes "This ring... its power has already been awakened.";
+			mes "I can still enhance its other properties.";
+			next;
+			
+			// Continue to normal doubling process
+			goto normal_doubling;
+		} else {
+			// Ring hasn't been enhanced yet - show special quest
+			mes .@tag$;
+			mes "Wait... I know this ring.";
+			next;
+			
+			mes .@tag$;
+			mes "The ^FF0000darkness within^000000... it's ^FF5A5Ame^000000.";
+			mes "From when I was the demon at the tower's peak.";
+			next;
+			
+			mes .@tag$;
+			mes "I can ^00CCFFcast^000000 this shadow into slumber.";
+			mes "It'll reveal the ring's ^00CCFFtrue intention^000000.";
+			mes "But the cost will be ^FF0000steep^000000.";
+			mes "I will return to Njord's chains, and you will pay with the ^FF0000knowledge you have conquered so far^000000.";
+			next;
+			
+			// Check level requirement
+			if (BaseLevel < 130) {
+				mes .@tag$;
+				mes "You are not yet ready for this burden.";
+				close;
+			}
+			
+			if (select("^FF0000Accept the cost^000000:^777777I cannot^000000") == 2) {
+				mes .@tag$;
+				mes "The demon can wait.";
+				close;
+			}
+		}
+		
+		// Execute the quest
+		mes .@tag$;
+		mes "The binding begins...";
+		next;
+		
+		specialeffect2 EF_ENHANCE;
+		specialeffect2 EF_ENCHANTBLADE;
+		specialeffect 134; // Dark effect
+		
+		// Let player choose the shadow random option
+		mes .@tag$;
+		mes "The demon's power flows into the ring...";
+		mes "Choose what power to channel:";
+		next;
+		
+		// Choose accessory random option
+		mes .@tag$;
+		mes "What power shall be channeled into the ring?";
+		next;
+		.@acc_choice = select("STR +1:AGI +1:VIT +1:INT +1:DEX +1:LUK +1:ATK +1%:MATK +1%:ASPD +1");
+		// Map choices to correct IDs: STR=3, AGI=4, VIT=5, INT=6, DEX=7, LUK=8, ATK%=13, MATK%=14, ASPD=15
+		if (.@acc_choice <= 6) {
+			.@acc_id = .@acc_choice + 2; // STR=3, AGI=4, VIT=5, INT=6, DEX=7, LUK=8
+		} else if (.@acc_choice == 7) {
+			.@acc_id = 13; // ATK%
+		} else if (.@acc_choice == 8) {
+			.@acc_id = 14; // MATK%
+		} else {
+			.@acc_id = 15; // ASPD
+		}
+		
+		// Choose skill damage type
+		mes .@tag$;
+		mes "What type of skill damage shall it enhance?";
+		next;
+		
+		// All skills data (153 total) - organized alphabetically by description
+		setarray .@all_skill_ids[0], 198, 144, 89, 69, 221, 40, 134, 60, 81, 47, 36, 130, 120, 125, 48, 94, 136, 117, 127, 142, 90, 146, 147, 140, 229, 92, 75, 211, 100, 38, 98, 224, 151, 152, 110, 119, 105, 195, 57, 122, 93, 82, 97, 39, 213, 214, 114, 206, 200, 44, 35, 115, 96, 203, 45, 227, 54, 215, 99, 41, 160, 53, 43, 63, 137, 118, 112, 212, 222, 135, 95, 103, 78, 91, 194, 208, 150, 148, 187, 188, 49, 217, 83, 216, 132, 139, 126, 138, 106, 66, 102, 67, 68, 113, 109, 145, 111, 228, 124, 70, 55, 159, 210, 104, 131, 133, 189, 157, 61, 158, 37, 143, 128, 223, 107, 196, 149, 46, 76, 226, 62, 52, 121, 64, 50, 74, 73, 209, 33, 108, 141, 65, 58, 51, 59, 123, 34, 161, 87, 101, 225, 72, 71, 199, 197, 84, 88, 77, 42, 207, 56, 129, 116;
+		
+		setarray .@all_skill_names$[0], "Absolution", "Acid Demonstration", "Aimed Bolt", "Alpha", "Arcana of Destiny", "Arrow Shower", "Arrow Storm", "Arrow Vulcan", "Ascending Steel", "Axe Tornado", "Backstab", "Bishop's Tax", "Blitz Beat", "Bloody Fangs", "Boomeraxe", "Burning Field", "Burning Spiral", "Burning Steps", "Check Mate", "Claymore Trap", "Cluster Arrow", "Cluster Bomb", "Cold Trap", "Comet", "Conflagration", "Conviction", "Counter Slash", "Crescent Dive", "Cross Impact", "Cross Ripper Slasher", "Cursed Coffin", "Curtain Call", "Dark Message", "Dark Messenger", "Darkness Falls", "Darkness Flows", "Death Cloud", "Death Sentence", "Decoy", "Definitive Dagger", "Delta Skyfall", "Descending Steel", "Desolated Burial", "Double Strafe", "Dragon Breath", "Dragon Claw", "Dragon Omamori", "Dragon Thrust", "Dragonic Dive", "Envenom", "Equinox", "Eternal Chain", "Exale Rage", "Face-Off", "Fan of Knives", "Fatal Menace", "Fire Ball", "First Hand", "Fissure Tooth", "Flaming Petals", "Flaming Wave", "Flying Knife", "Freezing Spear", "Frost Diver", "Frozen Crash", "Frozen Wind", "Full Moon Blades", "Geirskogul", "Gift Card", "Godhand Arrow", "Greater Explosion", "Guard Breaker", "Haze Slasher", "Headshot", "Heavy Shot", "Heavy Stab", "Hellraiser", "Hot Trap", "Illusion of Mist", "Illusion of Vermilion", "Impact Tooth", "Instant Aces", "Instant Draw", "Joker's Draw", "King's Chains", "Land Fissure", "Lashing Andromeda", "Lightning Strike of Destruction", "Living Dead", "Makibishi", "Mass Grave", "Meteor Assault", "Meteor Rush", "Million Stab", "Mjolnir Fall", "Mr Bombastic", "New Moon Blades", "Night Menace", "Northern Cross", "Omega", "Overpower", "Phantom Slice", "Phantom Spear", "Poisoning Weapon", "Queen's Brand", "Queen's Gambit", "Real Magic Attack", "Reaping Slash", "Ricochet Arrow", "Roaring Overslash", "Rolling Cutter", "Rolling Flames", "Rook's Smash", "Royal Flush", "Rupture Axe", "Scathe", "Scythe Reap", "Shadow Slash", "Shadowstab", "Shatter Cross", "Shield Boomerang", "Silent Strike", "Sky Assault", "Sneak Attack", "Sonic Blow", "Soul Destroyer", "Southern Cross", "Spear Boomerang", "Spectral Servants", "Spiral Blade", "Tetragrammaton", "Thousand Arms", "Throw Acid", "Throw Huuma Shuriken", "Throw Molotov", "Typhoon Edge", "Umbral Cut", "Underworld Rainstorm", "Unholy Light", "Use Trinket", "Vengeance", "Venom Buster", "Venom Splasher", "Violent Barrage", "Violent Shot", "Void Dash", "Water Ball", "Whirling Kunai", "Wind Blade", "Wind Cutter", "Wind Slash", "Wrecking Andromeda", "Zephyr Gust";
+		
+		// Letter filtering system
+		setarray .@letter_names$[0], "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Z";
+		setarray .@letter_starts[0], 0, 10, 18, 32, 49, 53, 67, 72, 78, 83, 84, 85, 89, 96, 99, 101, 104, 106, 115, 130, 136, 140, 146, 152;
+		setarray .@letter_counts[0], 10, 8, 14, 17, 4, 14, 5, 6, 5, 1, 1, 4, 7, 3, 2, 3, 2, 9, 15, 6, 4, 6, 6, 1;
+		
+		// Letter selection loop
+		while (1) {
+			mes .@tag$;
+			mes "Choose a letter to filter skills:";
+			next;
+			
+			.@letter_choice = select("A (10 skills):B (8 skills):C (14 skills):D (17 skills):E (4 skills):F (14 skills):G (5 skills):H (6 skills):I (5 skills):J (1 skill):K (1 skill):L (4 skills):M (7 skills):N (3 skills):O (2 skills):P (3 skills):Q (2 skills):R (9 skills):S (15 skills):T (6 skills):U (4 skills):V (6 skills):W (6 skills):Z (1 skill)");
+			
+			.@start_idx = .@letter_starts[.@letter_choice - 1];
+			.@count = .@letter_counts[.@letter_choice - 1];
+			
+			// Build menu with all skills from selected letter
+			.@menu$ = "";
+			for (.@i = 0; .@i < .@count; .@i++) {
+				if (.@i > 0) .@menu$ += ":";
+				.@menu$ += .@all_skill_names$[.@start_idx + .@i];
+			}
+			
+			// Add back and cancel options
+			.@menu$ += ":^777777Back to Letters^000000:^777777Cancel^000000";
+			
+			.@choice = select(.@menu$);
+			
+			// Handle navigation
+			if (.@choice == .@count + 1) { // Back to Letters
+				continue; // Go back to letter selection
+			} else if (.@choice == .@count + 2) { // Cancel
+				mes .@tag$;
+				mes "The demon can wait.";
+				close;
+			}
+			
+			// Skill selected
+			.@skill_index = .@start_idx + .@choice - 1;
+			.@skill_id = .@all_skill_ids[.@skill_index];
+			break;
+		}
+		
+		mes .@tag$;
+		mes "The demon is sealed. The ring grows cold.";
+		next;
+		
+		// Apply item modifications FIRST (before level reduction)
+		// Clear existing random options
+		for (.@k = 0; .@k < 5; .@k++) {
+			setrandomoption(.@slot, .@k, 0, 0, 0);
+		}
+		
+		// Set the chosen random options
+		setrandomoption(.@slot, 0, .@acc_id, 1, 0); // Accessory option +1
+		setrandomoption(.@slot, 1, .@skill_id, 5, 0); // Skill damage +5%
+		
+		// Mark this specific ring as enhanced
+		setd("$naght_sieger_enhanced_" + .@ring_uid, 1);
+		
+		// Apply level reduction AFTER item modifications
+		// Progressive penalty based on level
+		if (BaseLevel >= 150) {
+			BaseLevel -= 20;
+		} else if (BaseLevel >= 140) {
+			BaseLevel -= 25;
+		} else {
+			BaseLevel -= 30;
+		}
+		set $njord_has_died, 0; // Re-imprison the Hexblade
+		
+		// Unequip the ring to avoid level requirement issues
+		unequip .@slot;
+		
+		mes "The hexblade returns to Njord's influence.";
+		announce "The hexblade returns to Njord's influence.", bc_all;
+		close;
+	}
+	
+	// Normal doubling process (for regular equipment or enhanced Ring of Naght Sieger)
+	normal_doubling:
+	
+	// For non-accessories: check refine >= +9
+	if (!.@is_accessory && getequiprefinerycnt(.@slot) < 9) {
 		mes .@tag$; mes "The fabric shifted. Return when your choice is certain."; close;
 	}
 	// SE for Moon -> mensagem e aborta
@@ -135,6 +427,18 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 	if (.@has) { mes .@tag$; mes "It has already tasted the mirror. No more."; close; }
 
 	// ---------- preço ----------
+	if (.@is_accessory) {
+		// Accessory pricing
+		set .@link1$, "<ITEM>"+getitemname(.COST_ACC_IT1_ID)+"<INFO>"+.COST_ACC_IT1_ID+"</INFO></ITEM>";
+		set .@link2$, "<ITEM>"+getitemname(.COST_ACC_IT2_ID)+"<INFO>"+.COST_ACC_IT2_ID+"</INFO></ITEM>";
+		
+		mes .@tag$;
+		mes "For this delicate vessel, bring:";
+		mes " - "+.COST_ACC_IT1_Q+"x "+.@link1$;
+		mes " - "+.COST_ACC_IT2_Q+"x "+.@link2$;
+		mes " - "+.COST_ACC_ZENY+" zeny";
+	} else {
+		// Regular equipment pricing
 	set .@link1$, "<ITEM>"+getitemname(.COST_IT1_ID)+"<INFO>"+.COST_IT1_ID+"</INFO></ITEM>";
 	set .@link2$, "<ITEM>"+getitemname(.COST_IT2_ID)+"<INFO>"+.COST_IT2_ID+"</INFO></ITEM>";
 
@@ -143,6 +447,7 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 	mes " - "+.COST_IT1_Q+"x "+.@link1$;
 	mes " - "+.COST_IT2_Q+"x "+.@link2$;
 	mes " - "+.COST_ZENY+" zeny";
+	}
 	next;
 
 	// confirmação
@@ -151,9 +456,15 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 	}
 
 	// rechecks finais (inclui Moon again por segurança)
-	if (getequipid(.@slot) <= 0 || getequiprefinerycnt(.@slot) < 9) {
+	if (getequipid(.@slot) <= 0) {
 		mes .@tag$; mes "Your focus wavered. Not now."; close;
 	}
+	
+	// For non-accessories: check refine >= +9
+	if (!.@is_accessory && getequiprefinerycnt(.@slot) < 9) {
+		mes .@tag$; mes "Your focus wavered. Not now."; close;
+	}
+	
 	.@id = getequipid(.@slot);
 	for (.@j = 0; .@j < .DENY_CT; .@j++) {
 		if (.DENY_IDS[.@j] == .@id) { mes .@tag$; mes "I won't mirror firstborn forms. It needs to ascend."; close; }
@@ -171,6 +482,18 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 	if (.@has) { mes .@tag$; mes "It is already done."; close; }
 
 	// pagamento
+	if (.@is_accessory) {
+		// Accessory payment
+		if (countitem(.COST_ACC_IT1_ID) < .COST_ACC_IT1_Q || countitem(.COST_ACC_IT2_ID) < .COST_ACC_IT2_Q || Zeny < .COST_ACC_ZENY) {
+			mes .@tag$;
+			mes "You come with empty hands, and emptier resolve.";
+			close;
+		}
+		delitem .COST_ACC_IT1_ID, .COST_ACC_IT1_Q;
+		delitem .COST_ACC_IT2_ID, .COST_ACC_IT2_Q;
+		Zeny -= .COST_ACC_ZENY;
+	} else {
+		// Regular equipment payment
 	if (countitem(.COST_IT1_ID) < .COST_IT1_Q || countitem(.COST_IT2_ID) < .COST_IT2_Q || Zeny < .COST_ZENY) {
 		mes .@tag$;
 		mes "You come with empty hands, and emptier resolve.";
@@ -179,6 +502,7 @@ va_orpha,288,317,4	script	Unknown Hexblade	10515,{
 	delitem .COST_IT1_ID, .COST_IT1_Q;
 	delitem .COST_IT2_ID, .COST_IT2_Q;
 	Zeny -= .COST_ZENY;
+	}
 
 	// dobra valores das ROs
 	for (.@k = 0; .@k < 5; .@k++) {
@@ -207,12 +531,19 @@ OnInit:
 	// cap global (0 = sem cap)
 	set .MAX_VALUE_CAP, 0;
 
-	// custo
+	// custo para equipamentos normais
 	set .COST_IT1_ID, 7360;    // Distortion Shard
 	set .COST_IT1_Q,  1000;
 	set .COST_IT2_ID, 6468;    // Star Piece
 	set .COST_IT2_Q,  1000;
 	set .COST_ZENY,   1000000; // 1kk
+
+	// custo para acessórios (reduzido)
+	set .COST_ACC_IT1_ID, 7361; // Distortion Essence
+	set .COST_ACC_IT1_Q,  500;
+	set .COST_ACC_IT2_ID, 6467; // Galactic Dust
+	set .COST_ACC_IT2_Q,  50;
+	set .COST_ACC_ZENY,   2000000; // 2kk
 
 	// Moon IDs (bloqueio somente após seleção)
 	setarray .DENY_IDS[0],
@@ -221,5 +552,25 @@ OnInit:
 
 	// tabela de controle
 	query_sql "CREATE TABLE IF NOT EXISTS `evolved_items_uid` (`uid` varchar(64) NOT NULL PRIMARY KEY, `char_id` int(11) NOT NULL, `ts` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB";
+	
+	// Initialize serverwide variable if not set
+	if ($njord_has_died == 0) {
+		set $njord_has_died, 0;
+	}
+	
+	// Free appearance - no special effects needed
+	
+	end;
+
+// Function called when Njord dies to free the Hexblade
+OnFreeFromPrison:
+	// Announce freedom
+	announce "A distant echo of breaking chains resonates through the dunes...", bc_all, 0x00FF00;
+	
+	end;
+
+// Function called to imprison the Hexblade (admin command)
+OnImprison:
+	// Visual effects for imprisonment (applied when player interacts)
 	end;
 }

@@ -77,7 +77,7 @@ On:
 
 	// Efeitos visuais e sonoros no spawn (aplicados no player)
 	specialeffect2 425;
-	specialeffect2 227;
+	// specialeffect2 227;
 
 	// Usa @myclone com instant=1 para cast imediato
 	.@cmd$ = sprintf(

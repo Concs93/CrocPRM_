@@ -1,0 +1,37 @@
+//============================================================
+//  NPC: Hexblade Admin Commands
+//  Purpose: Admin commands to manage Hexblade prison system
+//  Commands: @freehexblade, @imprisonhexblade, @checkhexblade
+//============================================================
+-	script	Hexblade_Admin	-1,{
+
+OnInit:
+	bindatcmd("freehexblade", strnpcinfo(3)+"::OnFreeHexblade", 99, 99);
+	bindatcmd("imprisonhexblade", strnpcinfo(3)+"::OnImprisonHexblade", 99, 99);
+	bindatcmd("checkhexblade", strnpcinfo(3)+"::OnCheckHexblade", 99, 99);
+	end;
+
+OnFreeHexblade:
+	// Force free the Hexblade
+	set $njord_has_died, 1;
+	donpcevent "Unknown Hexblade::OnFreeFromPrison";
+	atcommand "@announce The Hexblade has been freed by an administrator!";
+	dispbottom "Hexblade freed! Njord death status: " + $njord_has_died;
+	end;
+
+OnImprisonHexblade:
+	// Force imprison the Hexblade
+	set $njord_has_died, 0;
+	donpcevent "Unknown Hexblade::OnImprison";
+	atcommand "@announce The Hexblade has been imprisoned by an administrator!";
+	dispbottom "Hexblade imprisoned! Njord death status: " + $njord_has_died;
+	end;
+
+OnCheckHexblade:
+	// Check current status
+	dispbottom "=== HEXBLADE STATUS ===";
+	dispbottom "Njord has died: " + ($njord_has_died ? "YES" : "NO");
+	dispbottom "Hexblade is free: " + ($njord_has_died ? "YES" : "NO");
+	dispbottom "Serverwide variable: " + $njord_has_died;
+	end;
+}

@@ -1,0 +1,675 @@
+================================================================================
+                    PATCHES DETALHADOS - RETURN TO MORROC
+                    Período: Julho - Setembro 2024
+                    Consolidação Completa por Classe
+================================================================================
+
+ÍNDICE:
+1. DARK KNIGHT (DK) - REWORK COMPLETO
+2. RONIN - MELHORIAS DE COMBO
+3. PHANTOM THIEF
+4. HUNTER/SNIPER
+5. GRAVEKEEPER
+6. KINGSLAYER
+7. DRACOMANCER
+8. BLAST JUGGLER
+9. MIMIC
+10. PEACEKEEPER (PK)
+11. ROGUE/UNCHAINED ROGUE/UNCHAINED THIEF
+12. SABOTEUR
+13. PROWLER
+14. SHADOWSEER
+15. SATSJIN
+16. ARMAS ROYAL
+17. ITENS E SISTEMAS GERAIS
+18. BUG FIXES E MELHORIAS GERAIS
+
+================================================================================
+1. DARK KNIGHT (DK) - REWORK COMPLETO
+================================================================================
+
+SISTEMA DE MODOS (Apenas uma pode estar ativa):
+
+KNIGHT'S RITUAL:
+- Dá 1 INT por nível da skill
+- Habilita scaling de SP perdido em skills mágicas
+- Cooldown: 5s em todos os níveis
+- Fórmula: 2000 → 3000 SP para ganho de dano (sem alteração nos modificadores por hora)
+
+HARVEST:
+- Dá 1 STR por nível da skill
+- Nível máximo aumentado para 10
+- Habilita scaling de HP perdido em skills físicas
+- Duração: 15 segundos por nível da skill
+- Cooldown adicionado: 5s
+
+DEATHBOUND (Modo):
+- Habilita scaling de HP atual em skills físicas
+- Habilita scaling de SP atual em skills mágicas
+- Consome HP e SP a cada 0.2 segundos
+- Taxa de consumo: 10% no nível 1, 2% no nível 5
+- Tenta matar o jogador
+
+BLACK HEART:
+- Consome 10% HP máximo e SP máximo para criar o vessel
+- HP Leech Rate: 100%
+- SP Leech Rate: 100%
+- HP Leech Power: 10%
+- SP Leech Power: 2%
+- Agora funciona com dano mágico
+
+SKILLS FÍSICAS:
+
+VENGANCE:
+- Dano: 50% + 10% por nível + 2%STR
+- Dano dividido em 2 hits (era 2x dano)
+- Custa 10% HP atual
+
+FATAL MENACE:
+- Dano: 100% + 10% por nível + 2%STR
+- Dano extra em combo ready: 30% por nível + 2%STR
+- Dano dividido em 2 hits
+- Custa 20% HP atual
+
+NIGHT MENACE:
+- Dano: 150% + 20% por nível + 4%STR
+- Dano extra em combo ready: 60% por nível + 4%STR
+- Dano dividido em 2 hits (era 2x dano)
+- Cooldown: 5s → 3s
+
+DEVIL RAID:
+- Dano: 100% + 10% por nível + 1%DEX
+- Tipo de dano depende do modo do usuário
+- Knight's Ritual: dano mágico AOE no jogador e backslide após skill
+- Harvest: dano físico e AOE no alvo
+- Sem modo/Deathbound: single target
+
+SKILLS MÁGICAS:
+
+CONFLAGRATION:
+- Dano: 150% + 25% por nível + 5%INT
+- Dano dividido em 3 hits
+- Consome 20% SP atual
+- Dano é elemento da arma
+- AOE 3x3 nos níveis 1-5
+- AOE 5x5 nos níveis 6-10
+- Cooldown: 3s
+- Aplica Burn no alvo
+
+CHILLING FROST:
+- Dano: 150% + 25% por nível + 5%INT
+- 2 hits
+- Consome 20% SP atual
+- Mudado para dano mágico
+- Nível máximo: 5 → 10
+- Alcance: 5 → 6
+- Dano é elemento da arma
+- AOE 3x3 nos níveis 1-5
+- AOE 5x5 nos níveis 6-10
+- Cooldown: 3s
+- Aplica Freezing no alvo
+
+SHATTER CROSS:
+- Dano: 150% + 20% por nível + 5%INT
+- Dano extra em Freezing: 5%INT
+- Dano extra em Burning: 5%INT
+- Dano extra em turnabout: 150% + 20% por nível + 15%INT
+- Mudado para dano mágico
+- 2 hits
+- Cooldown reduzido para 1s
+- Em combo ready:
+  - AOE 3x3 nos níveis 1-4
+  - AOE 5x5 no nível 5
+  - Consome 10% SP atual
+
+ITENS DK:
+
+TYRFING:
+- ATK: 30 → 10
+- SP Leech Power: 2%
+- Curse em Chilling Frost
+- Curse em Conflagration
+- Curse em Shatter Cross
+- Perfura 1% MDEF por refino
+
+RELIQUARY CLAYMORE:
+- ATK: 20 → 10
+- MATK: 20 → 30
+- SP Leech Power: 1%
+- 5% Short Range Reflect
+- Shatter Cross autocast Envenom = refino da arma
+- Basic Attack autocast Envenom = refino da arma
+
+AVENGED TARTAROS:
+- HP Leech Power: 10%
+- Basic Attack autocast Vengeance
+
+TARTAROS:
+- HP Leech Power: 10%
+- Vengeance extra 1% INT scaling
+- Fatal Menace extra 1% INT scaling
+- Night Menace extra 1% INT scaling
+- Conflagration extra 1% STR scaling
+- Chilling Frost extra 1% STR scaling
+- Shatter Cross extra 1% STR scaling
+- 1% HP por refino
+- 1% SP por refino
+
+RUSTY EATER (Agora 2H Sword):
+- HP Leech Power: 4%
+- ATK: 25 → 15
+- MATK: 25 → 15
+- Peso: 200 → 2000
+
+ATLAS SWORD (Agora 2H Sword):
+- HP Leech Power: 5%
+- ATK: 35 → 100
+- ASPD: -50 → -100
+- Alcance: 2 → 3
+
+CURSE OF THE ORPHAN:
+- HP Leech Power: 2%
+- Nível máximo removido
+
+BLACKGUARD ANTI SWORD:
+- ATK: 25 → 5
+- MATK: 5 → 25
+- Shatter Cross não ativa AOE com Combo Ready
+
+ATLAS SHIELD (Agora 2H Shield):
+- 2 slots
+- Def: 25 → 50
+- Reflete 50% Short Range Damage
+- STR +7
+- ASPD: -50 → -100
+
+DARKNESS METAL SWORD:
+- HP Leech Power: 4%
+- Mudança: Devil Raid autocast Shatter Cross → Night Menace autocast Vengeance
+
+SHADOW SETS DK:
+
+SHADOW REVERSE HELL 105:
+- Luvas: ASPD +1% por refino
+- Sapatos: ASPD +1 por refino
+- Set: ASPD cap +1 a cada 10 refinos
+
+SHADOW COLD EMBRACE 110:
+- Armadura: Devil Raid +10% + 2% por refino
+- Luvas: Conflagration +10% + 1% por refino
+- Sapatos: Chilling Frost +10% + 1% por refino
+- Set: Knight Ritual cooldown removido, Conflagration aplica freezing, Chilling Frost aplica burning
+
+SHADOW DEVIL ARMS 115:
+- Set: Harvest cooldown removido
+
+================================================================================
+2. RONIN - MELHORIAS DE COMBO
+================================================================================
+
+SKILLS:
+
+WAY OF THE BLADE:
+- Cooldown: 20s → 10s no nível 5
+- Posição na skill tree trocada com Shatter Villain
+
+WATERFALL BREEZE:
+- Duração reduzida para 30s
+- Não perde o buff ao receber hit
+
+SHATTER VILLAIN:
+- Ganhou scaling de 2%/INT
+- Aplica combo ready quando status não está presente
+
+ASCENDING STEEL:
+- Sem cast variável (apenas 0.1s fixo)
+- Scaling INT aumentado de 1%/INT → 2%/INT
+
+DESCENDING STEEL:
+- Knockback removido
+- Aplica combo ready na ausência do buff
+- Cooldown: 3s → 2s
+
+INSTANT DRAW:
+- Dano: 100% + 50%/nível + 3%/AGI → 100% + 70%/nível + 3%/INT
+- Cooldown reduzido para 2s (similar ao Descending Steel)
+
+VOID DASH:
+- Aplica combo ready na ausência do buff
+
+ITENS:
+
+ROYAL LONGSWORD:
+- Adicionado 1 slot
+- Penetração de defesa física: 22% → 20%
+- Autocast alterado: Descending Steel conjura Silent Strike nível 1 com 100% chance
+
+================================================================================
+3. PHANTOM THIEF
+================================================================================
+
+EQUIPAMENTOS:
+- Pode equipar Rope Kunai
+- Pode equipar Whirlwind Kunai  
+- Pode equipar Sieger Kunai
+
+================================================================================
+4. HUNTER/SNIPER
+================================================================================
+
+SKILLS:
+
+CLUSTER ARROW:
+- Hits: 1 → 5 hits visuais
+- Dano final não alterado
+
+================================================================================
+5. GRAVEKEEPER
+================================================================================
+
+MELHORIAS:
+- Removido lock de movimento durante skills de combo
+
+================================================================================
+6. KINGSLAYER
+================================================================================
+
+SKILLS:
+
+QUEEN'S BARRIER:
+- After Cast Delay: 5s → 1s
+
+KING'S REGEN:
+- After Cast Delay: 0s → 1s
+- Cast: 4s/2s → 2s/1s (var/fixed)
+
+KING'S FORTRESS:
+- After Cast Delay: 5s → 1s
+- Cast: 10s → 3s (var)
+
+BISHOP'S TAX:
+- Ignora flee
+
+ITENS:
+
+KING'S GAMBIT:
+- Nível selecionável
+- Área da skill varia com o nível
+
+================================================================================
+7. DRACOMANCER
+================================================================================
+
+SKILLS:
+
+DRACO SPIRIT:
+- Cast: 5s → 2.5s (var)
+- Cooldown: 10s → 4s
+
+GAEBOLG ASCENSION:
+- Cast: 5s var, 0.5s fix → 2.5s var
+
+LIFE OF DRAGON:
+- Cast: 3s var, 2s fix → 2.5s var
+
+================================================================================
+8. BLAST JUGGLER
+================================================================================
+
+SISTEMA DE MUNIÇÕES:
+
+FIRE BOTTLE E ACID BOTTLE:
+- Agora são munições equipáveis
+- Podem ser usadas por Rogues, Unchained Rogues, Unchained Thiefs e Phantom Thiefs
+
+ROLLING FLAMES:
+- Número de ondas = nível da skill
+- Todas as ondas têm a mesma velocidade (igual à velocidade do nível 1)
+
+THROW MOLOTOV:
+- Aplica Burning
+- Cast variável: 0.75s → 0.5s
+- Cast fixo: 0.75s → 0s
+
+THROW ACID:
+- Cast variável: 0.75s → 0.5s
+- Cast fixo: 0.75s → 0s
+- Hits: 1 → 2 hits visuais
+- Dá 100% + 25%/nível + 2%/INT de dano extra se alvo com Burning
+
+================================================================================
+9. MIMIC
+================================================================================
+
+SISTEMA DE CANTRIPS:
+
+LIVROS DE CANTRIP:
+- Agora são munições equipáveis
+- Tipos: Fire_Cantrips, Water_Cantrips, Wind_Cantrips, Heal_Cantrips, Thievery_Cantrips, Slash_Cantrips, Power_Cantrips, Stray_Cantrips, Specialized_Cantrips, Expert_Cantrips, Master_Cantrips, Cantrips_Codex
+
+PRESERVE:
+- Agora é uma stance com duração infinita
+- Possibilidade de desativar
+
+DOUBLE ATTACK:
+- Funciona com livros agora
+
+MELHORIAS GERAIS:
+- Remoção do cooldown adicional em todas as skills
+- Remoção do custo de SP e HP da utilização dos livros de cantrip
+
+================================================================================
+10. PEACEKEEPER (PK)
+================================================================================
+
+SKILLS:
+
+COMBO-STARTERS:
+- Custo: 25 + 5% SP atual
+
+COMBO-FINISHERS:
+- Custo: 50 + 10% SP atual
+
+WRECKING ANDROMEDA:
+- Pode ser crítico
+
+LASHING ANDROMEDA:
+- Dano aumentado em 5% por nível para cada parte do combo
+
+USE TRINKET:
+- Cooldown uniformizado em 5s para todos os níveis
+
+TRINKETS:
+
+DREAD RAZOR (Nível 15):
+- 1-5: Dano aumentado em 200% e causa poison em quem atingir
+- 6-10: Encanta a arma com efeito de veneno, todas as skills da classe ganham 10% + 0.2% por cada atributo de dano, ganha metade do efeito da Wicked Eden
+
+BROKEN SERENADE (Nível 15):
+- 1-5: Remove skills defensivas similar ao pile bunker do mechanic
+- 6-10: Mantém efeito original com scaling de 2% por AGI em vez de 1%
+
+GUARD ROCK (Nível 45):
+- 1-5: Conjura Deflect Blades no nível igual à skill
+- 6-10: Troca o buff para um similar ao Angelus, com scaling de 10% + 2%/VIT para todas as skills da classe
+
+DESTINY BRUSH (Nível 75):
+- 1-5: Mantém efeito original
+- 6-10: Mantém efeito original com scaling de 2% por LUK em vez de 1%
+
+FROST SPINNER (Nível 80):
+- 1-5: Conjura Freezing Spear nível igual ao dobro do trinket
+- 6-10: Aplica buff de +20 MATK e dá para as skills da classe scaling de 10 + 2%/INT no dano
+
+AMULET OF SIEGFRIED (Nível 90):
+- 1-5: Conjura Agi Down no alvo
+- 6-10: Aumenta a penetração para 25%, e aumenta o scaling para 2%/STR
+
+FLAME SPINNER (Nível 100):
+- 1-5: Conjura Flaming Petals nível igual ao dobro do trinket
+- 6-10: Aplica buff de +20 MATK e dá para as skills da classe scaling de 10 + 2%/INT no dano
+
+HOLY CROSS (Nível 100):
+- Agora precisa da relíquia de Rachel (Holy Scriptures)
+- 1-5: Conjura Holy Light (Pétal de dano Holy)
+- 6-10: Mantém o efeito original porém com dano escalando com INT em 2%
+
+DEADLY ROSE (Nível 100):
+- 1-5: Conjura Blood Rose (skill nova exclusiva de PK)
+- 6-10: Mantém o efeito original em um novo buff único, scaling de %HP perdido sobe de 1% para 3%
+
+WICKED EDEN (Nível 130):
+- 1-5: Aumento do dano em 200% e aplica turnabout por 3 segundos
+- 6-10: Buff original se mantém mas todas skills ganham 10% + 2%/DEX de scaling
+
+BLOODLINES SHADOW SET PENDANT:
+- Reduz 1s de cooldown do Dawn to Dusk por refino da peça
+
+DAWN TO DUSK:
+- Agora aplica na party inteira similar aos buffs de Kingslayer
+
+ETERNAL CRYSTAL WHIP:
+- Agora conjura lanças no nível 5
+
+NOVA TRINKET:
+- Flame Spinner disponível para craft usando relíquia do Ifrit + Jewel Bradium
+
+================================================================================
+11. ROGUE/UNCHAINED ROGUE/UNCHAINED THIEF
+================================================================================
+
+SKILLS:
+
+FIRE BOTTLE E ACID BOTTLE:
+- Agora podem ser usadas
+
+ANKLE SNARE:
+- Disponível novamente
+
+================================================================================
+12. SABOTEUR
+================================================================================
+
+SKILLS:
+
+ANKLE SNARE:
+- Disponível novamente
+
+================================================================================
+13. PROWLER
+================================================================================
+
+SKILLS:
+
+HAZE SLASHER:
+- Não empurra mais o alvo
+- Agora usa backslide
+- Sem perder a funcionalidade do controle de furtividade através do buff Macabre
+
+MACABRE:
+- Duração: 30s → 60s
+- Cooldown: 30s → 60s
+- Custo de vida por nível normalizado para 5% do máximo
+
+================================================================================
+14. SHADOWSEER
+================================================================================
+
+SKILLS:
+
+DEFLECT BLADES:
+- Não trava mais o personagem
+
+GIFT CARD:
+- Bate 3 hits visuais
+
+INSTANT ACES:
+- Área: AOE com dano dividido → single target
+- Removido bug que travava quando usava skill
+- A skill dá combo ready de 3s
+
+ARCANA OF DESTINY:
+- Hits: 2 → 3
+
+10 OF HEART:
+- Efeito mudou: Instant Aces dar combo ready → Instant Aces bate 3x3
+
+================================================================================
+15. SATSJIN
+================================================================================
+
+SETS REORGANIZADOS:
+
+ELEMENTAL BENDER:
+- Armadura: Frozen Wind Cooldown -2s
+- Luvas: Zephyr Gust SP Cost -5% por Refine
+- Sapatos: INT +2 +1 por Refine, LUK +2 +1 por Refine
+- Pendant: Burning Steps DMG +15% + 2% por Refine
+- Set: All Stats +4, Fixed Cast -1s, Enables Free Cast Lv10, Zephyr Gust Damage +20%, 10% chance to autocast Lex Aeterna with Zephyr Gust
+
+BLACK MOON:
+- Armadura: Silent Strike DMG +50%
+- Luvas: Darkness Rises Cooldown -5s
+- Sapatos: Darkness Flows DMG +15% +2% por Refine, INT +3
+- Pendant: Darkness Falls DMG +5% por Refine
+- Set: All Stats +4, Darkness Rises has 2% chance por Refine to cast Darkness Flows, Lotus Pact Puts you into Hiding state (Perfect Hide), Enables Tunne Drive Lv1
+
+LIVING WEAPON:
+- Armadura: Million Stabs DMG +5% por Refine
+- Luvas: Full Moon Blades DMG +10% +2% por Refine
+- Sapatos: Thousand Arms DMG +10% +2% por Refine
+- Pendant: New Moon Blades DMG +10% +2% por Refine
+- Set: All Stats +4, Million Stabs Cooldown -5s, Dragon Omamori DMG +3% por Refine, AGI +10, SP Cost -1% por 2 Refines
+
+================================================================================
+16. ARMAS ROYAL
+================================================================================
+
+ROYAL SHIELD:
+- Adicionado 1 slot
+- Peso base aumentado para 320
+
+ROYAL WHIP:
+- Adicionado 1 slot
+- 7% de dano em todos os tamanhos removido
+- Adicionado 5% de dano por refino para eternal chain
+
+ROYAL SCYTHE:
+- Adicionado 1 slot
+
+ROYAL SPEAR:
+- Adicionado 1 slot
+- Não puxa mais os alvos ao usar Spear Boomerang
+- Cooldown de Dragon Breath reduzido em -2s
+- Dano a distância por refino: 3% → 5%
+
+ROYAL GREATAXE:
+- Adicionado 1 slot
+
+ROYAL KATAR:
+- Adicionado 1 slot (sob estudo)
+
+ROYAL DAGGER:
+- Adicionado 1 slot
+- Removido interação de autocast
+- Redução de cast fixo: -0.1s → -0.3s
+
+ROYAL GLADIUS:
+- Adicionado 1 slot
+- Removido interação de autocast e bonus de ataque por refino
+- Adicionado dano nas magias de thief em 3% por refino
+
+ROYAL SABER:
+- Adicionado 1 slot
+- Removido interação de autocast e Healing Power
+- Penetração mágica: 22% → 20%
+- Adicionado dano na Magia Tetragrammaton em 5% por refino
+
+ROYAL LONGSWORD:
+- Adicionado 1 slot
+- Penetração de defesa física: 22% → 20%
+- Autocast alterado: Descending Steel conjura Silent Strike nível 1 com 100% de chance
+
+QUEEN OF SPADES:
+- Redução de 1 slot
+- Remoção da redução de custo de SP para First Hand
+- Adicionado 5% de dano em Double Down por refino
+
+================================================================================
+17. ITENS E SISTEMAS GERAIS
+================================================================================
+
+NOVOS ITENS:
+- MVP Prize box agora contém minérios Jewel e Emperium
+- True neutral element implementado
+- Drop do Garment Costume do Thanatos
+- Combo das cartas de Thanatos com bônus correto
+- Nova trinket Flame Spinner disponível para craft
+- Carta Baroness of Blood (mamãe) implementada
+- Blue Master Loki Scarf
+
+DROPS:
+- Drop do Thanatos: 0.1% → 1%
+- Orbs nível 5: 0.1% → 1% (10x do drop original)
+- Demon God Armguard: 1.5% de chance (Vision of Surtr e War Incarnate)
+
+RESPAWNS:
+- Kobold Leader: 45-90min → 5s
+- Bangungot: 30min → 5s
+- Soul Cage Azrael: 45-90min → 5s
+- Tower Eater: 30min → 5s
+- Corruption Root: 5s → 20s
+
+CUSTOS REDUZIDOS:
+- Dark Market: 5m → 500k
+- Infinite Furnace: 10m → 200k
+- Infinite Magnifier: 5m → 200k
+- Secret Toxin Book: 2.5m → 200k
+- Sun of Serpens: Galactic Dust 100→30, Star Pieces 1000→300
+- Celestial Tome: Peso 5000→500, Hatreds 90→10, Distortion Essences 500→150
+- Paradiso Tome: Distortion Shards 1000→300, Distortion Essences 100→30
+- Purgatorio Tome: Distortion Shards 1000→300, Distortion Essences 100→30
+- Inferno Tome: Distortion Shards 1000→300, Distortion Essences 100→30
+- Blooming Rose Sandals: Distortion Shards 500→150
+- Weaver of Dreams: Distortion Shards 500→150, Dream Shard 100→30
+- Dicastes Sage's shop: Preços reduzidos para 30% do valor original
+
+STORAGE:
+- Adicionado 3 storages adicionais, cada um com 600 espaços
+- Adicionado serviços de guild na kafra do orfanato
+- Adicionado refill elixir como primeira opção das kafras das cidades
+
+================================================================================
+18. BUG FIXES E MELHORIAS GERAIS
+================================================================================
+
+SISTEMAS:
+- Burning não dá mais dano baseado na vida máxima
+- Burning e Freezing agora são aplicados em MVPs
+- Todos os ataques funcionam contra plantas
+- Novas maneiras de juntar skills entre si (sistema de combo)
+- Nova maneira de cortar cooldown (possibilidade de reduzir cooldowns de skills já castadas)
+- Liberado salvar portais em fields com MVPs
+- Deslogar em distortions e mapas de MVPs não joga o personagem de volta ao ponto de salvamento
+- Infinite Magnifier do Dark Market identifica todos os itens ao invés de um só
+- Refino do +9 para +10: sem downgrade, chance reduzida pela metade
+- Intervalo do uso de itens: 1s → 0.3s
+
+FIXES DE CÁLCULO:
+- Bônus de SP cost agora somam corretamente
+- Bônus de ignorar defesa física somam corretamente
+- Bônus de ignorar defesa mágica somam corretamente
+- Ataques do elemento vento batem corretamente contra elemento Dark 4
+- Bishop's Guard: aumento de defesa de 3% para 10% por nível
+- Chance de leech da random option de capa: 50% → 10%
+- Chance de leech do Crimson Wings: 5% → 10%
+- Dream Shoes: random option de shoes (ao invés de manual)
+- Combo de Nidhogg Card e Nidhogg Garb implementado
+- Dano misc dá trigger corretamente em itens de recuperação de HP/SP quando mata mob
+
+SHADOW SETS:
+- Adicionados shadows faltantes da Growth Shadow Box (Prowler e Shadowseer)
+- Fierce Hawk Shadow Set: bônus de DEX → AGI
+- Godslayer Shadow Set: novo efeito com Perfect Hide, No Size Penalty, Infra vision, No knockback, def/mdef pierce
+
+CARTA BARONESS OF BLOOD:
+- Carta de mid que dá bônus de acordo com o cachecol equipado
+- Implementação completa
+
+OUTROS FIXES:
+- Galaxy Garment habilita backsliding corretamente
+- Remoção do diálogo extra no storage do ferreiro do orfanato
+- Adição de todos os storages no NPC da sala de dummy
+- MVP Prize Box não tem mais brilho amarelo que confundia com carta
+- Spectral Servants skill agora exibe timer de buff
+- Blast Jugglers 105 Shadow Set effect aplica burn corretamente no Mr. Bombastic
+- Ebony Resignation: chance de autocast 1%/refino → 0.1%
+- Deathbound não é mais infinito e para quando duração atinge zero
+- Cantrips de Mimico precisam da maestria falada na tooltip
+- Dream enchant de regen de SP funciona corretamente
+
+================================================================================
+                    FIM DO DOCUMENTO
+                    Total de classes analisadas: 15
+                    Período coberto: Julho - Setembro 2024
+================================================================================

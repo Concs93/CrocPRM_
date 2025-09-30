@@ -1,0 +1,33 @@
+//============================================================
+//  NPC: Njord Death Tracker
+//  Purpose: Tracks when Njord dies and frees the Hexblade
+//  Trigger: OnNPCKillEvent for Desperate Njord (ID: 2659)
+//============================================================
+-	script	Njord_Death_Tracker	-1,{
+
+OnNPCKillEvent:
+	// Check if the killed mob is Desperate Njord
+	if (killedrid == 0) end;
+	if (killedrid != 2659) end; // Desperate Njord ID
+	
+	// Check if Njord has already died (serverwide variable)
+	if ($njord_has_died == 1) end;
+	
+	// Mark Njord as dead (serverwide)
+	set $njord_has_died, 1;
+	
+	// Free the Hexblade from prison
+	donpcevent "Unknown Hexblade::OnFreeFromPrison";
+	
+	// Announce to all players
+	announce "You hear a sound of shackles being shattered in the distance...", bc_all, 0xFF6600;
+	
+	end;
+
+OnInit:
+	// Initialize serverwide variable if not set
+	if ($njord_has_died == 0) {
+		set $njord_has_died, 0;
+	}
+	end;
+}

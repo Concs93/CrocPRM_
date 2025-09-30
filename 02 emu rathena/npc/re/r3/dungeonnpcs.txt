@@ -288,7 +288,7 @@ nif_cas02,83,54,4	script	Open Coffin#deathcas3	clear_npc,{
 nif_cas02,57,85,4	script	Strange Coffin#deathcas5	clear_npc,{
 
 	// Sucesso: ódio + nível + chaosremembers
-	if (hatpoints >= 30 && BaseLevel >= 150 && chaosremembers == 1) {
+	if (hatpoints >= 30 && BaseLevel >= 130 && chaosremembers == 1) {
 		mes "Hey... I know you... come here.";
 		next;
 		switch(select("Yes.:No.")) {
@@ -303,14 +303,14 @@ nif_cas02,57,85,4	script	Strange Coffin#deathcas5	clear_npc,{
 	}
 
 	// Falhas dinâmicas
-	if (hatpoints < 30 && BaseLevel < 150) {
-		mes "Still lacking hate ("+hatpoints+"/30) and power ("+BaseLevel+"/150)...";
+	if (hatpoints < 30 && BaseLevel < 130) {
+		mes "Still lacking hate ("+hatpoints+"/30) and power ("+BaseLevel+"/130)...";
 		close;
 	} else if (hatpoints < 30) {
 		mes "Still lacking hate ("+hatpoints+"/30)...";
 		close;
-	} else if (BaseLevel < 150) {
-		mes "Still lacking power ("+BaseLevel+"/150)...";
+	} else if (BaseLevel < 130) {
+		mes "Still lacking power ("+BaseLevel+"/130)...";
 		close;
 	} else if (chaosremembers != 1) {
 		mes "I don't know you. Go away. Let me rest.";

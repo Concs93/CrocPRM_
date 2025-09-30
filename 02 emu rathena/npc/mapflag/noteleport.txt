@@ -932,3 +932,4 @@ moc_fild21	mapflag	noteleport
 moc_fild22	mapflag	noteleport
 rachelnm	mapflag	noteleport
 alberta	mapflag	autotrade
+va_orpha	mapflag	autotrade

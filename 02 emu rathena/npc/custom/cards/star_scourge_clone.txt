@@ -87,7 +87,7 @@ OnHit:
 		
 		// Efeitos visuais e sonoros no spawn (aplicados no player)
 		specialeffect2 425; // Efeito visual 1
-		specialeffect2 227; // Efeito visual 2
+		// specialeffect2 227; // Efeito visual 2
 		
 		atcommand(@_cc_cmd$);
 		@clonecard_last_ms = gettimetick(0);
